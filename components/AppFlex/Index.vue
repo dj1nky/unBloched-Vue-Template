@@ -5,8 +5,8 @@ const props = defineProps({
     default: 6,
   },
   gap: {
-    type: Number,
-    default: 16,
+    type: String,
+    default: "gap-16",
   },
 });
 </script>
@@ -15,7 +15,7 @@ const props = defineProps({
   <div
     class="flex flex-col"
     :style="{
-      gap: `${props.gap}px`,
+      gap: props.gap,
       gridColumn: `span ${props.colSpan}`,
     }"
   >

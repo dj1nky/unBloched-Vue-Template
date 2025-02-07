@@ -8,20 +8,32 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "format": "prettier . --write"
+    "format": "prettier . --write && eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
-    "eslint-config-prettier": "^9.1.0",
-    "nuxt": "^3.14.159",
-    "vue": "latest",
-    "vue-router": "latest"
+    "@nuxt/image": "^1.5.0",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "caniuse-lite": "^1.0.30001692",
+    "nuxt": "^3.11.1",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "eslint-plugin-vue": "^9.30.0",
-    "postcss": "^8.4.47",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwindcss": "^3.4.14"
+    "@vue/compiler-sfc": "^3.5.13",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.23.0",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "sass": "^1.77.4",
+    "stylelint": "^16.3.0",
+    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.3"
   }
 }
