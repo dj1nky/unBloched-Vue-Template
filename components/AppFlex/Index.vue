@@ -6,7 +6,7 @@ const props = defineProps({
   },
   gap: {
     type: String,
-    default: "gap-16",
+    default: "gap-6",
   },
 });
 </script>
@@ -14,8 +14,8 @@ const props = defineProps({
 <template>
   <div
     class="flex flex-col"
+    :class="`${props.gap}`"
     :style="{
-      gap: props.gap,
       gridColumn: `span ${props.colSpan}`,
     }"
   >

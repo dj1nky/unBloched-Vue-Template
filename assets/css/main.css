@@ -1,3 +1,94 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xxs: 280px;
+  --breakpoint-xs: 325px;
+  --breakpoint-sm: 480px;
+  --breakpoint-smd: 600px;
+  --breakpoint-md: 770px;
+  --breakpoint-lg: 976px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1440px;
+
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark: #191a19;
+  --color-light: #d8e9a8;
+  --color-dark-blue: #222831;
+  --color-dark-green: #1e5128;
+  --color-light-green: #52aa41;
+  --color-teal: #00adb5;
+  --color-grey: #64787f;
+  --color-maroon: #b83b5e;
+  --color-purple: #6a2c70;
+
+  --radius-4xl: 2rem;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+@media only screen and (max-width: 1024px) {
+  h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  white-space: pre-line;
+}
+
+@keyframes easeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.easeIn {
+  animation: easeIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import "@/assets/scss/styles.scss";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <NuxtPage />

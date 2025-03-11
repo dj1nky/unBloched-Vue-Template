@@ -2,7 +2,7 @@
 const props = defineProps({
   gridCols: {
     type: Number,
-    default: 6,
+    default: 12,
   },
   gap: {
     type: String,
@@ -14,8 +14,8 @@ const props = defineProps({
 <template>
   <div
     class="flex flex-col xl:grid"
+    :class="`${props.gap}`"
     :style="{
-      gap: props.gap,
       gridTemplateColumns: `repeat(${props.gridCols}, 1fr)`,
     }"
   >

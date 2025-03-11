@@ -5,22 +5,15 @@ import AppGrid from "@/components/AppGrid/Index.vue";
 </script>
 
 <template>
-  <AppContainer class="mt-4">
-    <AppGrid
-      class="gap-12"
-      :grid-cols="12"
-    >
-      <AppFlex
-        :col-span="8"
-        class="bg-maroon text-white p-6"
-      >
-        Col Span 3
+  <AppContainer>
+    <AppGrid class="bg-light p-12">
+      <AppFlex class="bg-maroon p-6 text-white">
+        <h1>Col Span 3</h1>
       </AppFlex>
-      <AppFlex
-        :col-span="4"
-        class="bg-maroon text-white p-6"
-      >
-        Col Span 3
+      <AppFlex class="bg-light-green p-6 text-white">
+        <h2 class="font-bold uppercase">
+          Col Span 3
+        </h2>
       </AppFlex>
     </AppGrid>
   </AppContainer>
