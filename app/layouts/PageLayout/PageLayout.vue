@@ -1,11 +1,21 @@
 <script setup lang="ts">
-import AppContainer from "@/components/AppContainer/Index.vue";
-import AppFlex from "@/components/AppFlex/Index.vue";
-import AppGrid from "@/components/AppGrid/Index.vue";
+import AppContainer from "~/components/AppContainer/AppContainer.vue";
+import AppFlex from "~/components/AppFlex/AppFlex.vue";
+import AppGrid from "~/components/AppGrid/AppGrid.vue";
+
+const props = defineProps({
+  bgColour: {
+    type: String,
+    default: "bg-dark",
+  },
+});
 </script>
 
 <template>
-  <AppContainer>
+  <AppContainer
+    class="p-12"
+    :class="props.bgColour"
+  >
     <AppGrid class="bg-light p-12">
       <AppFlex class="bg-maroon p-6 text-white">
         <h1>Col Span 3</h1>
