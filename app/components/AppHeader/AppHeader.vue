@@ -1,13 +1,12 @@
-<script setup lang="ts">
-import EN from "./en.json"
-import { useRoute } from '#app';
+<script setup>
+import EN from "./en.json";
+import { useRoute } from "#app";
 
 const route = useRoute();
 
-// Check if route is active
-const isActive = (path: string) => {
+const isActive = (path) => {
   // Ensure the path starts with a slash for proper comparison
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   return route.path === normalizedPath;
 };
 </script>
@@ -16,10 +15,19 @@ const isActive = (path: string) => {
   <header class="bg-amber-100 py-6">
     <div class="container mx-auto md:w-[75%]">
       <nav>
-        <AppFlex :flex-direction="'flex-row'" :tag="'ul'">
-          <li v-for="(item, index) in EN" :key="index" class="text-xl"
-            :class="{ 'font-bold text-amber-700 border-b-2 border-amber-700': isActive(item.ROUTE) }"
-            >
+        <AppFlex
+          :flex-direction="'flex-row'"
+          :tag="'ul'"
+        >
+          <li
+            v-for="(item, index) in EN"
+            :key="index"
+            class="p-2 text-xl"
+            :class="{
+              'rounded-lg border-b-2 border-amber-700 bg-amber-700 p-2 font-bold text-white':
+                isActive(item.ROUTE),
+            }"
+          >
             <NuxtLink :to="item.ROUTE">
               {{ item.LABEL }}
             </NuxtLink>

@@ -20,7 +20,6 @@ const gridStyles = computed(() => {
     gridTemplateColumns: `repeat(${props.gridCols}, 1fr)`,
   };
 });
-
 </script>
 
 <template>

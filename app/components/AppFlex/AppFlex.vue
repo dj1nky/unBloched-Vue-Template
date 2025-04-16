@@ -28,7 +28,6 @@ const gridStyles = computed(() => {
     gridColumn: `span ${props.colSpan}`,
   };
 });
-
 </script>
 
 <template>
