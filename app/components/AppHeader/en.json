@@ -1,0 +1,10 @@
+{
+  "HOME": {
+    "LABEL": "Home",
+    "ROUTE": "/"
+  },
+  "ABOUT": {
+    "LABEL": "About",
+    "ROUTE": "about"
+  }
+}

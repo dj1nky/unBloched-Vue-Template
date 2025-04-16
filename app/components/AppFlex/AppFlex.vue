@@ -4,23 +4,42 @@ const props = defineProps({
     type: Number,
     default: 6,
   },
+  flexDirection: {
+    type: String,
+    default: "flex-col",
+  },
   gap: {
     type: String,
     default: "gap-6",
   },
+  tag: {
+    type: String,
+    default: "div",
+  },
 });
+
+// Use computed properties to enhance reactivity
+const flexClasses = computed(() => {
+  return [props.gap, props.flexDirection];
+});
+
+const gridStyles = computed(() => {
+  return {
+    gridColumn: `span ${props.colSpan}`,
+  };
+});
+
 </script>
 
 <template>
-  <div
-    class="flex flex-col"
-    :class="`${props.gap}`"
-    :style="{
-      gridColumn: `span ${props.colSpan}`,
-    }"
+  <component
+    :is="props.tag"
+    class="flex"
+    :class="flexClasses"
+    :style="gridStyles"
   >
     <slot />
-  </div>
+  </component>
 </template>
 
 <style scoped></style>
