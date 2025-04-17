@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { aosInit } from "../utils/aos";
+onMounted(() => {
+  aosInit();
+});
+</script>
 
 <template>
   <NuxtLayout>
