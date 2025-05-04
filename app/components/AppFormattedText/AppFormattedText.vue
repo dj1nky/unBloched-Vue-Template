@@ -1,8 +1,5 @@
 <script setup lang="ts">
-
-import { createParts } from "../../../utils/createContentParts"
-
-const parts = computed(() => createParts(props.text));
+import { createParts } from "../../../utils/createContentParts";
 
 const props = defineProps({
   tag: {
@@ -11,29 +8,47 @@ const props = defineProps({
   },
   text: {
     type: String,
-    default: "",
+    default: "span",
+  },
+  textSize: {
+    type: String,
+    default: "", // Default text size, you can use "sm", "base", "lg", etc.
   },
 });
 
+const parts = computed(() => createParts(props.text));
 </script>
 
 <template>
   <component
     :is="props.tag"
+    :class="textSize"
   >
     <template
       v-for="(part, index) in parts"
       :key="index"
     >
-      <span v-if="part.type === 'normal'">{{ part.content }}</span>
-      <em v-else-if="part.type === 'italic'">{{ part.content }}</em>
+      <span
+        v-if="part.type === 'normal'"
+        :class="textSize"
+      >{{
+        part.content
+      }}</span>
+      <em
+        v-else-if="part.type === 'italic'"
+        :class="textSize"
+      >{{
+        part.content
+      }}</em>
       <span
         v-else-if="part.type === 'colored'"
         class="colored"
+        :class="textSize"
       >{{ part.content }}</span>
       <em
         v-else-if="part.type === 'italic-colored'"
         class="colored"
+        :class="textSize"
       >{{ part.content }}</em>
       <br v-else-if="part.type === 'linebreak'">
     </template>

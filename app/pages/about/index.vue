@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
-import EN from "./en.json"
+import EN from "./en.json";
 </script>
 
 <template>

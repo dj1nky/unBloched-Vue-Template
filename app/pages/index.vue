@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
-import AppContent from '@/components/AppContent/AppContent.vue';
-import EN from "./index/en.json"
-
+import AppFormattedText from "@/components/AppFormattedText/AppFormattedText.vue";
+import EN from "./index/en.json";
 </script>
 
 <template>
@@ -17,13 +16,11 @@ import EN from "./index/en.json"
     </AppGrid>
 
     <AppCard class="flex-grow">
-      <AppContent
-        :tag="'h1'"
-        class="font-bold"
-        :text="EN.body.header"
-      />
-      <AppContent
-        class="text-xl"
+      <h1 class="large-h1 font-bold">
+        {{ EN.body.header }}
+      </h1>
+      <AppFormattedText
+        :tag="'p'"
         :text="EN.body.description"
       />
     </AppCard>
@@ -36,12 +33,18 @@ import EN from "./index/en.json"
 
 <style scoped>
 .highlight {
-  color: #3b82f6; /* Tailwind blue-500 */
+  color: #3b82f6;
+  /* Tailwind blue-500 */
   font-weight: bold;
 }
 
 .colored {
-  color: #3b82f6; /* Tailwind blue-500 */
+  color: #3b82f6;
+  /* Tailwind blue-500 */
   font-weight: bold;
+}
+
+.large-h1 {
+  font-size: 48px;
 }
 </style>

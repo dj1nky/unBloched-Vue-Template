@@ -1,6 +1,6 @@
 {
   "body": {
-    "description": "<em><color>Your existing description</color></em> text here ipsum dolor sit amet, <br><br>consectetur adipiscing elit. Donec a diam lectus, congue vel laoreet ac, dictum vitae odio.",
+    "description": "<em><color>Your existing description</color></em> text here ipsum dolor sit amet <br><br> consectetur adipiscing elit. Donec a diam lectus, congue vel laoreet ac, dictum vitae odio.",
     "header": "Your header title text here"
   }
 }
