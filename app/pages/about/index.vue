@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
+import EN from "./en.json"
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
     </AppGrid>
 
     <AppCard class="flex-grow">
-      <h1>Body</h1>
+      <h1>{{ EN.body.description }}</h1>
     </AppCard>
 
     <AppCard class="mt-auto">
