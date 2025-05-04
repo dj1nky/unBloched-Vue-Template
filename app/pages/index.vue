@@ -1,36 +1,8 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
+import AppContent from '@/components/AppContent/AppContent.vue';
 import EN from "./index/en.json"
 
-// Use EN directly for your text
-const localizedText = computed(() => EN.body.description);
-
-const parts = computed(() => {
-  // First, split the text by both italic and color markers
-  // Use a regex that captures both marker types
-  const splitRegex = /(\*[^*]+\*|#[^#]+#)/g;
-  const rawParts = localizedText.value.split(splitRegex);
-  
-  // Transform each part into a structured object
-  return rawParts.map(part => {
-    if (part.startsWith('*') && part.endsWith('*')) {
-      return {
-        type: 'italic',
-        content: part.slice(1, -1) // Remove the * markers
-      };
-    } else if (part.startsWith('#') && part.endsWith('#')) {
-      return {
-        type: 'colored',
-        content: part.slice(1, -1) // Remove the # markers
-      };
-    } else {
-      return {
-        type: 'normal',
-        content: part
-      };
-    }
-  });
-});
 </script>
 
 <template>
@@ -45,19 +17,15 @@ const parts = computed(() => {
     </AppGrid>
 
     <AppCard class="flex-grow">
-      <h1>
-        <span
-          v-for="(part, index) in parts"
-          :key="index"
-        >
-          <span v-if="part.type === 'normal'">{{ part.content }}</span>
-          <em v-else-if="part.type === 'italic'">{{ part.content }}</em>
-          <span
-            v-else-if="part.type === 'colored'"
-            class="colored"
-          >{{ part.content }}</span>
-        </span>
-      </h1>
+      <AppContent
+        :tag="'h1'"
+        class="font-bold"
+        :text="EN.body.header"
+      />
+      <AppContent
+        class="text-xl"
+        :text="EN.body.description"
+      />
     </AppCard>
 
     <AppCard class="mt-auto">
