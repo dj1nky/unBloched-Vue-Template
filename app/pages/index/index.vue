@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
 import AppFormattedText from "@/components/AppFormattedText/AppFormattedText.vue";
-import EN from "./index/en.json";
+import EN from "./en.json";
 </script>
 
 <template>
@@ -42,9 +42,5 @@ import EN from "./index/en.json";
   color: #3b82f6;
   /* Tailwind blue-500 */
   font-weight: bold;
-}
-
-.large-h1 {
-  font-size: 48px;
 }
 </style>

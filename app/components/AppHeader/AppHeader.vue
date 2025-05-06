@@ -24,7 +24,7 @@ const isActive = (path) => {
             :key="index"
             class="p-2 text-xl"
             :class="{
-              'rounded-lg border-b-2 border-amber-700 bg-amber-700 p-2 font-bold text-white':
+              'hover:bg-burnt rounded-lg border-b-2 border-amber-700 bg-amber-700 p-2 font-bold text-white':
                 isActive(item.ROUTE),
             }"
           >
