@@ -22,10 +22,9 @@ const isActive = (path) => {
           <li
             v-for="(item, index) in EN"
             :key="index"
-            class="p-2 text-xl"
+            class="hover:bg-orange rounded-lg p-2 text-xl"
             :class="{
-              'hover:bg-burnt rounded-lg border-b-2 border-amber-700 bg-amber-700 p-2 font-bold text-white':
-                isActive(item.ROUTE),
+              'bg-amber-700 text-white': isActive(item.ROUTE),
             }"
           >
             <NuxtLink :to="item.ROUTE">
