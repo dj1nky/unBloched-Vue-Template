@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppHeader from "@/components/AppHeader/AppHeader.vue";
+import AppFooter from "~/components/AppFooter/AppFooter.vue";
 </script>
 
 <template>
@@ -15,12 +16,7 @@ import AppHeader from "@/components/AppHeader/AppHeader.vue";
     >
       <slot />
     </AppFlex>
-    <AppFlex
-      :card="true"
-      class="mt-auto"
-    >
-      <h1>Footer</h1>
-    </AppFlex>
+    <AppFooter />
   </AppFlex>
 </template>
 

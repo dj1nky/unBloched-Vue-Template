@@ -26,7 +26,7 @@ const isActive = (path) => {
         <li
           v-for="(item, index) in EN"
           :key="index"
-          class="hover:bg-orange rounded-lg p-2 text-xl"
+          class="hover:bg-orange rounded-lg p-2 text-2xl"
           :class="{
             'bg-amber-700 text-white': isActive(item.ROUTE),
           }"
