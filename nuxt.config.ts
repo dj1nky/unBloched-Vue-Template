@@ -4,11 +4,14 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+
   devtools: { enabled: true },
   css: ["~/assets/css/tailwind.css", "~/assets/scss/styles.scss"],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   app: {
     head: {
       title: "Your Website Title",
@@ -55,5 +58,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   compatibilityDate: "2025-03-11",
+  modules: ["@nuxt/image"],
 });

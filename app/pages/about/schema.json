@@ -1,0 +1,105 @@
+{
+  "formTitle": "SUBMISSION <color>FORM</color>",
+  "formDescription": "Have a question or want to get in touch? Fill out the form below.",
+  "submitButtonText": "Submit your service",
+  "fields": [
+    {
+      "id": "firstName",
+      "label": "Service First Name",
+      "type": "text",
+      "name": "firstName",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validations": [
+        {
+          "type": "empty",
+          "value": 0,
+          "message": "First name is required"
+        }
+      ]
+    },
+    {
+      "id": "lastName",
+      "label": "Service Last Name",
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validations": [
+        {
+          "type": "empty",
+          "value": 0,
+          "message": "Last name is required"
+        }
+      ]
+    },
+    {
+      "id": "servicePart",
+      "label": "Service Part",
+      "type": "select",
+      "name": "servicePart",
+      "placeholder": "Select your service part",
+      "required": true,
+      "options": [
+        { "value": "tyres", "label": "Tyres" },
+        { "value": "car", "label": "Car" },
+        { "value": "wheel", "label": "Wheel" },
+        { "value": "paint", "label": "Paint" }
+      ],
+      "validations": [
+        {
+          "type": "empty",
+          "value": 0,
+          "message": "service part is required"
+        }
+      ]
+    },
+    {
+      "id": "contactEmail",
+      "label": "Contact Contact",
+      "type": "text",
+      "name": "contactEmail",
+      "placeholder": "Enter your parent email",
+      "validations": [
+        {
+          "type": "email",
+          "value": 5,
+          "message": "Email must contain valid characters"
+        }
+      ]
+    },
+    {
+      "id": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "name": "phoneNumber",
+      "placeholder": "Enter your phone number",
+      "validations": [
+        {
+          "type": "phone",
+          "message": "phone must be 10 digits"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other Reference",
+      "subLabel": "Please provide any other reference or information that may be helpful.",
+      "type": "textarea",
+      "name": "other"
+    },
+    {
+      "id": "consent",
+      "type": "checkbox",
+      "name": "consent",
+      "required": true,
+      "placeholder": " I provide consent for the service to contact me.",
+      "validations": [
+        {
+          "type": "checkbox",
+          "message": "You must provide consent to participate in these events"
+        }
+      ]
+    }
+  ]
+}

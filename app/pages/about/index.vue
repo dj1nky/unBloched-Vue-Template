@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
-import EN from "./en.json";
+import AppForm from "~/components/AppForm/AppForm.vue";
+import schema from "./schema.json";
 </script>
 
 <template>
@@ -15,7 +16,11 @@ import EN from "./en.json";
     </AppGrid>
 
     <AppCard class="flex-grow">
-      <h1>{{ EN.body.description }}</h1>
+      <AppForm
+        :button-text="schema.submitButtonText"
+        :title="schema.formTitle"
+        :schema="schema.fields"
+      />
     </AppCard>
 
     <AppCard class="mt-auto">
@@ -23,5 +28,3 @@ import EN from "./en.json";
     </AppCard>
   </AppLayout>
 </template>
-
-<style scoped></style>
