@@ -10,7 +10,12 @@ export default {
   card: `
     bg-linear-45 
     from-indigo-500 to-pink-500
-    rounded p-6 
+    rounded
     text-white
-  `
+  `,
+  header: `
+    bg-linear-45 
+    from-indigo-500 to-pink-500
+    text-white
+  `,
 };

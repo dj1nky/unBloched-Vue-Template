@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import styles from "../../styles"
+import styles from "../../styles";
 const props = defineProps({
   colSpan: {
     type: Number,
@@ -20,6 +20,10 @@ const props = defineProps({
   gap: {
     type: String,
     default: "gap-6",
+  },
+  header: {
+    type: Boolean,
+    default: false,
   },
   tag: {
     type: String,
@@ -46,7 +50,8 @@ const gridStyles = computed(() => {
     :class="[
       flexClasses,
       props.container ? styles.container : '',
-      props.card ? styles.card : ''
+      props.card ? styles.card : '',
+      props.header ? styles.header : '',
     ]"
     :style="gridStyles"
   >

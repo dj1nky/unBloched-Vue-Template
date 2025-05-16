@@ -6,17 +6,12 @@ import EN from "./en.json";
 
 <template>
   <AppLayout>
-    <AppFlex
-      :card="true"
-      class="flex-grow"
-    >
-      <h1 class="large-h1 font-bold">
-        {{ EN.body.header }}
-      </h1>
-      <AppFormattedText
-        :tag="'p'"
-        :text="EN.body.description"
-      />
-    </AppFlex>
+    <h1 class="large-h1 font-bold">
+      {{ EN.body.header }}
+    </h1>
+    <AppFormattedText
+      :tag="'p'"
+      :text="EN.body.description"
+    />
   </AppLayout>
 </template>

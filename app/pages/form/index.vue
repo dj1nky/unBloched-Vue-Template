@@ -6,15 +6,10 @@ import schema from "./schema.json";
 
 <template>
   <AppLayout>
-    <AppFlex
-      class="flex-grow"
-      :card="true"
-    >
-      <AppForm
-        :button-text="schema.submitButtonText"
-        :title="schema.formTitle"
-        :schema="schema.fields"
-      />
-    </AppFlex>
+    <AppForm
+      :button-text="schema.submitButtonText"
+      :title="schema.formTitle"
+      :schema="schema.fields"
+    />
   </AppLayout>
 </template>

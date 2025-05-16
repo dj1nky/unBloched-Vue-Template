@@ -12,7 +12,11 @@ const isActive = (path) => {
 </script>
 
 <template>
-  <header class="bg-amber-100 py-6">
+  <AppFlex
+    :tag="'header'"
+    class="py-6"
+    :header="true"
+  >
     <nav>
       <AppFlex
         :flex-direction="'flex-row'"
@@ -33,7 +37,7 @@ const isActive = (path) => {
         </li>
       </AppFlex>
     </nav>
-  </header>
+  </AppFlex>
 </template>
 
 <style scoped></style>

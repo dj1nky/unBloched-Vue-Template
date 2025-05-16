@@ -9,7 +9,12 @@ import AppHeader from "@/components/AppHeader/AppHeader.vue";
     class="my-6 flex min-h-screen flex-col"
     :container="true"
   >
-    <slot />
+    <AppFlex
+      class="flex-grow p-6"
+      :card="true"
+    >
+      <slot />
+    </AppFlex>
     <AppFlex
       :card="true"
       class="mt-auto"
