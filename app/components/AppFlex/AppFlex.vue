@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import styles from "../../styles"
 const props = defineProps({
   colSpan: {
     type: Number,
     default: 6,
+  },
+  card: {
+    type: Boolean,
+    default: false,
+  },
+  container: {
+    type: Boolean,
+    default: false,
   },
   flexDirection: {
     type: String,
@@ -34,7 +43,11 @@ const gridStyles = computed(() => {
   <component
     :is="props.tag"
     class="flex"
-    :class="flexClasses"
+    :class="[
+      flexClasses,
+      props.container ? styles.container : '',
+      props.card ? styles.card : ''
+    ]"
     :style="gridStyles"
   >
     <slot />

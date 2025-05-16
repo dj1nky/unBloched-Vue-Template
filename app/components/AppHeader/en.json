@@ -3,8 +3,8 @@
     "LABEL": "Home",
     "ROUTE": "/"
   },
-  "ABOUT": {
-    "LABEL": "About",
-    "ROUTE": "about"
+  "FORM": {
+    "LABEL": "Form",
+    "ROUTE": "form"
   }
 }

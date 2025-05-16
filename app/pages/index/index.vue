@@ -6,16 +6,10 @@ import EN from "./en.json";
 
 <template>
   <AppLayout>
-    <AppGrid>
-      <AppCard :col-span="3">
-        <h1>Home</h1>
-      </AppCard>
-      <AppCard :col-span="9">
-        <h1>Header 9</h1>
-      </AppCard>
-    </AppGrid>
-
-    <AppCard class="flex-grow">
+    <AppFlex
+      :card="true"
+      class="flex-grow"
+    >
       <h1 class="large-h1 font-bold">
         {{ EN.body.header }}
       </h1>
@@ -23,24 +17,6 @@ import EN from "./en.json";
         :tag="'p'"
         :text="EN.body.description"
       />
-    </AppCard>
-
-    <AppCard class="mt-auto">
-      <h1>Footer</h1>
-    </AppCard>
+    </AppFlex>
   </AppLayout>
 </template>
-
-<style scoped>
-.highlight {
-  color: #3b82f6;
-  /* Tailwind blue-500 */
-  font-weight: bold;
-}
-
-.colored {
-  color: #3b82f6;
-  /* Tailwind blue-500 */
-  font-weight: bold;
-}
-</style>

@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import AppContainer from "~/components/AppContainer/AppContainer.vue";
 import AppHeader from "@/components/AppHeader/AppHeader.vue";
 </script>
 
 <template>
   <AppHeader />
-  <AppContainer
+  <AppFlex
     data-aos="fade-up"
     class="my-6 flex min-h-screen flex-col"
+    :container="true"
   >
     <slot />
-  </AppContainer>
+    <AppFlex
+      :card="true"
+      class="mt-auto"
+    >
+      <h1>Footer</h1>
+    </AppFlex>
+  </AppFlex>
 </template>
 
 <style scoped></style>

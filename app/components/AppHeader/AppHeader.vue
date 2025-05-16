@@ -13,27 +13,26 @@ const isActive = (path) => {
 
 <template>
   <header class="bg-amber-100 py-6">
-    <div class="container mx-auto md:w-[75%]">
-      <nav>
-        <AppFlex
-          :flex-direction="'flex-row'"
-          :tag="'ul'"
+    <nav>
+      <AppFlex
+        :flex-direction="'flex-row'"
+        :tag="'ul'"
+        :container="true"
+      >
+        <li
+          v-for="(item, index) in EN"
+          :key="index"
+          class="hover:bg-orange rounded-lg p-2 text-xl"
+          :class="{
+            'bg-amber-700 text-white': isActive(item.ROUTE),
+          }"
         >
-          <li
-            v-for="(item, index) in EN"
-            :key="index"
-            class="hover:bg-orange rounded-lg p-2 text-xl"
-            :class="{
-              'bg-amber-700 text-white': isActive(item.ROUTE),
-            }"
-          >
-            <NuxtLink :to="item.ROUTE">
-              {{ item.LABEL }}
-            </NuxtLink>
-          </li>
-        </AppFlex>
-      </nav>
-    </div>
+          <NuxtLink :to="item.ROUTE">
+            {{ item.LABEL }}
+          </NuxtLink>
+        </li>
+      </AppFlex>
+    </nav>
   </header>
 </template>
 
