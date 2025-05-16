@@ -88,7 +88,7 @@ const validateField = (fieldId, value) => {
         break;
 
       case "email":
-        const emailRegex = /^[^\s@]+@[^\s@]+\.(com|co|[a-zA-Z]{2,})$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(value) && value.length > validation.value) {
           errors.value[fieldId] = validation.message;
           return;

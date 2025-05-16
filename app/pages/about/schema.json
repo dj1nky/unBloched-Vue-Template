@@ -34,10 +34,10 @@
       ]
     },
     {
-      "id": "servicePart",
+      "id": "service",
       "label": "Service Part",
       "type": "select",
-      "name": "servicePart",
+      "name": "service",
       "placeholder": "Select your service part",
       "required": true,
       "options": [
@@ -55,10 +55,10 @@
       ]
     },
     {
-      "id": "contactEmail",
-      "label": "Contact Contact",
+      "id": "email",
+      "label": "Email Address",
       "type": "text",
-      "name": "contactEmail",
+      "name": "email",
       "placeholder": "Enter your parent email",
       "validations": [
         {
@@ -69,10 +69,10 @@
       ]
     },
     {
-      "id": "phoneNumber",
+      "id": "phone",
       "label": "Phone Number",
       "type": "text",
-      "name": "phoneNumber",
+      "name": "phone",
       "placeholder": "Enter your phone number",
       "validations": [
         {
