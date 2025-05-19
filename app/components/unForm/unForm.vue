@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from "vue";
-import AppInput from "~/components/AppInput/AppInput.vue";
-import AppButton from "~/components/AppButton/AppButton.vue";
+import unInput from "~/components/unInput/unInput.vue";
+import unButton from "~/components/unButton/unButton.vue";
+import unGrid from "../unGrid/unGrid.vue";
+import unFlex from "../unFlex/unFlex.vue";
 const loaderIcon = "icons/loader.svg";
 import EN from "./en.json";
 
@@ -158,24 +160,14 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <AppFlex
-    class="items-start"
-    :gap="'gap-6'"
-  >
-    <AppFormattedText
-      :tag="'h2'"
-      class="text-center text-2xl"
-      :text="title"
-    />
+  <unFlex class="items-start" :gap="'gap-6'">
+    <unFormattedText :tag="'h2'" class="text-center text-2xl" :text="title" />
     <form
       class="easeIn w-full rounded-lg bg-white p-6"
       @submit.prevent="handleSubmit"
     >
-      <AppGrid
-        :grid-cols="12"
-        :gap="'gap-4'"
-      >
-        <AppInput
+      <unGrid :grid-cols="12" :gap="'gap-4'">
+        <unInput
           v-for="(field, index) in schema"
           :key="index"
           v-model="formData[field.id]"
@@ -189,20 +181,20 @@ const handleSubmit = async () => {
           :sublabel="field.subLabel"
           @input="validateField(field.id, formData[field.id])"
         />
-      </AppGrid>
-      <AppFlex class="mt-6 flex w-full justify-center">
-        <AppButton
-          :icon="true"
-          type="submit"
-          :text="isSubmitting ? '' : buttonText"
-        >
-          <NuxtImg
-            v-if="isSubmitting"
-            class="ml-2 h-6 w-6 animate-spin"
-            :src="loaderIcon"
-          />
-        </AppButton>
-      </AppFlex>
+        <unFlex class="mt-6 flex w-full justify-center">
+          <unButton
+            :icon="true"
+            type="submit"
+            :text="isSubmitting ? '' : buttonText"
+          >
+            <NuxtImg
+              v-if="isSubmitting"
+              class="ml-2 h-6 w-6 animate-spin"
+              :src="loaderIcon"
+            />
+          </unButton>
+        </unFlex>
+      </unGrid>
     </form>
 
     <!-- Toast notification with animation -->
@@ -222,7 +214,7 @@ const handleSubmit = async () => {
         {{ toastMessage }}
       </div>
     </transition>
-  </AppFlex>
+  </unFlex>
 </template>
 
 <style scoped>

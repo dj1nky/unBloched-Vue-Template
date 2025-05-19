@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import unFlex from "~/components/unFlex/unFlex.vue";
 defineProps({
   bgColor: {
     type: String,
@@ -72,7 +73,7 @@ defineProps({
   </NuxtLink>
 
   <!-- Primary button without link (for form submission) -->
-  <AppFlex
+  <unFlex
     v-else-if="type === 'submit' && !link"
     :tag="'button'"
     :flex-direction="'flex-row'"
@@ -82,7 +83,7 @@ defineProps({
   >
     <slot v-if="icon ? icon : ''" />
     {{ text }}
-  </AppFlex>
+  </unFlex>
 
   <!-- Primary button (when not disabled and not secondary) -->
   <NuxtLink

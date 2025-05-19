@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from "vue";
+import unFlex from "~/components/unFlex/unFlex.vue";
 const props = defineProps({
   modelValue: {
     type: [String, Number, Boolean],
@@ -132,23 +133,13 @@ const isCheckbox = computed(() => {
 </script>
 
 <template>
-  <AppFlex
-    class="text-sm"
-    :gap="'gap-2'"
-    :col-span="6"
-  >
-    <AppFlex :gap="'gap-1'">
-      <label
-        :for="name"
-        class="text-black"
-      >{{ label }}</label>
-      <span
-        v-if="sublabel"
-        class="text-xs text-gray-500"
-      >
+  <unFlex class="text-sm" :gap="'gap-2'" :col-span="6">
+    <unFlex :gap="'gap-1'">
+      <label :for="name" class="text-black">{{ label }}</label>
+      <span v-if="sublabel" class="text-xs text-gray-500">
         {{ sublabel }}
       </span>
-    </AppFlex>
+    </unFlex>
 
     <div class="relative w-full">
       <!-- Select dropdown if type is select and options are provided -->
@@ -160,10 +151,7 @@ const isCheckbox = computed(() => {
         :class="selectClasses"
         @input="updateValue"
       >
-        <option
-          value=""
-          disabled
-        >
+        <option value="" disabled>
           {{ placeholder }}
         </option>
         <option
@@ -189,10 +177,7 @@ const isCheckbox = computed(() => {
       />
 
       <!-- Checkbox input -->
-      <div
-        v-else-if="isCheckbox"
-        class="flex"
-      >
+      <div v-else-if="isCheckbox" class="flex">
         <input
           type="checkbox"
           :name="name"
@@ -200,11 +185,8 @@ const isCheckbox = computed(() => {
           class="form-checkbox h-6 w-6 text-indigo-500 transition duration-150 ease-in-out"
           :class="{ 'border-red-500': hasError }"
           @change="updateValue"
-        >
-        <span
-          class="ml-2 text-black"
-          :class="{ 'text-red-500': hasError }"
-        >{{
+        />
+        <span class="ml-2 text-black" :class="{ 'text-red-500': hasError }">{{
           placeholder
         }}</span>
       </div>
@@ -221,7 +203,7 @@ const isCheckbox = computed(() => {
         :class="inputClasses"
         @keydown.enter.prevent="false"
         @input="updateValue"
-      >
+      />
       <span
         v-if="hasValue && !isCheckbox && !hasError"
         class="mini-label"
@@ -230,15 +212,12 @@ const isCheckbox = computed(() => {
         {{ label }}
       </span>
     </div>
-    <div
-      v-if="error"
-      class="error-container"
-    >
+    <div v-if="error" class="error-container">
       <p class="slide-in text-sm text-red-500">
         {{ error }}
       </p>
     </div>
-  </AppFlex>
+  </unFlex>
 </template>
 
 <style scoped>

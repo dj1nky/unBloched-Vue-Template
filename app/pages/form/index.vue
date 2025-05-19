@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import AppLayout from "~/layouts/PageLayout/PageLayout.vue";
-import AppForm from "~/components/AppForm/AppForm.vue";
+import DefaultLayout from "~/layouts/DefaultLayout.vue";
+import unForm from "~/components/unForm/unForm.vue";
 import schema from "./schema.json";
 </script>
 
 <template>
-  <AppLayout>
-    <AppForm
+  <DefaultLayout>
+    <unForm
       :button-text="schema.submitButtonText"
       :title="schema.formTitle"
       :schema="schema.fields"
     />
-  </AppLayout>
+  </DefaultLayout>
 </template>

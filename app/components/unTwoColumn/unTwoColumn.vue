@@ -32,11 +32,11 @@ defineProps({
 </script>
 
 <template>
-  <AppGrid
+  <unGrid
     :grid-cols="12"
     :gap="gap"
   >
-    <AppFlex
+    <unFlex
       :class="[
         order ? '' : 'md:order-first',
         alignment ? 'items-center md:items-start' : '',
@@ -47,7 +47,7 @@ defineProps({
     >
       <slot name="first-column" />
     </AppFlex>
-    <AppFlex
+    <unFlex
       :class="[
         order ? 'md:order-first' : '',
         alignment ? 'items-center md:items-start' : '',
