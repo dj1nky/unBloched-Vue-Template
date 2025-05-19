@@ -2,8 +2,7 @@
 import { ref } from "vue";
 import unInput from "~/components/unInput/unInput.vue";
 import unButton from "~/components/unButton/unButton.vue";
-import unGrid from "../unGrid/unGrid.vue";
-import unFlex from "../unFlex/unFlex.vue";
+import unDiv from "../unDiv/unDiv.vue";
 const loaderIcon = "icons/loader.svg";
 import EN from "./en.json";
 
@@ -160,13 +159,24 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <unFlex class="items-start" :gap="'gap-6'">
-    <unFormattedText :tag="'h2'" class="text-center text-2xl" :text="title" />
+  <unDiv
+    class="items-start"
+    :gap="'gap-6'"
+  >
+    <unFormattedText
+      :tag="'h2'"
+      class="text-center text-2xl"
+      :text="title"
+    />
     <form
       class="easeIn w-full rounded-lg bg-white p-6"
       @submit.prevent="handleSubmit"
     >
-      <unGrid :grid-cols="12" :gap="'gap-4'">
+      <unDiv
+        div="grid"
+        :grid-cols="12"
+        :gap="'gap-4'"
+      >
         <unInput
           v-for="(field, index) in schema"
           :key="index"
@@ -181,7 +191,7 @@ const handleSubmit = async () => {
           :sublabel="field.subLabel"
           @input="validateField(field.id, formData[field.id])"
         />
-        <unFlex class="mt-6 flex w-full justify-center">
+        <unDiv class="mt-6 flex w-full justify-center">
           <unButton
             :icon="true"
             type="submit"
@@ -193,8 +203,8 @@ const handleSubmit = async () => {
               :src="loaderIcon"
             />
           </unButton>
-        </unFlex>
-      </unGrid>
+        </unDiv>
+      </unDiv>
     </form>
 
     <!-- Toast notification with animation -->
@@ -214,7 +224,7 @@ const handleSubmit = async () => {
         {{ toastMessage }}
       </div>
     </transition>
-  </unFlex>
+  </unDiv>
 </template>
 
 <style scoped>

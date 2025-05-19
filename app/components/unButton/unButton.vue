@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import unFlex from "~/components/unFlex/unFlex.vue";
+import unDiv from "~/components/unDiv/unDiv.vue";
 defineProps({
   bgColor: {
     type: String,
@@ -73,17 +73,17 @@ defineProps({
   </NuxtLink>
 
   <!-- Primary button without link (for form submission) -->
-  <unFlex
+  <unDiv
     v-else-if="type === 'submit' && !link"
     :tag="'button'"
-    :flex-direction="'flex-row'"
+    :direction="'flex-row'"
     type="submit"
     class="hover:bg-burnt cursor-pointer justify-center rounded-lg bg-indigo-500 p-2 text-center font-medium"
     :class="bgColor"
   >
     <slot v-if="icon ? icon : ''" />
     {{ text }}
-  </unFlex>
+  </unDiv>
 
   <!-- Primary button (when not disabled and not secondary) -->
   <NuxtLink

@@ -1,21 +1,50 @@
 <script setup lang="ts">
 import unHeader from "@/components/unHeader/unHeader.vue";
 import unFooter from "~/components/unFooter/unFooter.vue";
-import unFlex from "~/components/unFlex/unFlex.vue";
+import unDiv from "~/components/unDiv/unDiv.vue";
 </script>
 
 <template>
   <unHeader />
-  <unFlex
+  <unDiv
     data-aos="fade-up"
     class="my-6 flex min-h-screen flex-col"
     :container="true"
   >
-    <unFlex class="flex-grow p-6" :card="true">
+    <unDiv
+      class="flex-grow p-6"
+      :card="true"
+    >
       <slot />
-    </unFlex>
+    </unDiv>
+    <unDiv
+      div="grid"
+      :grid-cols="12"
+    >
+      <unDiv
+        class="p-6"
+        :card="true"
+        :col-span="4"
+      >
+        <slot name="content" />
+      </unDiv>
+      <unDiv
+        class="p-6"
+        :card="true"
+        :col-span="4"
+      >
+        <slot name="content" />
+      </unDiv>
+      <unDiv
+        class="p-6"
+        :col-span="4"
+        :card="true"
+      >
+        <slot name="content" />
+      </unDiv>
+    </unDiv>
     <unFooter />
-  </unFlex>
+  </unDiv>
 </template>
 
 <style scoped></style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import unDiv from "../unDiv/unDiv.vue";
+
 defineProps({
   animation: {
     type: Boolean,
@@ -32,11 +34,12 @@ defineProps({
 </script>
 
 <template>
-  <unGrid
+  <unDiv
+    div="grid"
     :grid-cols="12"
     :gap="gap"
   >
-    <unFlex
+    <unDiv
       :class="[
         order ? '' : 'md:order-first',
         alignment ? 'items-center md:items-start' : '',
@@ -46,8 +49,8 @@ defineProps({
       data-aos-easing="linear"
     >
       <slot name="first-column" />
-    </AppFlex>
-    <unFlex
+    </unDiv>
+    <unDiv
       :class="[
         order ? 'md:order-first' : '',
         alignment ? 'items-center md:items-start' : '',
@@ -57,8 +60,8 @@ defineProps({
       :col-span="secondColSpan"
     >
       <slot name="second-column" />
-    </AppFlex>
-  </AppGrid>
+    </unDiv>
+  </unDiv>
 </template>
 
 <style scoped></style>

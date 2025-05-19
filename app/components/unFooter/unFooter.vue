@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import unFlex from "../unFlex/unFlex.vue";
+import unDiv from "../unDiv/unDiv.vue";
 </script>
 
 <template>
-  <unFlex :card="true" class="mt-auto p-6">
+  <unDiv
+    :card="true"
+    class="mt-auto p-6"
+  >
     <h1>Footer</h1>
-  </unFlex>
+  </unDiv>
 </template>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <script setup>
 import EN from "./en.json";
-import unFlex from "../unFlex/unFlex.vue";
+import unDiv from "../unDiv/unDiv.vue";
 import { useRoute } from "#app";
 
 const route = useRoute();
@@ -13,9 +13,17 @@ const isActive = (path) => {
 </script>
 
 <template>
-  <unFlex :tag="'header'" class="py-6" :header="true">
+  <unDiv
+    tag="header"
+    class="py-6"
+    :header="true"
+  >
     <nav>
-      <unFlex :flex-direction="'flex-row'" :tag="'ul'" :container="true">
+      <unDiv
+        direction="row"
+        tag="ul"
+        :container="true"
+      >
         <li
           v-for="(item, index) in EN"
           :key="index"
@@ -28,9 +36,9 @@ const isActive = (path) => {
             {{ item.LABEL }}
           </NuxtLink>
         </li>
-      </unFlex>
+      </unDiv>
     </nav>
-  </unFlex>
+  </unDiv>
 </template>
 
 <style scoped></style>

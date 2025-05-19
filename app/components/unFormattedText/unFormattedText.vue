@@ -20,27 +20,37 @@ const parts = computed(() => createParts(props.text));
 </script>
 
 <template>
-  <component :is="props.tag" :class="textSize">
-    <template v-for="(part, index) in parts" :key="index">
-      <span v-if="part.type === 'normal'" :class="textSize">{{
+  <component
+    :is="props.tag"
+    :class="textSize"
+  >
+    <template
+      v-for="(part, index) in parts"
+      :key="index"
+    >
+      <span
+        v-if="part.type === 'normal'"
+        :class="textSize"
+      >{{
         part.content
       }}</span>
-      <em v-else-if="part.type === 'italic'" :class="textSize">{{
+      <em
+        v-else-if="part.type === 'italic'"
+        :class="textSize"
+      >{{
         part.content
       }}</em>
       <span
         v-else-if="part.type === 'colored'"
         class="colored"
         :class="textSize"
-        >{{ part.content }}</span
-      >
+      >{{ part.content }}</span>
       <em
         v-else-if="part.type === 'italic-colored'"
         class="colored"
         :class="textSize"
-        >{{ part.content }}</em
-      >
-      <br v-else-if="part.type === 'linebreak'" />
+      >{{ part.content }}</em>
+      <br v-else-if="part.type === 'linebreak'">
     </template>
   </component>
 </template>
