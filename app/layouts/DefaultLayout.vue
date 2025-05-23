@@ -7,7 +7,6 @@ import unDiv from "~/components/unDiv/unDiv.vue";
 <template>
   <unHeader />
   <unDiv
-    data-aos="fade-up"
     class="my-6 flex min-h-screen flex-col"
     :container="true"
   >

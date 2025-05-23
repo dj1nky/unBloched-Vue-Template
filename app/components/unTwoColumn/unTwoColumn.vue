@@ -44,9 +44,7 @@ defineProps({
         order ? '' : 'md:order-first',
         alignment ? 'items-center md:items-start' : '',
       ]"
-      :data-aos="animation ? 'fade-right' : ''"
       :col-span="firstColSpan"
-      data-aos-easing="linear"
     >
       <slot name="first-column" />
     </unDiv>
@@ -55,8 +53,6 @@ defineProps({
         order ? 'md:order-first' : '',
         alignment ? 'items-center md:items-start' : '',
       ]"
-      :data-aos="animation ? 'fade-left' : ''"
-      data-aos-easing="linear"
       :col-span="secondColSpan"
     >
       <slot name="second-column" />

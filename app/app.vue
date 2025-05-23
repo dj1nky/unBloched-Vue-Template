@@ -1,9 +1,4 @@
 <script setup>
-import { aosInit } from "../utils/aos";
-
-onMounted(() => {
-  aosInit();
-});
 </script>
 
 <template>
