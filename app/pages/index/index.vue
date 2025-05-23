@@ -7,17 +7,22 @@ import EN from "./en.json";
 <template>
   <DefaultLayout>
     <template #default>
-      <h1 class="large-h1 font-bold">
-        {{ EN.body.header }}
-      </h1>
-      <unFormattedText
-        :tag="'p'"
-        :text="EN.body.description"
-      />
+      <unDiv class="p-6">
+        <h1 class="large-h1 font-bold">
+          {{ EN.body.header }}
+        </h1>
+        <unFormattedText
+          :tag="'p'"
+          :text="EN.body.description"
+        />
+      </unDiv>
     </template>
     <template #content>
-      Grid Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis autem
-      earum dolorem numquam porro fugiat excepturi minus quod ratione maxime.
+      <unDiv class="p-6">
+        Grid Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+        autem earum dolorem numquam porro fugiat excepturi minus quod ratione
+        maxime.
+      </unDiv>
     </template>
   </DefaultLayout>
 </template>

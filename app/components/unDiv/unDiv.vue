@@ -37,6 +37,10 @@ const props = defineProps({
     type: Number,
     default: 12,
   },
+  grow: {
+    type: Boolean,
+    default: false,
+  },
   header: {
     type: Boolean,
     default: false,
@@ -65,6 +69,7 @@ const computedDisplayClass = computed(() =>
       props.container ? styles.container : '',
       props.card ? styles.card : '',
       props.header ? styles.header : '',
+      props.grow ? 'flex-grow' : '',
     ]"
     :style="[computedGridColumn, computedGridTemplateColumns]"
   >

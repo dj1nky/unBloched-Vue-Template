@@ -6,10 +6,20 @@ import schema from "./schema.json";
 
 <template>
   <DefaultLayout>
-    <unForm
-      :button-text="schema.submitButtonText"
-      :title="schema.formTitle"
-      :schema="schema.fields"
-    />
+    <template #default>
+      <unForm
+        :button-text="schema.submitButtonText"
+        :title="schema.formTitle"
+        :schema="schema.fields"
+      />
+    </template>
+
+    <template #content>
+      <unDiv class="p-6">
+        FORM Grid Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Nobis autem earum dolorem numquam porro fugiat excepturi minus quod
+        ratione maxime.
+      </unDiv>
+    </template>
   </DefaultLayout>
 </template>

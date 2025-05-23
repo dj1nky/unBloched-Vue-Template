@@ -3,7 +3,7 @@ import { ref } from "vue";
 import unInput from "~/components/unInput/unInput.vue";
 import unButton from "~/components/unButton/unButton.vue";
 import unDiv from "../unDiv/unDiv.vue";
-import { validate } from "./validate";
+import { validate } from "./validate.ts";
 const loaderIcon = "icons/loader.svg";
 import EN from "./en.json";
 
@@ -25,7 +25,6 @@ const props = defineProps({
     default: "",
   },
 });
-
 
 const formData = ref({});
 const errors = ref({});
@@ -53,22 +52,18 @@ const handleSubmit = async () => {
 
   if (!hasErrors) {
     isSubmitting.value = true;
-    try {
-      setTimeout(() => {
-        formData.value = props.schema.reduce((acc, field) => {
-          if (field.type === "checkbox") {
-            acc[field.id] = false;
-          } else {
-            acc[field.id] = "";
-          }
-          return acc;
-        }, {});
-        isSubmitting.value = false;
-        displayToast(EN.successMessage, "success");
-      }, 1000);
-    } catch (err) {
+    setTimeout(() => {
+      formData.value = props.schema.reduce((acc, field) => {
+        if (field.type === "checkbox") {
+          acc[field.id] = false;
+        } else {
+          acc[field.id] = "";
+        }
+        return acc;
+      }, {});
       isSubmitting.value = false;
-    }
+      displayToast(EN.successMessage, "success");
+    }, 1000);
   } else {
     console.log(EN.errorMessage);
   }
@@ -89,12 +84,11 @@ watch(
   },
   { immediate: true },
 );
-
 </script>
 
 <template>
   <unDiv
-    class="items-start"
+    class="items-start md:p-6"
     :gap="'gap-6'"
   >
     <unFormattedText
@@ -103,7 +97,7 @@ watch(
       :text="title"
     />
     <form
-      class="easeIn w-full rounded-lg bg-white p-6"
+      class="easeIn w-full bg-white p-6 md:rounded-lg"
       @submit.prevent="handleSubmit"
     >
       <unDiv

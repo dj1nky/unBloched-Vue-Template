@@ -11,8 +11,8 @@ import unDiv from "~/components/unDiv/unDiv.vue";
     :container="true"
   >
     <unDiv
-      class="flex-grow p-6"
       :card="true"
+      :grow="true"
     >
       <slot />
     </unDiv>
@@ -21,21 +21,18 @@ import unDiv from "~/components/unDiv/unDiv.vue";
       :grid-cols="12"
     >
       <unDiv
-        class="p-6"
         :card="true"
         :col-span="4"
       >
         <slot name="content" />
       </unDiv>
       <unDiv
-        class="p-6"
         :card="true"
         :col-span="4"
       >
         <slot name="content" />
       </unDiv>
       <unDiv
-        class="p-6"
         :col-span="4"
         :card="true"
       >

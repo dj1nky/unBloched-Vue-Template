@@ -1,6 +1,9 @@
-// Create a validation factory that returns configured validation function
-export const validate = (schema, errors) => {
-  // Validate field based on validations from schema
+import { FieldSchema, ErrorsObject, FieldValidator } from "./types";
+
+export const validate = (
+  schema: FieldSchema[],
+  errors: ErrorsObject,
+): FieldValidator => {
   return (fieldId, value) => {
     const field = schema.find((field) => field.id === fieldId);
     if (!field || !field.validations) return;
@@ -18,7 +21,7 @@ export const validate = (schema, errors) => {
           break;
 
         case "minLength":
-          if (value && value.length < validation.value) {
+          if (value && value.length < validation.value!) {
             errors[fieldId] = validation.message;
             return;
           }
@@ -26,7 +29,8 @@ export const validate = (schema, errors) => {
 
         case "email":
           const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-          if (!emailRegex.test(value) && value.length > validation.value) {
+          // Fixed email validation to properly check format without confusing length check
+          if (value && !emailRegex.test(value)) {
             errors[fieldId] = validation.message;
             return;
           }
@@ -34,7 +38,7 @@ export const validate = (schema, errors) => {
 
         case "phone":
           const phoneRegex = /^\d{10}$/;
-          if (!phoneRegex.test(value)) {
+          if (value && !phoneRegex.test(value)) {
             errors[fieldId] = validation.message;
             return;
           }
