@@ -1,21 +1,13 @@
 export const createParts = (text) => {
-  // Process line breaks first
-  let processedText = text.replace(/\n/g, "<br>");
-
   // Split the text by HTML tags for formatting
-  // This regex captures <em>...</em>, <color>...</color>, <br>, and combinations of em/color
+  // This regex captures <em>...</em>, <color>...</color>, and combinations of em/color
   const splitRegex =
-    /(<em>[^<]+<\/em>|<color>[^<]+<\/color>|<em><color>[^<]+<\/color><\/em>|<color><em>[^<]+<\/em><\/color>|<br>)/g;
-  const rawParts = processedText.split(splitRegex);
+    /(<em>[^<]+<\/em>|<color>[^<]+<\/color>|<em><color>[^<]+<\/color><\/em>|<color><em>[^<]+<\/em><\/color>)/g;
+  const rawParts = text.split(splitRegex);
 
   // Transform each part into a structured object
   return rawParts.map((part) => {
-    if (part === "<br>") {
-      return {
-        type: "linebreak",
-        content: "",
-      };
-    } else if (
+    if (
       (part.startsWith("<em><color>") && part.endsWith("</color></em>")) ||
       (part.startsWith("<color><em>") && part.endsWith("</em></color>"))
     ) {

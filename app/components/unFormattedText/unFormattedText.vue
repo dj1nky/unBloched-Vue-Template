@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createParts } from "../../../utils/createContentParts";
+import { createParts } from "./formatText";
 
 const props = defineProps({
   tag: {
