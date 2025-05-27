@@ -6,6 +6,7 @@ import unDiv from "../unDiv/unDiv.vue";
   <unDiv
     :card="true"
     class="mt-auto p-6"
+    :container="true"
   >
     <h1>Footer</h1>
   </unDiv>

@@ -19,6 +19,5 @@ export const gridStyle = () => {
     flex 
     flex-col 
     md:grid
-    gap-6
   `;
 };
