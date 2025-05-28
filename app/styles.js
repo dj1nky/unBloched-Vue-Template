@@ -4,7 +4,6 @@ export default {
     mx-auto 
     flex 
     flex-col 
-    gap-6 
     md:w-[75%]
   `,
   card: `
