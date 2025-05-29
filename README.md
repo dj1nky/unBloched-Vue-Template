@@ -4,8 +4,9 @@
 - Vite
 - TypeScript
 - Nuxt3
-- TailwindCSS
+- Tailwind v4
 - Node
 - Prettier
 - Eslint
+- Pinia
 - vs-code snippets: mkdir -p .vscode && curl -L https://raw.githubusercontent.com/sdras/vue-vscode-snippets/943ccfc9ba0b3b85d05dfc8b6f9e220db8ebc81e/snippets/vue.json -o .vscode/vue.json.code-snippets
