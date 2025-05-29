@@ -33,13 +33,10 @@ defineProps({
     >
       <slot name="content" />
     </unDiv>
-    <unDiv
-      :col-span="colSpan"
-    >
+    <unDiv :col-span="colSpan">
       <slot name="image" />
     </unDiv>
   </unDiv>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

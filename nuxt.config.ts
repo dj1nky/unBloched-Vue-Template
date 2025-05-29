@@ -60,5 +60,5 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-03-11",
-  modules: ["@nuxt/image"],
+  modules: ["@nuxt/image", "@pinia/nuxt"],
 });

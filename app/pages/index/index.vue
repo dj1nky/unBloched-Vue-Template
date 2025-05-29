@@ -5,6 +5,9 @@ import unContentImage from "~/components/unContentImage/unContentImage.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import img from "/images/ny.webp";
 import EN from "./en.json";
+import { useHeaderStore } from "~/stores/pageDetails";
+
+const store = useHeaderStore();
 </script>
 
 <template>
@@ -15,12 +18,13 @@ import EN from "./en.json";
     >
       <unDiv>
         <h1 class="large-h1 font-bold">
-          {{ EN.body.header }}
+          {{ store.header }}
         </h1>
         <unFormattedText
           :tag="'p'"
           :text="EN.body.description"
         />
+        <h2>{{ store.body }}</h2>
       </unDiv>
       <unDiv
         :grid-cols="12"
@@ -51,9 +55,7 @@ import EN from "./en.json";
       </unDiv>
     </unDiv>
 
-    <unContentImage
-      class="bg-white text-black"
-    >
+    <unContentImage class="bg-white text-black">
       <template #content>
         <unDiv class="p-6">
           <h1>Image Expanded</h1>
@@ -70,7 +72,7 @@ import EN from "./en.json";
       </template>
       <template #image>
         <NuxtImg
-          class="object-cover w-full h-full"
+          class="h-full w-full object-cover"
           :src="img"
         />
       </template>
@@ -97,7 +99,7 @@ import EN from "./en.json";
       </template>
       <template #image>
         <NuxtImg
-          class="object-cover w-full h-full"
+          class="h-full w-full object-cover"
           :src="img"
         />
       </template>
