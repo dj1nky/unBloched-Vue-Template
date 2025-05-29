@@ -50,7 +50,10 @@ import EN from "./en.json";
         </unDiv>
       </unDiv>
     </unDiv>
-    <unContentImage class="bg-white text-black">
+
+    <unContentImage
+      class="bg-white text-black"
+    >
       <template #content>
         <unDiv class="p-6">
           <h1>Image Expanded</h1>
@@ -67,7 +70,7 @@ import EN from "./en.json";
       </template>
       <template #image>
         <NuxtImg
-          class="object-cover object-top md:h-84"
+          class="object-cover w-full h-full"
           :src="img"
         />
       </template>
@@ -76,7 +79,6 @@ import EN from "./en.json";
     <unContentImage
       :container="true"
       :reverse="true"
-      height="h-auto"
       class="bg-white text-black"
     >
       <template #content>
@@ -95,7 +97,7 @@ import EN from "./en.json";
       </template>
       <template #image>
         <NuxtImg
-          class="object-cover object-top md:h-84"
+          class="object-cover w-full h-full"
           :src="img"
         />
       </template>
