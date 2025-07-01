@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
+const selectChevron = "/icons/singleChevron.svg ";
 const props = defineProps({
   modelValue: {
     type: [String, Number, Boolean],
@@ -130,12 +131,23 @@ const isTextarea = computed(() => {
 const isCheckbox = computed(() => {
   return props.type === "checkbox";
 });
+
+const charsLeft = computed(() => {
+  // Only show for string/number types
+  if (
+    typeof props.modelValue === "string" ||
+    typeof props.modelValue === "number"
+  ) {
+    return props.maxlength - String(props.modelValue).length;
+  }
+  return props.maxlength;
+});
 </script>
 
 <template>
   <unDiv
     class="text-sm"
-    :gap="'gap-2'"
+    gap="gap-2"
     :col-span="6"
   >
     <unDiv :gap="'gap-1'">
@@ -153,28 +165,39 @@ const isCheckbox = computed(() => {
 
     <div class="relative w-full">
       <!-- Select dropdown if type is select and options are provided -->
-      <select
+      <div
         v-if="isSelect"
-        :name="name"
-        :value="modelValue"
-        required
-        :class="selectClasses"
-        @input="updateValue"
+        class="relative"
       >
-        <option
-          value=""
-          disabled
+        <select
+          :name="name"
+          :value="modelValue"
+          required
+          :class="selectClasses"
+          @input="updateValue"
         >
-          {{ placeholder }}
-        </option>
-        <option
-          v-for="(option, index) in options"
-          :key="index"
-          :value="typeof option === 'object' ? option[optionValue] : option"
-        >
-          {{ typeof option === "object" ? option[optionLabel] : option }}
-        </option>
-      </select>
+          <option
+            value=""
+            disabled
+          >
+            {{ placeholder }}
+          </option>
+          <option
+            v-for="(option, index) in options"
+            :key="index"
+            :value="typeof option === 'object' ? option[optionValue] : option"
+          >
+            {{ typeof option === "object" ? option[optionLabel] : option }}
+          </option>
+        </select>
+        <div class="select-chevron">
+          <img
+            :src="selectChevron"
+            alt=""
+            class="h-4 w-4"
+          >
+        </div>
+      </div>
 
       <!-- Textarea for multiline content -->
       <textarea
@@ -198,7 +221,7 @@ const isCheckbox = computed(() => {
           type="checkbox"
           :name="name"
           :checked="!!modelValue"
-          class="form-checkbox h-6 w-6 text-indigo-500 transition duration-150 ease-in-out"
+          class="form-checkbox h-5 w-5 text-indigo-500 transition duration-150 ease-in-out"
           :class="{ 'border-red-500': hasError }"
           @change="updateValue"
         >
@@ -230,6 +253,13 @@ const isCheckbox = computed(() => {
       >
         {{ label }}
       </span>
+      <!-- Character counter for textarea only -->
+      <div
+        v-if="isTextarea"
+        class="text-right text-xs text-gray-500"
+      >
+        {{ charsLeft }} characters left
+      </div>
     </div>
     <div
       v-if="error"
@@ -360,5 +390,33 @@ const isCheckbox = computed(() => {
 .form-checkbox:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+/* Custom select styling */
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  padding-right: 2.5rem;
+}
+
+.select-chevron {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.select-chevron img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(0%) contrast(100%);
+  transition: transform 0.2s ease;
+}
+
+.form-select:focus + .select-chevron img {
+  transform: rotate(180deg);
 }
 </style>

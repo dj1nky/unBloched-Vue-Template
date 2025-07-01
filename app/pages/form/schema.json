@@ -10,6 +10,7 @@
       "name": "firstName",
       "placeholder": "Enter your first name",
       "required": true,
+      "span": 6,
       "validations": [
         {
           "type": "empty",
@@ -25,6 +26,7 @@
       "name": "lastName",
       "placeholder": "Enter your last name",
       "required": true,
+      "span": 6,
       "validations": [
         {
           "type": "empty",
@@ -40,11 +42,24 @@
       "name": "service",
       "placeholder": "Select your service part",
       "required": true,
+      "span": 6,
       "options": [
-        { "value": "tyres", "label": "Tyres" },
-        { "value": "car", "label": "Car" },
-        { "value": "wheel", "label": "Wheel" },
-        { "value": "paint", "label": "Paint" }
+        {
+          "value": "tyres",
+          "label": "Tyres"
+        },
+        {
+          "value": "car",
+          "label": "Car"
+        },
+        {
+          "value": "wheel",
+          "label": "Wheel"
+        },
+        {
+          "value": "paint",
+          "label": "Paint"
+        }
       ],
       "validations": [
         {
@@ -55,11 +70,26 @@
       ]
     },
     {
+      "id": "phone",
+      "label": "Phone Number",
+      "type": "text",
+      "name": "phone",
+      "placeholder": "Enter your phone number",
+      "span": 6,
+      "validations": [
+        {
+          "type": "phone",
+          "message": "phone must be 10 digits"
+        }
+      ]
+    },
+    {
       "id": "email",
       "label": "Email Address",
       "type": "text",
       "name": "email",
       "placeholder": "Enter your parent email",
+      "span": 6,
       "validations": [
         {
           "type": "email",
@@ -69,15 +99,16 @@
       ]
     },
     {
-      "id": "phone",
-      "label": "Phone Number",
+      "id": "dob",
+      "label": "Date of Birth",
       "type": "text",
-      "name": "phone",
-      "placeholder": "Enter your phone number",
+      "name": "date",
+      "placeholder": "DD/MM/YYY",
+      "span": 6,
       "validations": [
         {
-          "type": "phone",
-          "message": "phone must be 10 digits"
+          "type": "dob",
+          "message": "date of birth must be in DD/MM/YYYY format"
         }
       ]
     },

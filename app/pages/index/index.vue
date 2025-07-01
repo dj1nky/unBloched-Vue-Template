@@ -21,7 +21,7 @@ const store = useHeaderStore();
           {{ store.header }}
         </h1>
         <unFormattedText
-          :tag="'p'"
+          tag="p"
           :text="EN.body.description"
         />
         <h2>{{ store.body }}</h2>

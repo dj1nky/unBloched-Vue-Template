@@ -1,6 +1,6 @@
 // Types for validation schema
 export type ValidationRule = {
-  type: "empty" | "minLength" | "email" | "phone" | "checkbox";
+  type: "empty" | "minLength" | "email" | "phone" | "checkbox" | "dob";
   message: string;
   value?: number;
 };

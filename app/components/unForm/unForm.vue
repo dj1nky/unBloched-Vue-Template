@@ -3,6 +3,7 @@ import { ref } from "vue";
 import unInput from "~/components/unInput/unInput.vue";
 import unButton from "~/components/unButton/unButton.vue";
 import unDiv from "../unDiv/unDiv.vue";
+import unFormattedText from "../unFormattedText/unFormattedText.vue";
 import { validate } from "./validate.ts";
 const loaderIcon = "icons/loader.svg";
 import EN from "./en.json";
@@ -89,10 +90,10 @@ watch(
 <template>
   <unDiv
     class="items-start md:p-6"
-    :gap="'gap-6'"
+    gap="gap-6"
   >
     <unFormattedText
-      :tag="'h2'"
+      tag="h2"
       class="text-center text-2xl"
       :text="title"
     />
@@ -103,22 +104,26 @@ watch(
       <unDiv
         div="grid"
         :grid-cols="12"
-        :gap="'gap-4'"
+        gap="gap-4"
       >
-        <unInput
+        <unDiv
           v-for="(field, index) in schema"
           :key="index"
-          v-model="formData[field.id]"
-          :placeholder="field.placeholder"
-          :label="field.label"
-          :name="field.name"
-          :text="field.text"
-          :type="field.type"
-          :options="field.options"
-          :error="errors[field.id]"
-          :sublabel="field.subLabel"
-          @input="validateField(field.id, formData[field.id])"
-        />
+          :col-span="field.span || 12"
+        >
+          <unInput
+            v-model="formData[field.id]"
+            :placeholder="field.placeholder"
+            :label="field.label"
+            :name="field.name"
+            :text="field.text"
+            :type="field.type"
+            :options="field.options"
+            :error="errors[field.id]"
+            :sublabel="field.subLabel"
+            @input="validateField(field.id, formData[field.id])"
+          />
+        </unDiv>
       </unDiv>
       <unDiv class="mt-6 flex w-full justify-center">
         <unButton
