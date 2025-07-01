@@ -34,26 +34,16 @@ defineProps({
     default: "",
   },
   type: {
-    type: String,
+    type: String as () => "button" | "submit" | "reset",
     default: "button",
   },
 });
 </script>
 
 <template>
-  <!-- Disabled button -->
-  <button
-    v-if="disabled"
-    disabled
-    class="cursor-default rounded-lg bg-gray-400 p-2 text-center font-medium"
-    :class="bgColor"
-  >
-    {{ text }}
-  </button>
-
-  <!-- Secondary button (when not disabled) -->
+  <!-- Secondary button -->
   <NuxtLink
-    v-else-if="variant === 'secondary' && link"
+    v-if="secondary"
     target="_blank"
     :to="link"
     class="hover:bg-dark cursor-pointer rounded-lg bg-white p-2 text-center font-medium text-black hover:text-white"
@@ -62,36 +52,48 @@ defineProps({
     {{ text }}
   </NuxtLink>
 
-  <!-- Tertiary button (when not disabled) -->
+  <!-- Tertiary button -->
   <NuxtLink
-    v-else-if="variant === 'tertiary'"
+    v-else-if="tertiary"
     target="_blank"
-    class="bg-dark rounded-lg p-2 text-center font-medium text-white"
+    class="bg-dark cursor-pointer rounded-lg p-2 text-center font-medium text-white hover:bg-indigo-500"
     :class="bgColor"
   >
     {{ text }}
   </NuxtLink>
 
-  <!-- Primary button without link (for form submission) -->
-  <unDiv
-    v-else-if="type === 'submit' && !link"
-    :tag="'button'"
-    :direction="'flex-row'"
-    type="submit"
-    class="hover:bg-burnt cursor-pointer justify-center rounded-lg bg-indigo-500 p-2 text-center font-medium"
+  <!-- Disabled button -->
+  <button
+    v-else-if="disabled"
+    disabled
+    class="cursor-default rounded-lg bg-gray-400 p-2 text-center font-medium"
     :class="bgColor"
   >
-    <slot v-if="icon ? icon : ''" />
     {{ text }}
-  </unDiv>
+  </button>
 
-  <!-- Primary button (when not disabled and not secondary) -->
+  <!-- Button for forms, <NuxtLink> won't work for submission -->
+  <button
+    v-else-if="!link"
+    :type="type"
+    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium hover:text-white"
+    :class="bgColor"
+  >
+    <unDiv
+      class="justify-center"
+      direction="row"
+    >
+      {{ text }}
+      <slot v-if="icon ? icon : ''" />
+    </unDiv>
+  </button>
+
+  <!-- Default Primary button -->
   <NuxtLink
     v-else
     target="_blank"
     :to="link"
-    type="submit"
-    class="hover:bg-burnt cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium"
+    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium hover:text-white"
     :class="bgColor"
   >
     {{ text }}

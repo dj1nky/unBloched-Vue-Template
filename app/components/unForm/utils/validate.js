@@ -1,9 +1,4 @@
-import { FieldSchema, ErrorsObject, FieldValidator } from "./types";
-
-export const validate = (
-  schema: FieldSchema[],
-  errors: ErrorsObject,
-): FieldValidator => {
+export const validate = (schema, errors) => {
   return (fieldId, value) => {
     const field = schema.find((field) => field.id === fieldId);
     if (!field || !field.validations) return;
@@ -21,7 +16,7 @@ export const validate = (
           break;
 
         case "minLength":
-          if (value && value.length < validation.value!) {
+          if (value && value.length < validation.value) {
             errors[fieldId] = validation.message;
             return;
           }
@@ -63,15 +58,15 @@ export const validate = (
           if (value && dobRegex.test(value)) {
             const [day, month, year] = value.split("/");
             const date = new Date(
-              parseInt(year!),
-              parseInt(month!) - 1,
-              parseInt(day!),
+              parseInt(year),
+              parseInt(month) - 1,
+              parseInt(day),
             );
             // Check if it's a valid date and matches the input
             const isValidDate =
-              date.getDate() === parseInt(day!) &&
-              date.getMonth() === parseInt(month!) - 1 &&
-              date.getFullYear() === parseInt(year!);
+              date.getDate() === parseInt(day) &&
+              date.getMonth() === parseInt(month) - 1 &&
+              date.getFullYear() === parseInt(year);
 
             if (!isValidDate) {
               errors[fieldId] = "Please enter a valid date";

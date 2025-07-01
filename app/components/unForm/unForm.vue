@@ -4,7 +4,8 @@ import unInput from "~/components/unInput/unInput.vue";
 import unButton from "~/components/unButton/unButton.vue";
 import unDiv from "../unDiv/unDiv.vue";
 import unFormattedText from "../unFormattedText/unFormattedText.vue";
-import { validate } from "./validate.ts";
+import { validate } from "./utils/validate.js";
+import { handleSubmit } from "./utils/handleSubmit.js";
 const loaderIcon = "icons/loader.svg";
 import EN from "./en.json";
 
@@ -45,29 +46,16 @@ const displayToast = (message, type = "success", duration = 5000) => {
   }, duration);
 };
 
-const handleSubmit = async () => {
-  props.schema.forEach((field) => {
-    validateField(field.id, formData.value[field.id]);
-  });
-  const hasErrors = Object.values(errors.value).some((error) => error !== "");
-
-  if (!hasErrors) {
-    isSubmitting.value = true;
-    setTimeout(() => {
-      formData.value = props.schema.reduce((acc, field) => {
-        if (field.type === "checkbox") {
-          acc[field.id] = false;
-        } else {
-          acc[field.id] = "";
-        }
-        return acc;
-      }, {});
-      isSubmitting.value = false;
-      displayToast(EN.successMessage, "success");
-    }, 1000);
-  } else {
-    console.log(EN.errorMessage);
-  }
+const onSubmit = async () => {
+  await handleSubmit(
+    props.schema,
+    formData,
+    errors,
+    validateField,
+    isSubmitting,
+    displayToast,
+    EN,
+  );
 };
 
 watch(
@@ -99,7 +87,7 @@ watch(
     />
     <form
       class="easeIn w-full bg-white p-6 md:rounded-lg"
-      @submit.prevent="handleSubmit"
+      @submit.prevent="onSubmit"
     >
       <unDiv
         div="grid"

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
-import unContentImage from "~/components/unContentImage/unContentImage.vue";
+import unContentImage from "@/components/unContentImage/unContentImage.vue";
+import unButton from "@/components/unButton/unButton.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import img from "/images/ny.webp";
 import EN from "./en.json";
@@ -37,6 +38,15 @@ const store = useHeaderStore();
           :col-span="4"
         >
           Grid Item 1
+          <unButton
+            text="Default Button with link"
+            link="https://google.com.au"
+          />
+          <unButton
+            text="Secondary Button with link"
+            secondary
+            link="https://google.com.au"
+          />
         </unDiv>
         <unDiv
           class="p-6"
@@ -44,6 +54,14 @@ const store = useHeaderStore();
           :col-span="4"
         >
           Grid Item 2
+          <unButton
+            disabled
+            text="Disabled Button"
+          />
+          <unButton
+            disabled
+            text="Disabled Button"
+          />
         </unDiv>
         <unDiv
           class="p-6"
@@ -51,6 +69,14 @@ const store = useHeaderStore();
           :col-span="4"
         >
           Grid Item 3
+          <unButton
+            tertiary
+            text="Tertiary Button"
+          />
+          <unButton
+            secondary
+            text="Secondary Button"
+          />
         </unDiv>
       </unDiv>
     </unDiv>

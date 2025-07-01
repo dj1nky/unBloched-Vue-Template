@@ -22,6 +22,7 @@ const isActive = (path) => {
       <unDiv
         direction="row"
         tag="ul"
+        class="flex-row items-center"
         :container="true"
       >
         <li
