@@ -6,7 +6,7 @@ import unButton from "@/components/unButton/unButton.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import img from "/images/ny.webp";
 import EN from "./en.json";
-import { useHeaderStore } from "~/stores/pageDetails";
+import { useHeaderStore } from "~/stores/pageDetails.js";
 
 const store = useHeaderStore();
 </script>
@@ -14,7 +14,7 @@ const store = useHeaderStore();
 <template>
   <DefaultLayout>
     <unDiv
-      class="md:py-24"
+      class="mb-12"
       :container="true"
     >
       <unDiv>
@@ -81,54 +81,110 @@ const store = useHeaderStore();
       </unDiv>
     </unDiv>
 
-    <unContentImage class="bg-white text-black">
-      <template #content>
-        <unDiv class="p-6">
-          <h1>Image Expanded</h1>
-          <unFormattedText
-            :tag="'p'"
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
-              natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
-              cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
-              laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
-              Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
-              cumque."
+    <unDiv gap="0">
+      <unContentImage class="bg-white text-black">
+        <template #content>
+          <unDiv class="p-6">
+            <h1>Image Expanded</h1>
+            <unFormattedText
+              :tag="'p'"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
+                natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
+                cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
+                laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
+                Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
+                cumque."
+            />
+          </unDiv>
+        </template>
+        <template #image>
+          <NuxtImg
+            class="h-full w-full object-cover"
+            :src="img"
           />
-        </unDiv>
-      </template>
-      <template #image>
-        <NuxtImg
-          class="h-full w-full object-cover"
-          :src="img"
-        />
-      </template>
-    </unContentImage>
+        </template>
+      </unContentImage>
 
-    <unContentImage
-      :container="true"
-      :reverse="true"
-      class="bg-white text-black"
-    >
-      <template #content>
-        <unDiv class="p-6">
-          <h1>Image Contained Reversed</h1>
-          <unFormattedText
-            :tag="'p'"
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
+      <unContentImage
+        reverse
+        class="bg-white text-black"
+      >
+        <template #content>
+          <unDiv class="p-6">
+            <h1>Image Expanded</h1>
+            <unFormattedText
+              tag="p"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
               natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
               cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
               laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
               Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
               cumque."
+            />
+          </unDiv>
+        </template>
+        <template #image>
+          <NuxtImg
+            class="h-full w-full object-cover"
+            :src="img"
           />
-        </unDiv>
-      </template>
-      <template #image>
-        <NuxtImg
-          class="h-full w-full object-cover"
-          :src="img"
-        />
-      </template>
-    </unContentImage>
+        </template>
+      </unContentImage>
+    </unDiv>
+
+    <unDiv gap="0">
+      <unContentImage
+        container
+        reverse
+        class="bg-white text-black"
+      >
+        <template #content>
+          <unDiv class="p-6">
+            <h1>Image Contained Reversed</h1>
+            <unFormattedText
+              tag="p"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
+                natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
+                cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
+                laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
+                Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
+                cumque."
+            />
+          </unDiv>
+        </template>
+        <template #image>
+          <NuxtImg
+            class="h-full w-full object-cover"
+            :src="img"
+          />
+        </template>
+      </unContentImage>
+
+      <unContentImage
+        :container="true"
+        class="bg-white text-black"
+      >
+        <template #content>
+          <unDiv class="p-6">
+            <h1>Image Contained Reversed</h1>
+            <unFormattedText
+              tag="p"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
+                natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
+                cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
+                laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
+                Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
+                cumque."
+            />
+          </unDiv>
+        </template>
+        <template #image>
+          <NuxtImg
+            class="h-full w-full object-cover"
+            :src="img"
+          />
+        </template>
+      </unContentImage>
+    </unDiv>
   </DefaultLayout>
 </template>

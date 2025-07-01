@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import unHeader from "@/components/unHeader/unHeader.vue";
+import unHeader from "~/components/unHeader/Index.vue";
 import unFooter from "~/components/unFooter/unFooter.vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
+import unToast from "~/components/unToast/unToast.vue";
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import unDiv from "~/components/unDiv/unDiv.vue";
     <slot />
   </unDiv>
   <unFooter />
+  <unToast />
 </template>
 
 <style scoped></style>

@@ -6,5 +6,9 @@
   "FORM": {
     "LABEL": "Form",
     "ROUTE": "form"
+  },
+  "TOAST": {
+    "LABEL": "Toast",
+    "ROUTE": "toast"
   }
 }

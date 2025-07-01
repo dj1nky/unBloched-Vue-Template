@@ -26,5 +26,8 @@ export const handleSubmit = async (
       isSubmitting.value = false;
       displayToast(EN.successMessage, "success");
     }, 1000);
+  } else {
+    // Show error toast if there are validation errors
+    displayToast(EN.errorMessage, "error");
   }
 };
