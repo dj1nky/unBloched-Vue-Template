@@ -15,7 +15,7 @@ const logo = "/images/logo.webp";
       >
         <unImageLink
           border-radius="rounded-full"
-          class="order-last my-4 lg:order-first"
+          class="my-4"
           :src="logo"
           to="/"
         />

@@ -32,7 +32,6 @@ const getToastClasses = (type) => {
         v-for="toast in toastStore.activeToasts"
         :key="toast.id"
         :class="getToastClasses(toast.type)"
-        class="max-w-[500px] min-w-[300px]"
       >
         <div class="flex items-center justify-between">
           <span class="flex-1">{{ toast.message }}</span>

@@ -14,7 +14,7 @@ export default {
   `,
   header: `
     bg-linear-45 
-    from-pink-500 to-orange
+    from-orange to-pink-500
     text-white
   `,
 };

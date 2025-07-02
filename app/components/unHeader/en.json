@@ -8,17 +8,27 @@
     "ROUTE": "form",
     "SUB_LINKS": [
       {
-        "LABEL": "Danger Form",
+        "LABEL": "Starter Form",
         "ROUTE": "form"
       },
       {
-        "LABEL": "Success Form",
+        "LABEL": "Complex Form",
         "ROUTE": "form"
       }
     ]
   },
   "TOAST": {
     "LABEL": "Our Toast",
-    "ROUTE": "toast"
+    "ROUTE": "toast",
+    "SUB_LINKS": [
+      {
+        "LABEL": "Danger Message",
+        "ROUTE": "/"
+      },
+      {
+        "LABEL": "Success Message",
+        "ROUTE": "/"
+      }
+    ]
   }
 }

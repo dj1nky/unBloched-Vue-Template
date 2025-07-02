@@ -2,18 +2,16 @@
 import { ref, computed, watch } from "vue";
 import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
+import { useRouter } from "vue-router";
+
 const plusIcon = "/icons/plus.svg";
 const minusIcon = "/icons/minus.svg";
-
 const isOpen = ref(false);
-const isSubLinkOpen = ref(false);
+const openSubLink = ref(new Set());
+const router = useRouter();
 
 const toggleNav = () => {
   isOpen.value = !isOpen.value;
-};
-
-const toggleSubLink = () => {
-  isSubLinkOpen.value = !isSubLinkOpen.value;
 };
 
 const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
@@ -26,6 +24,26 @@ watch(isOpen, (val) => {
     document.body.style.overflow = "";
   }
 });
+
+const handleRowClick = (item, index) => {
+  if (item.SUB_LINKS) {
+    if (openSubLink.value.has(index)) {
+      openSubLink.value.delete(index);
+      openSubLink.value = new Set(openSubLink.value); // force reactivity
+    } else {
+      openSubLink.value.add(index);
+      openSubLink.value = new Set(openSubLink.value);
+    }
+  } else {
+    closeNav();
+    router.push(item.ROUTE.startsWith("/") ? item.ROUTE : `/${item.ROUTE}`);
+  }
+};
+
+const closeNav = () => {
+  isOpen.value = false;
+  document.body.style.overflow = "";
+};
 </script>
 
 <template>
@@ -40,46 +58,57 @@ watch(isOpen, (val) => {
     />
     <unDiv
       :style="{ width: navWidth }"
-      class="overlay bg-[#21242C] pt-6"
+      class="overlay bg-[#21242C] pt-8"
       gap="0"
     >
       <unDiv
-        v-for="item in EN"
-        :key="item.id"
+        v-for="(item, index) in EN"
+        :key="index"
         gap="0"
         class="overlay-content line"
         container
+        :class="{ 'cursor-pointer': item.SUB_LINKS }"
+        @click="item.SUB_LINKS && handleRowClick(item, index)"
       >
         <unDiv
           gap="gap-4"
           class="justify-between"
           direction="row"
         >
-          <NuxtLink
-            class="text-xl font-light tracking-tighter uppercase italic"
-            :to="item.ROUTE"
-            @click="closeNav"
-          >
-            {{ item.LABEL }}
-          </NuxtLink>
+          <template v-if="item.SUB_LINKS">
+            <span
+              class="cursor-default text-2xl font-light tracking-tighter text-inherit uppercase italic select-none"
+            >
+              {{ item.LABEL }}
+            </span>
+          </template>
+          <template v-else>
+            <NuxtLink
+              class="text-2xl font-light tracking-tighter text-inherit uppercase italic"
+              :to="item.ROUTE"
+              @click="handleRowClick(item, index)"
+            >
+              {{ item.LABEL }}
+            </NuxtLink>
+          </template>
           <NuxtImg
             v-if="item.SUB_LINKS"
             class="w-6"
-            :src="isSubLinkOpen ? minusIcon : plusIcon"
-            @click="toggleSubLink"
+            :src="openSubLink.has(index) ? minusIcon : plusIcon"
           />
         </unDiv>
-
         <unDiv
-          v-if="item.SUB_LINKS && isSubLinkOpen"
-          div="ul"
-          class="sub-links-list"
+          v-if="item.SUB_LINKS && openSubLink.has(index)"
+          tag="ul"
+          gap="gap-4"
+          class="sub-links-list my-4"
         >
           <NuxtLink
-            v-for="(subLink, index) in item.SUB_LINKS"
-            :key="index"
+            v-for="(subLink, innerIndex) in item.SUB_LINKS"
+            :key="innerIndex"
             :to="subLink.ROUTE"
             class="hover:text-yellow text-gray-500"
+            @click="closeNav"
           >
             {{ subLink.LABEL }}
           </NuxtLink>
@@ -142,7 +171,7 @@ watch(isOpen, (val) => {
   height: 4px;
   display: block;
   margin: 7px 0;
-  margin-right: auto;
+  margin-left: auto;
   border-radius: 4px;
   transition:
     background 0.2s,
@@ -175,28 +204,6 @@ watch(isOpen, (val) => {
   transform: translateY(-11px) rotate(-45deg);
   border-radius: 4px;
   width: 35px;
-}
-
-.line:first-child::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 100%;
-  margin: 1rem 0;
-  border-radius: 2px;
-  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
-  opacity: 0.8;
-}
-
-.line:last-child::after {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 100%;
-  margin: 1rem 0;
-  border-radius: 2px;
-  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
-  opacity: 0.8;
 }
 
 .line:not(:last-child)::after {
