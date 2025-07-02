@@ -7,23 +7,21 @@ const logo = "/images/logo.webp";
 </script>
 
 <template>
-  <unDiv
-    header
-    direction="row"
-  >
-    <unDiv
-      class="items-center justify-between"
-      container
-      direction="row"
-    >
-      <unImageLink
-        border-radius="rounded-full"
-        class="order-last my-4 lg:order-first"
-        :src="logo"
-        to="/"
-      />
-      <unHeaderDesktop />
-      <unHeaderMobile />
+  <unDiv header>
+    <unDiv container>
+      <unDiv
+        direction="row"
+        class="items-center justify-between"
+      >
+        <unImageLink
+          border-radius="rounded-full"
+          class="order-last my-4 lg:order-first"
+          :src="logo"
+          to="/"
+        />
+        <unHeaderDesktop />
+        <unHeaderMobile />
+      </unDiv>
     </unDiv>
   </unDiv>
 </template>
