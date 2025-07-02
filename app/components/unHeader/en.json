@@ -5,7 +5,17 @@
   },
   "FORM": {
     "LABEL": "Our Form",
-    "ROUTE": "form"
+    "ROUTE": "form",
+    "SUB_LINKS": [
+      {
+        "LABEL": "Danger Form",
+        "ROUTE": "form"
+      },
+      {
+        "LABEL": "Success Form",
+        "ROUTE": "form"
+      }
+    ]
   },
   "TOAST": {
     "LABEL": "Our Toast",

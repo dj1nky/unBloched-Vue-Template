@@ -3,15 +3,17 @@ import { ref, computed, watch } from "vue";
 import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
 const plusIcon = "/icons/plus.svg";
+const minusIcon = "/icons/minus.svg";
 
 const isOpen = ref(false);
+const isSubLinkOpen = ref(false);
 
 const toggleNav = () => {
   isOpen.value = !isOpen.value;
 };
 
-const closeNav = () => {
-  isOpen.value = false;
+const toggleSubLink = () => {
+  isSubLinkOpen.value = !isSubLinkOpen.value;
 };
 
 const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
@@ -45,25 +47,43 @@ watch(isOpen, (val) => {
         v-for="item in EN"
         :key="item.id"
         gap="0"
-        class="overlay-content line text-xl font-light tracking-tighter uppercase italic"
+        class="overlay-content line"
         container
       >
-        <NuxtLink
-          :to="item.ROUTE"
-          @click="closeNav"
+        <unDiv
+          gap="gap-4"
+          class="justify-between"
+          direction="row"
         >
-          <unDiv
-            gap="gap-4"
-            class="justify-between"
-            direction="row"
+          <NuxtLink
+            class="text-xl font-light tracking-tighter uppercase italic"
+            :to="item.ROUTE"
+            @click="closeNav"
           >
             {{ item.LABEL }}
-            <NuxtImg
-              class="w-6"
-              :src="plusIcon"
-            />
-          </unDiv>
-        </NuxtLink>
+          </NuxtLink>
+          <NuxtImg
+            v-if="item.SUB_LINKS"
+            class="w-6"
+            :src="isSubLinkOpen ? minusIcon : plusIcon"
+            @click="toggleSubLink"
+          />
+        </unDiv>
+
+        <unDiv
+          v-if="item.SUB_LINKS && isSubLinkOpen"
+          div="ul"
+          class="sub-links-list"
+        >
+          <NuxtLink
+            v-for="(subLink, index) in item.SUB_LINKS"
+            :key="index"
+            :to="subLink.ROUTE"
+            class="hover:text-yellow text-gray-500"
+          >
+            {{ subLink.LABEL }}
+          </NuxtLink>
+        </unDiv>
       </unDiv>
     </unDiv>
 
@@ -188,5 +208,17 @@ watch(isOpen, (val) => {
   border-radius: 2px;
   @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
   opacity: 0.7;
+}
+
+.sub-links-list {
+  list-style: none;
+}
+
+.sub-links-list li::before {
+  content: "-";
+  color: #f6339a;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
 }
 </style>
