@@ -4,11 +4,11 @@
     "ROUTE": "/"
   },
   "FORM": {
-    "LABEL": "Form",
+    "LABEL": "Our Form",
     "ROUTE": "form"
   },
   "TOAST": {
-    "LABEL": "Toast",
+    "LABEL": "Our Toast",
     "ROUTE": "toast"
   }
 }

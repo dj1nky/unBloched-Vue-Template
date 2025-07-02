@@ -1,7 +1,8 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
+const plusIcon = "/icons/plus.svg";
 
 const isOpen = ref(false);
 
@@ -14,11 +15,20 @@ const closeNav = () => {
 };
 
 const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
+
+// Prevent body scroll when mobile nav is open
+watch(isOpen, (val) => {
+  if (val) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+});
 </script>
 
 <template>
   <unDiv
-    class="items-end lg:hidden"
+    class="py-4 lg:hidden"
     tag="section"
   >
     <unDiv
@@ -28,24 +38,36 @@ const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
     />
     <unDiv
       :style="{ width: navWidth }"
-      class="overlay"
+      class="overlay bg-[#21242C] pt-6"
       gap="0"
     >
       <unDiv
         v-for="item in EN"
         :key="item.id"
-        class="overlay-content"
+        gap="0"
+        class="overlay-content line text-xl font-light tracking-tighter uppercase italic"
+        container
       >
         <NuxtLink
           :to="item.ROUTE"
           @click="closeNav"
         >
-          {{ item.LABEL }}
+          <unDiv
+            gap="gap-4"
+            class="justify-between"
+            direction="row"
+          >
+            {{ item.LABEL }}
+            <NuxtImg
+              class="w-6"
+              :src="plusIcon"
+            />
+          </unDiv>
         </NuxtLink>
       </unDiv>
     </unDiv>
 
-    <unDiv class="rounded-md p-1.5">
+    <unDiv class="rounded-md">
       <span
         class="hamburger relative"
         :class="{ 'is-active': isOpen }"
@@ -67,7 +89,6 @@ const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
   z-index: 40;
   top: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.9);
   overflow-x: hidden;
   transition: 0.2s;
 }
@@ -76,14 +97,10 @@ const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
   position: relative;
   top: 5%;
   width: 100%;
-  text-align: center;
-  margin-top: 30px;
 }
 
 .overlay a {
   text-decoration: none;
-  font-size: 36px;
-  color: #f1f1f1;
   display: block;
   transition: 0.3s;
 }
@@ -105,7 +122,7 @@ const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
   height: 4px;
   display: block;
   margin: 7px 0;
-  margin-left: auto;
+  margin-right: auto;
   border-radius: 4px;
   transition:
     background 0.2s,
@@ -138,5 +155,38 @@ const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
   transform: translateY(-11px) rotate(-45deg);
   border-radius: 4px;
   width: 35px;
+}
+
+.line:first-child::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 2px;
+  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
+  opacity: 0.8;
+}
+
+.line:last-child::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 2px;
+  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
+  opacity: 0.8;
+}
+
+.line:not(:last-child)::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 2px;
+  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
+  opacity: 0.7;
 }
 </style>

@@ -15,13 +15,13 @@ const isActive = (path) => {
 <template>
   <unDiv
     tag="header"
-    class="hidden py-6 lg:flex"
+    class="hidden items-center justify-between py-6 lg:flex"
+    direction="row"
   >
     <nav>
       <unDiv
         direction="row"
         tag="ul"
-        class="flex-row items-center"
       >
         <li
           v-for="(item, index) in EN"

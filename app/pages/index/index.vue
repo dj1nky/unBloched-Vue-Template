@@ -111,7 +111,7 @@ const store = useHeaderStore();
       >
         <template #content>
           <unDiv class="p-6">
-            <h1>Image Expanded</h1>
+            <h1>Image Expanded Reversed</h1>
             <unFormattedText
               tag="p"
               text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
@@ -166,7 +166,7 @@ const store = useHeaderStore();
       >
         <template #content>
           <unDiv class="p-6">
-            <h1>Image Contained Reversed</h1>
+            <h1>Image Contained</h1>
             <unFormattedText
               tag="p"
               text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
