@@ -62,10 +62,17 @@ const handleSubLinkClick = (event, subLink) => {
         <li
           v-for="(item, index) in EN"
           :key="index"
-          class="relative rounded-lg"
+          class="relative"
           :class="{
-            'bg-dark': isActive(item.ROUTE),
-            'hover:bg-white hover:text-black': !isActive(item.ROUTE),
+            'bg-dark rounded-lg hover:bg-white':
+              isActive(item.ROUTE) && hoveredIndex !== index,
+            'bg-dark hover:rounded-t-lg':
+              isActive(item.ROUTE) && item.SUB_LINKS,
+            'bg-dark hover:rounded-lg': isActive(item.ROUTE) && !item.SUB_LINKS,
+            'hover:rounded-t-lg hover:bg-white hover:text-black':
+              !isActive(item.ROUTE) && item.SUB_LINKS,
+            'hover:rounded-lg hover:bg-white hover:text-black':
+              !isActive(item.ROUTE) && !item.SUB_LINKS,
           }"
           @mouseenter="handleMouseEnter(index)"
           @mouseleave="handleMouseLeave"
@@ -98,13 +105,13 @@ const handleSubLinkClick = (event, subLink) => {
                 item.SUB_LINKS.length > 0
             "
             gap="0"
-            class="absolute left-0 z-10"
+            class="absolute right-0 z-10 pt-0.5"
           >
             <NuxtLink
               v-for="(subLink, innerIndex) in item.SUB_LINKS"
               :key="innerIndex"
               :to="subLink.ROUTE"
-              class="border border-gray-200 bg-white px-4 py-3 text-lg whitespace-pre text-black shadow-lg first:rounded-t last:rounded-b hover:bg-gray-200"
+              class="w-52 border-b-1 border-gray-200 bg-white px-4 py-3 text-lg text-black shadow-xl first:rounded-tl last:rounded-b hover:bg-gray-200 hover:font-bold"
               @click="handleSubLinkClick($event, subLink)"
             >
               {{ subLink.LABEL }}

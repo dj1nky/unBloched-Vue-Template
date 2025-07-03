@@ -133,7 +133,7 @@ const handleSubLinkClick = (event, subLink) => {
             v-for="(subLink, innerIndex) in item.SUB_LINKS"
             :key="innerIndex"
             :to="subLink.ROUTE"
-            class="hover:text-yellow text-gray-500"
+            class="hover:text-yellow text-gray-400"
             @click="handleSubLinkClick($event, subLink)"
           >
             {{ subLink.LABEL }}

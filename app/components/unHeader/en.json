@@ -4,31 +4,35 @@
     "ROUTE": "/",
     "SUB_LINKS": [
       {
+        "LABEL": "Pinia header",
+        "ROUTE": "/"
+      },
+      {
         "LABEL": "Image Expanded",
         "ROUTE": "/#image-expanded"
       },
       {
-        "LABEL": "Image Contained",
-        "ROUTE": "/#image-contained"
+        "LABEL": "Image Expanded Reversed",
+        "ROUTE": "/#image-expanded-reversed"
       }
     ]
   },
   "FORM": {
     "LABEL": "Our Form",
-    "ROUTE": "form",
+    "ROUTE": "form"
+  },
+  "TOAST": {
+    "LABEL": "Our Toast",
+    "ROUTE": "toast",
     "SUB_LINKS": [
       {
         "LABEL": "Starter Form",
         "ROUTE": "form"
       },
       {
-        "LABEL": "Complex Form",
+        "LABEL": "The Mother of all Forms",
         "ROUTE": "form"
       }
     ]
-  },
-  "TOAST": {
-    "LABEL": "Our Toast",
-    "ROUTE": "toast"
   }
 }
