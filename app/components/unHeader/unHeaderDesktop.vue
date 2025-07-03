@@ -3,6 +3,8 @@ import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
 import { useRoute } from "#app";
 import { ref } from "vue";
+import { handleSubLinkClick } from "./utils/handleSubLinkClick";
+import { navigateTo } from "#app";
 
 const chevronDownIconWhite = "/icons/singleChevronWhite.svg";
 const chevronDownIconBlack = "/icons/singleChevron.svg";
@@ -22,28 +24,6 @@ const handleMouseEnter = (index) => {
 
 const handleMouseLeave = () => {
   hoveredIndex.value = null;
-};
-
-const handleSubLinkClick = (event, subLink) => {
-  // Check if it's an anchor link (contains #)
-  if (subLink.ROUTE.includes("#")) {
-    event.preventDefault();
-    const [path, anchor] = subLink.ROUTE.split("#");
-
-    // If we're not on the target page, navigate first
-    if (route.path !== path) {
-      navigateTo(subLink.ROUTE);
-    } else {
-      // We're already on the page, just scroll to the anchor
-      const element = document.getElementById(anchor);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }
-  }
 };
 </script>
 
@@ -112,7 +92,7 @@ const handleSubLinkClick = (event, subLink) => {
               :key="innerIndex"
               :to="subLink.ROUTE"
               class="w-52 border-b-1 border-gray-200 bg-white px-4 py-3 text-lg text-black shadow-xl first:rounded-tl last:rounded-b hover:bg-gray-200 hover:font-bold"
-              @click="handleSubLinkClick($event, subLink)"
+              @click="handleSubLinkClick($event, subLink, route, navigateTo)"
             >
               {{ subLink.LABEL }}
             </NuxtLink>

@@ -19,11 +19,7 @@
   },
   "FORM": {
     "LABEL": "Our Form",
-    "ROUTE": "form"
-  },
-  "TOAST": {
-    "LABEL": "Our Toast",
-    "ROUTE": "toast",
+    "ROUTE": "form",
     "SUB_LINKS": [
       {
         "LABEL": "Starter Form",
@@ -34,5 +30,9 @@
         "ROUTE": "form"
       }
     ]
+  },
+  "TOAST": {
+    "LABEL": "Our Toast",
+    "ROUTE": "toast"
   }
 }

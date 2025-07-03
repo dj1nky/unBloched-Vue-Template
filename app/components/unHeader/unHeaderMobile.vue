@@ -3,6 +3,7 @@ import { ref, computed, watch } from "vue";
 import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
 import { useRouter } from "vue-router";
+import { handleSubLinkClick } from "./utils/handleSubLinkClick";
 
 const plusIcon = "/icons/plus.svg";
 const minusIcon = "/icons/minus.svg";
@@ -43,33 +44,6 @@ const handleRowClick = (item, index) => {
 const closeNav = () => {
   isOpen.value = false;
   document.body.style.overflow = "";
-};
-
-const handleSubLinkClick = (event, subLink) => {
-  // Check if it's an anchor link (contains #)
-  if (subLink.ROUTE.includes("#")) {
-    event.preventDefault();
-    const [path, anchor] = subLink.ROUTE.split("#");
-
-    // Close the mobile nav
-    closeNav();
-
-    // If we're not on the target page, navigate first
-    if (router.currentRoute.value.path !== path) {
-      router.push(subLink.ROUTE);
-    } else {
-      // We're already on the page, just scroll to the anchor
-      const element = document.getElementById(anchor);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }
-  } else {
-    closeNav();
-  }
 };
 </script>
 
@@ -134,7 +108,9 @@ const handleSubLinkClick = (event, subLink) => {
             :key="innerIndex"
             :to="subLink.ROUTE"
             class="hover:text-yellow text-gray-400"
-            @click="handleSubLinkClick($event, subLink)"
+            @click="
+              handleSubLinkClick($event, subLink, router, router.push, closeNav)
+            "
           >
             {{ subLink.LABEL }}
           </NuxtLink>
