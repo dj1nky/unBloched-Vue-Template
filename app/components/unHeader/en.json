@@ -1,7 +1,17 @@
 {
   "HOME": {
     "LABEL": "Home",
-    "ROUTE": "/"
+    "ROUTE": "/",
+    "SUB_LINKS": [
+      {
+        "LABEL": "Image Expanded",
+        "ROUTE": "/#image-expanded"
+      },
+      {
+        "LABEL": "Image Contained",
+        "ROUTE": "/#image-contained"
+      }
+    ]
   },
   "FORM": {
     "LABEL": "Our Form",
@@ -19,16 +29,6 @@
   },
   "TOAST": {
     "LABEL": "Our Toast",
-    "ROUTE": "toast",
-    "SUB_LINKS": [
-      {
-        "LABEL": "Danger Message",
-        "ROUTE": "/"
-      },
-      {
-        "LABEL": "Success Message",
-        "ROUTE": "/"
-      }
-    ]
+    "ROUTE": "toast"
   }
 }

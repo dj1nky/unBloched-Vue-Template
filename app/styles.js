@@ -13,8 +13,8 @@ export default {
     text-white
   `,
   header: `
-    bg-linear-45 
-    from-orange to-pink-500
+    bg-linear-25 
+    from-orange to-pink-600
     text-white
   `,
 };

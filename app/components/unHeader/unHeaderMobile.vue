@@ -44,6 +44,33 @@ const closeNav = () => {
   isOpen.value = false;
   document.body.style.overflow = "";
 };
+
+const handleSubLinkClick = (event, subLink) => {
+  // Check if it's an anchor link (contains #)
+  if (subLink.ROUTE.includes("#")) {
+    event.preventDefault();
+    const [path, anchor] = subLink.ROUTE.split("#");
+
+    // Close the mobile nav
+    closeNav();
+
+    // If we're not on the target page, navigate first
+    if (router.currentRoute.value.path !== path) {
+      router.push(subLink.ROUTE);
+    } else {
+      // We're already on the page, just scroll to the anchor
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  } else {
+    closeNav();
+  }
+};
 </script>
 
 <template>
@@ -67,7 +94,6 @@ const closeNav = () => {
         gap="0"
         class="overlay-content line"
         container
-        :class="{ 'cursor-pointer': item.SUB_LINKS }"
         @click="item.SUB_LINKS && handleRowClick(item, index)"
       >
         <unDiv
@@ -77,7 +103,7 @@ const closeNav = () => {
         >
           <template v-if="item.SUB_LINKS">
             <span
-              class="cursor-default text-2xl font-light tracking-tighter text-inherit uppercase italic select-none"
+              class="text-2xl font-light tracking-tighter text-inherit uppercase italic select-none"
             >
               {{ item.LABEL }}
             </span>
@@ -108,7 +134,7 @@ const closeNav = () => {
             :key="innerIndex"
             :to="subLink.ROUTE"
             class="hover:text-yellow text-gray-500"
-            @click="closeNav"
+            @click="handleSubLinkClick($event, subLink)"
           >
             {{ subLink.LABEL }}
           </NuxtLink>
@@ -160,7 +186,6 @@ const closeNav = () => {
 }
 
 .hamburger {
-  cursor: pointer;
   display: inline-block;
   transition: transform 0.4s ease;
   position: relative;

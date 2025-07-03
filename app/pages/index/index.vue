@@ -82,7 +82,10 @@ const store = useHeaderStore();
     </unDiv>
 
     <unDiv gap="0">
-      <unContentImage class="bg-white text-black">
+      <unContentImage
+        id="image-expanded"
+        class="bg-white text-black"
+      >
         <template #content>
           <unDiv class="p-6">
             <h1>Image Expanded</h1>
@@ -106,6 +109,7 @@ const store = useHeaderStore();
       </unContentImage>
 
       <unContentImage
+        id="image-expanded-reversed"
         reverse
         class="bg-white text-black"
       >
@@ -134,6 +138,7 @@ const store = useHeaderStore();
 
     <unDiv gap="0">
       <unContentImage
+        id="image-contained-reversed"
         container
         reverse
         class="bg-white text-black"
@@ -161,6 +166,7 @@ const store = useHeaderStore();
       </unContentImage>
 
       <unContentImage
+        id="image-contained"
         :container="true"
         class="bg-white text-black"
       >
