@@ -3,7 +3,7 @@ import unHeaderDesktop from "./unHeaderDesktop.vue";
 import unHeaderMobile from "./unHeaderMobile.vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
 import unImageLink from "../unImageLink/unImageLink.vue";
-const logo = "/images/logo.webp";
+import { getImage } from "~/utils/graphics";
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const logo = "/images/logo.webp";
         <unImageLink
           border-radius="rounded-full"
           class="my-4"
-          :src="logo"
+          :src="getImage('logo')"
           to="/"
         />
         <unHeaderDesktop />

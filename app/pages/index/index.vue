@@ -4,9 +4,9 @@ import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
 import unContentImage from "@/components/unContentImage/unContentImage.vue";
 import unButton from "@/components/unButton/unButton.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
-import img from "/images/ny.webp";
 import EN from "./en.json";
 import { useHeaderStore } from "~/stores/pageDetails.js";
+import { getImage } from "~/utils/graphics";
 
 const store = useHeaderStore();
 </script>
@@ -103,7 +103,7 @@ const store = useHeaderStore();
         <template #image>
           <NuxtImg
             class="h-full w-full object-cover"
-            :src="img"
+            :src="getImage('ny')"
           />
         </template>
       </unContentImage>
@@ -130,7 +130,7 @@ const store = useHeaderStore();
         <template #image>
           <NuxtImg
             class="h-full w-full object-cover"
-            :src="img"
+            :src="getImage('argyle', 'jpg')"
           />
         </template>
       </unContentImage>
@@ -160,7 +160,7 @@ const store = useHeaderStore();
         <template #image>
           <NuxtImg
             class="h-full w-full object-cover"
-            :src="img"
+            :src="getImage('ny')"
           />
         </template>
       </unContentImage>
@@ -187,7 +187,7 @@ const store = useHeaderStore();
         <template #image>
           <NuxtImg
             class="h-full w-full object-cover"
-            :src="img"
+            :src="getImage('argyle', 'jpg')"
           />
         </template>
       </unContentImage>

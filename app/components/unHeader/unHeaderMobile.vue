@@ -4,9 +4,8 @@ import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
 import { useRouter } from "vue-router";
 import { handleSubLinkClick } from "./utils/handleSubLinkClick";
+import { getIcon } from "~/utils/graphics";
 
-const plusIcon = "/icons/plus.svg";
-const minusIcon = "/icons/minus.svg";
 const isOpen = ref(false);
 const openSubLink = ref(new Set());
 const router = useRouter();
@@ -94,7 +93,7 @@ const closeNav = () => {
           <NuxtImg
             v-if="item.SUB_LINKS"
             class="w-6"
-            :src="openSubLink.has(index) ? minusIcon : plusIcon"
+            :src="openSubLink.has(index) ? getIcon('minus') : getIcon('plus')"
           />
         </unDiv>
         <unDiv

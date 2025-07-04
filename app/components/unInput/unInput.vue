@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from "vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
-const selectChevron = "/icons/singleChevron.svg ";
+import { getIcon } from "~/utils/graphics";
+
 const props = defineProps({
   modelValue: {
     type: [String, Number, Boolean],
@@ -192,7 +193,7 @@ const charsLeft = computed(() => {
         </select>
         <div class="select-chevron">
           <img
-            :src="selectChevron"
+            :src="getIcon('singleChevron')"
             alt=""
             class="h-4 w-4"
           >

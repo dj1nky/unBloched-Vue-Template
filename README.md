@@ -33,21 +33,27 @@
 - [VS Code Vue Snippets](https://github.com/sdras/vue-vscode-snippets)
 
 ### Outdated Packages
+
 Some dependencies are out of date. To check for outdated packages, run:
 
 ```sh
 npm outdated
 ```
+
 Or, if using yarn:
+
 ```sh
 yarn outdated
 ```
 
 To update all packages to their latest versions:
+
 ```sh
 npm update
 ```
+
 Or, for yarn:
+
 ```sh
 yarn upgrade
 ```

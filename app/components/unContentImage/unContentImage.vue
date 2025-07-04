@@ -22,7 +22,7 @@ defineProps({
     div="grid"
     :grid-cols="12"
     gap="gap-0"
-    class="overflow-hidden"
+    class="overflow-hidden md:max-h-96"
     :container="container"
   >
     <unDiv

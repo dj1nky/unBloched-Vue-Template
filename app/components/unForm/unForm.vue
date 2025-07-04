@@ -6,7 +6,7 @@ import unDiv from "../unDiv/unDiv.vue";
 import { validate } from "./utils/validate.js";
 import { handleSubmit } from "./utils/handleSubmit.js";
 import { useToastStore } from "~/stores/toast.js";
-const loaderIcon = "icons/loader.svg";
+import { getIcon } from "~/utils/graphics.js";
 import EN from "./en.json";
 
 const props = defineProps({
@@ -110,7 +110,7 @@ watch(
           <NuxtImg
             v-if="isSubmitting"
             class="ml-2 h-6 w-6 animate-spin"
-            :src="loaderIcon"
+            :src="getIcon('loader')"
           />
         </unButton>
       </unDiv>

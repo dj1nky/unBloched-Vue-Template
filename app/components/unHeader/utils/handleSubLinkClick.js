@@ -19,7 +19,19 @@ export const handleSubLinkClick = (
 
     // If we're not on the target page, navigate first
     if (currentPath !== path) {
-      navigateTo(subLink.ROUTE);
+      // Navigate to the page first, then scroll to anchor after navigation
+      navigateTo(subLink.ROUTE).then(() => {
+        // Wait a bit for the page to fully render
+        setTimeout(() => {
+          const element = document.getElementById(anchor);
+          if (element) {
+            element.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 20);
+      });
     } else {
       // We're already on the page, just scroll to the anchor
       const element = document.getElementById(anchor);

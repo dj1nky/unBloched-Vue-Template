@@ -2,12 +2,11 @@
 import EN from "./en.json";
 import unDiv from "../unDiv/unDiv.vue";
 import { useRoute } from "#app";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { handleSubLinkClick } from "./utils/handleSubLinkClick";
+import { getNavItemClasses } from "./utils/navItemClasses";
 import { navigateTo } from "#app";
-
-const chevronDownIconWhite = "/icons/singleChevronWhite.svg";
-const chevronDownIconBlack = "/icons/singleChevron.svg";
+import { getIcon } from "~/utils/graphics";
 
 const route = useRoute();
 const hoveredIndex = ref(null);
@@ -25,6 +24,11 @@ const handleMouseEnter = (index) => {
 const handleMouseLeave = () => {
   hoveredIndex.value = null;
 };
+
+const navItemClasses = computed(() => {
+  return (item, index) =>
+    getNavItemClasses(item, index, isActive, hoveredIndex.value);
+});
 </script>
 
 <template>
@@ -43,17 +47,7 @@ const handleMouseLeave = () => {
           v-for="(item, index) in EN"
           :key="index"
           class="relative"
-          :class="{
-            'bg-dark rounded-lg hover:bg-white':
-              isActive(item.ROUTE) && hoveredIndex !== index,
-            'bg-dark hover:rounded-t-lg':
-              isActive(item.ROUTE) && item.SUB_LINKS,
-            'bg-dark hover:rounded-lg': isActive(item.ROUTE) && !item.SUB_LINKS,
-            'hover:rounded-t-lg hover:bg-white hover:text-black':
-              !isActive(item.ROUTE) && item.SUB_LINKS,
-            'hover:rounded-lg hover:bg-white hover:text-black':
-              !isActive(item.ROUTE) && !item.SUB_LINKS,
-          }"
+          :class="navItemClasses(item, index)"
           @mouseenter="handleMouseEnter(index)"
           @mouseleave="handleMouseLeave"
         >
@@ -71,8 +65,8 @@ const handleMouseLeave = () => {
                 v-if="item.SUB_LINKS"
                 :src="
                   hoveredIndex === index && !isActive(item.ROUTE)
-                    ? chevronDownIconBlack
-                    : chevronDownIconWhite
+                    ? getIcon('singleChevron')
+                    : getIcon('singleChevronWhite')
                 "
                 class="h-5 w-5"
               />
@@ -92,7 +86,9 @@ const handleMouseLeave = () => {
               :key="innerIndex"
               :to="subLink.ROUTE"
               class="w-52 border-b-1 border-gray-200 bg-white px-4 py-3 text-lg text-black shadow-xl first:rounded-tl last:rounded-b hover:bg-gray-200 hover:font-bold"
-              @click="handleSubLinkClick($event, subLink, route, navigateTo)"
+              @click="
+                handleSubLinkClick($event, subLink, route, navigateTo, null)
+              "
             >
               {{ subLink.LABEL }}
             </NuxtLink>
