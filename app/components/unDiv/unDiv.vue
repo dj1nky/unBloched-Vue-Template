@@ -2,6 +2,7 @@
 import styles from "../../styles";
 import {
   flexDirection,
+  flexGap,
   gridStyle,
   gridTemplateColumns,
   gridColumn,
@@ -30,8 +31,8 @@ const props = defineProps({
     validator: (value) => ["flex", "grid"].includes(value),
   },
   gap: {
-    type: String,
-    default: "gap-6",
+    type: Number,
+    default: 6,
   },
   gridCols: {
     type: Number,
@@ -53,6 +54,7 @@ const props = defineProps({
 
 // Create computed properties that call your style functions
 const computedflexDirection = computed(() => flexDirection(props));
+const computedflexGap = computed(() => flexGap(props));
 const computedGridColumn = computed(() => gridColumn(props));
 const computedGridTemplateColumns = computed(() => gridTemplateColumns(props));
 const computedDisplayClass = computed(() =>
@@ -66,6 +68,7 @@ const computedDisplayClass = computed(() =>
     :class="[
       computedflexDirection,
       computedDisplayClass,
+      computedflexGap,
       props.container ? styles.container : '',
       props.card ? styles.card : '',
       props.header ? styles.header : '',

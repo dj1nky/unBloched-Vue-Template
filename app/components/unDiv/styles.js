@@ -2,6 +2,10 @@ export const flexDirection = (props) => {
   return [props.gap, `flex-${props.direction}`];
 };
 
+export const flexGap = (props) => {
+  return [`gap-${props.gap}`];
+};
+
 export const gridColumn = (props) => {
   return {
     gridColumn: `span ${props.colSpan}`,

@@ -10,6 +10,10 @@ const props = defineProps({
     type: String,
     default: "span",
   },
+  textColor: {
+    type: String,
+    default: "yellow",
+  },
   textSize: {
     type: String,
     default: "", // Default text size, you can use "sm", "base", "lg", etc.
@@ -57,7 +61,7 @@ const parts = computed(() => createParts(props.text));
 
 <style scoped>
 .colored {
-  color: yellow;
+  color: v-bind("textColor");
   font-weight: bold;
 }
 </style>

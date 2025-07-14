@@ -21,7 +21,7 @@ defineProps({
   <unDiv
     div="grid"
     :grid-cols="12"
-    gap="gap-0"
+    :gap="0"
     class="overflow-hidden md:max-h-96"
     :container="container"
   >

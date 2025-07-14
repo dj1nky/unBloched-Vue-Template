@@ -4,9 +4,9 @@ import unDiv from "../unDiv/unDiv.vue";
 
 <template>
   <unDiv
-    :card="true"
-    class="mt-auto p-6"
-    :container="true"
+    header
+    class="mt-6 p-6"
+    container
   >
     <h1>Footer</h1>
   </unDiv>

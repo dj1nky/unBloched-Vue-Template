@@ -59,18 +59,18 @@ const closeNav = () => {
     <unDiv
       :style="{ width: navWidth }"
       class="overlay bg-[#21242C] pt-8"
-      gap="0"
+      :gap="0"
     >
       <unDiv
         v-for="(item, index) in EN"
         :key="index"
-        gap="0"
+        :gap="0"
         class="overlay-content line"
         container
         @click="item.SUB_LINKS && handleRowClick(item, index)"
       >
         <unDiv
-          gap="gap-4"
+          :gap="4"
           class="justify-between"
           direction="row"
         >
@@ -99,7 +99,7 @@ const closeNav = () => {
         <unDiv
           v-if="item.SUB_LINKS && openSubLink.has(index)"
           tag="ul"
-          gap="gap-4"
+          :gap="4"
           class="sub-links-list my-4"
         >
           <NuxtLink

@@ -1,38 +1,36 @@
 {
   "HOME": {
     "LABEL": "Home",
-    "ROUTE": "/",
-    "SUB_LINKS": [
-      {
-        "LABEL": "Pinia header",
-        "ROUTE": "/"
-      },
-      {
-        "LABEL": "Image Expanded",
-        "ROUTE": "/#image-expanded"
-      },
-      {
-        "LABEL": "Image Expanded Reversed",
-        "ROUTE": "/#image-expanded-reversed"
-      }
-    ]
+    "ROUTE": "/"
   },
   "FORM": {
-    "LABEL": "Our Form",
-    "ROUTE": "form",
+    "LABEL": "Components",
+    "ROUTE": "components",
     "SUB_LINKS": [
       {
-        "LABEL": "Starter Form",
-        "ROUTE": "form"
+        "LABEL": "Pinia Header",
+        "ROUTE": "components"
       },
       {
-        "LABEL": "The Mother of all Forms",
-        "ROUTE": "form"
+        "LABEL": "Form",
+        "ROUTE": "components#form"
+      },
+      {
+        "LABEL": "Buttons",
+        "ROUTE": "components#buttons"
+      },
+      {
+        "LABEL": "Toast",
+        "ROUTE": "components#toast"
+      },
+      {
+        "LABEL": "Image & Content",
+        "ROUTE": "components#imageContent"
+      },
+      {
+        "LABEL": "Image & Content Container",
+        "ROUTE": "components#imageContentContainer"
       }
     ]
-  },
-  "TOAST": {
-    "LABEL": "Our Toast",
-    "ROUTE": "toast"
   }
 }

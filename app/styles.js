@@ -10,11 +10,9 @@ export default {
     bg-linear-45 
     from-orange to-pink-500
     rounded
-    text-white
   `,
   header: `
     bg-linear-25 
     from-orange to-pink-600
-    text-white
   `,
 };

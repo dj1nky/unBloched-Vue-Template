@@ -3,12 +3,30 @@ import unHeader from "~/components/unHeader/Index.vue";
 import unFooter from "~/components/unFooter/unFooter.vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
 import unToast from "~/components/unToast/unToast.vue";
+
+const props = defineProps({
+  image: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <template>
   <unHeader />
-  <unDiv class="my-6 flex min-h-screen flex-col">
-    <slot />
+  <slot name="image">
+    <unDiv v-if="props.image">
+      <NuxtImg
+        class="h-108 object-cover object-top"
+        :src="props.image"
+      />
+    </unDiv>
+  </slot>
+  <unDiv
+    :gap="12"
+    class="mt-6 flex min-h-screen flex-col"
+  >
+    <slot name="content" />
   </unDiv>
   <unFooter />
   <unToast />

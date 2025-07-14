@@ -41,7 +41,7 @@ const navItemClasses = computed(() => {
       <unDiv
         direction="row"
         tag="ul"
-        gap="gap-4"
+        :gap="4"
       >
         <li
           v-for="(item, index) in EN"
@@ -57,7 +57,7 @@ const navItemClasses = computed(() => {
           >
             <unDiv
               direction="row"
-              gap="0"
+              :gap="0"
               class="items-center gap-2"
             >
               {{ item.LABEL }}

@@ -148,10 +148,10 @@ const charsLeft = computed(() => {
 <template>
   <unDiv
     class="text-sm"
-    gap="gap-2"
+    :gap="2"
     :col-span="6"
   >
-    <unDiv :gap="'gap-1'">
+    <unDiv :gap="1">
       <label
         :for="name"
         class="text-black"

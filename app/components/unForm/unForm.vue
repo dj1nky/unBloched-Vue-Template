@@ -69,10 +69,7 @@ watch(
 </script>
 
 <template>
-  <unDiv
-    class="items-start"
-    gap="gap-6"
-  >
+  <unDiv class="items-start">
     <form
       class="easeIn w-full rounded-lg bg-white p-6"
       @submit.prevent="onSubmit"
@@ -80,7 +77,7 @@ watch(
       <unDiv
         div="grid"
         :grid-cols="12"
-        gap="gap-4"
+        :gap="4"
       >
         <unDiv
           v-for="(field, index) in schema"
