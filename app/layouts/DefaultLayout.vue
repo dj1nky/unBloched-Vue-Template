@@ -17,8 +17,9 @@ const props = defineProps({
   <slot name="image">
     <unDiv v-if="props.image">
       <NuxtImg
-        class="h-108 object-cover object-top"
+        class="md:h-108 object-cover object-top"
         :src="props.image"
+        preload
       />
     </unDiv>
   </slot>

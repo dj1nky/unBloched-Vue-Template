@@ -58,7 +58,7 @@ const navItemClasses = computed(() => {
             <unDiv
               direction="row"
               :gap="0"
-              class="items-center gap-2"
+              class="items-center gap-2 px-2"
             >
               {{ item.LABEL }}
               <NuxtImg
