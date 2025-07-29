@@ -78,7 +78,7 @@ const navItemClasses = computed(() => {
                 item.SUB_LINKS &&
                 item.SUB_LINKS.length > 0
             "
-            gap="0"
+            :gap="0"
             class="absolute right-0 z-10 pt-0.5"
           >
             <NuxtLink
