@@ -11,7 +11,7 @@ import { getImage } from "~/utils/graphics";
     <unDiv container>
       <unDiv
         direction="row"
-        class="items-center justify-between"
+        class="items-center justify-between text-white"
       >
         <unImageLink
           border-radius="rounded-full"

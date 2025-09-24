@@ -66,7 +66,7 @@ defineProps({
   <button
     v-else-if="disabled"
     disabled
-    class="cursor-default rounded-lg bg-gray-400 p-2 text-center font-medium"
+    class="cursor-default rounded-lg bg-gray-400 p-2 text-center font-medium text-white"
     :class="bgColor"
   >
     {{ text }}
@@ -76,7 +76,7 @@ defineProps({
   <button
     v-else-if="!link"
     :type="type"
-    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium hover:text-white"
+    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium text-white hover:text-white"
     :class="bgColor"
   >
     <unDiv
@@ -93,7 +93,7 @@ defineProps({
     v-else
     target="_blank"
     :to="link"
-    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium hover:text-white"
+    class="hover:bg-dark cursor-pointer rounded-lg bg-indigo-500 p-2 text-center font-medium text-white hover:text-white"
     :class="bgColor"
   >
     {{ text }}

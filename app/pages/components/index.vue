@@ -40,6 +40,7 @@ const store = useHeaderStore();
       >
         <unFormattedText
           tag="h2"
+          class="text-white"
           :text="schema.formTitle"
         />
 
@@ -50,6 +51,7 @@ const store = useHeaderStore();
       </unDiv>
       <unDiv
         id="buttons"
+        class="text-white"
         container
       >
         <h1>Grid Buttons</h1>
