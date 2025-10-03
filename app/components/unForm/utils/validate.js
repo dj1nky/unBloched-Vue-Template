@@ -1,6 +1,6 @@
 export const validate = (schema, errors) => {
   return (fieldId, value) => {
-    const field = schema.find((field) => field.id === fieldId);
+    const field = schema.find(field => field.id === fieldId);
     if (!field || !field.validations) return;
 
     // Reset error for this field
@@ -60,7 +60,7 @@ export const validate = (schema, errors) => {
             const date = new Date(
               parseInt(year),
               parseInt(month) - 1,
-              parseInt(day),
+              parseInt(day)
             );
             // Check if it's a valid date and matches the input
             const isValidDate =

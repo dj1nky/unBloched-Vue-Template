@@ -2,6 +2,10 @@
 import unDiv from "../unDiv/unDiv.vue";
 
 defineProps({
+  animation: {
+    type: Boolean,
+    default: false,
+  },
   container: {
     type: Boolean,
     default: false,
@@ -24,9 +28,11 @@ defineProps({
     :gap="0"
     class="overflow-hidden md:max-h-96"
     :container="container"
+    :animation="animation ? 'fade-in' : ''"
   >
     <unDiv
       :col-span="colSpan"
+      :animation="animation ? 'fade-in-up' : ''"
       :class="[
         reverse ? 'md:order-last' : container ? '' : 'md:ms-auto md:w-[77%]',
       ]"

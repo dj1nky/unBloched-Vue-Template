@@ -47,13 +47,13 @@ const onSubmit = async () => {
     validateField,
     isSubmitting,
     displayToast,
-    EN,
+    EN
   );
 };
 
 watch(
   () => props.schema,
-  (newSchema) => {
+  newSchema => {
     formData.value = newSchema.reduce((acc, field) => {
       if (field.type === "checkbox") {
         acc[field.id] = false;
@@ -64,7 +64,7 @@ watch(
     }, {});
     validateField = validate(newSchema, errors.value);
   },
-  { immediate: true },
+  { immediate: true }
 );
 </script>
 

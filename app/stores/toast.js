@@ -29,18 +29,18 @@ export const useToastStore = defineStore("toast", {
     },
 
     hideToast(id) {
-      const toast = this.toasts.find((t) => t.id === id);
+      const toast = this.toasts.find(t => t.id === id);
       if (toast) {
         toast.show = false;
         // Remove from array after animation completes
         setTimeout(() => {
-          this.toasts = this.toasts.filter((t) => t.id !== id);
+          this.toasts = this.toasts.filter(t => t.id !== id);
         }, 300);
       }
     },
 
     clearAllToasts() {
-      this.toasts.forEach((toast) => {
+      this.toasts.forEach(toast => {
         toast.show = false;
       });
       setTimeout(() => {
@@ -67,6 +67,6 @@ export const useToastStore = defineStore("toast", {
   },
 
   getters: {
-    activeToasts: (state) => state.toasts.filter((toast) => toast.show),
+    activeToasts: state => state.toasts.filter(toast => toast.show),
   },
 });

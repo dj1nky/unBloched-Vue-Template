@@ -115,9 +115,7 @@ const store = useHeaderStore();
         container
         card
       >
-        <h1 class="text-black">
-          Toast
-        </h1>
+        <h1>Toast</h1>
         <ToastLayout />
       </unDiv>
 
@@ -125,7 +123,10 @@ const store = useHeaderStore();
         id="imageContent"
         :gap="0"
       >
-        <unContentImage class="bg-white text-black">
+        <unContentImage
+          animation
+          class="bg-white text-black"
+        >
           <template #content>
             <unDiv class="p-6">
               <h1>Image Expanded</h1>
@@ -150,6 +151,7 @@ const store = useHeaderStore();
 
         <unContentImage
           reverse
+          animation
           class="bg-white text-black"
         >
           <template #content>
@@ -182,6 +184,7 @@ const store = useHeaderStore();
         <unContentImage
           container
           reverse
+          animation
           class="bg-white text-black"
         >
           <template #content>
@@ -208,6 +211,7 @@ const store = useHeaderStore();
 
         <unContentImage
           container
+          animation
           class="bg-white text-black"
         >
           <template #content>

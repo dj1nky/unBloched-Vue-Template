@@ -5,12 +5,12 @@ export const handleSubmit = async (
   validateField,
   isSubmitting,
   displayToast,
-  EN,
+  EN
 ) => {
-  schema.forEach((field) => {
+  schema.forEach(field => {
     validateField(field.id, formData.value[field.id]);
   });
-  const hasErrors = Object.values(errors.value).some((error) => error !== "");
+  const hasErrors = Object.values(errors.value).some(error => error !== "");
 
   if (!hasErrors) {
     isSubmitting.value = true;

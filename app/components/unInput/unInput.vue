@@ -229,9 +229,7 @@ const charsLeft = computed(() => {
         <span
           class="ml-2 text-black"
           :class="{ 'text-red-500': hasError }"
-        >{{
-          placeholder
-        }}</span>
+        >{{ placeholder }}</span>
       </div>
 
       <!-- Regular input for all other cases -->

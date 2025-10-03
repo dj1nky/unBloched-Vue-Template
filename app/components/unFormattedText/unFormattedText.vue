@@ -35,15 +35,11 @@ const parts = computed(() => createParts(props.text));
       <span
         v-if="part.type === 'normal'"
         :class="textSize"
-      >{{
-        part.content
-      }}</span>
+      >{{ part.content }}</span>
       <em
         v-else-if="part.type === 'italic'"
         :class="textSize"
-      >{{
-        part.content
-      }}</em>
+      >{{ part.content }}</em>
       <span
         v-else-if="part.type === 'colored'"
         class="colored"

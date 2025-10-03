@@ -3,7 +3,7 @@ import { useToastStore } from "~/stores/toast.js";
 
 const toastStore = useToastStore();
 
-const getToastClasses = (type) => {
+const getToastClasses = type => {
   const baseClasses =
     "fixed bottom-12 left-1/2 z-50 container mx-auto w-full -translate-x-1/2 transform rounded-lg px-6 py-3 text-white shadow-lg md:w-auto";
 

@@ -1,4 +1,4 @@
-export const createParts = (text) => {
+export const createParts = text => {
   // Split the text by HTML tags for formatting
   // This regex captures <em>...</em>, <color>...</color>, and combinations of em/color
   const splitRegex =
@@ -6,7 +6,7 @@ export const createParts = (text) => {
   const rawParts = text.split(splitRegex);
 
   // Transform each part into a structured object
-  return rawParts.map((part) => {
+  return rawParts.map(part => {
     if (
       (part.startsWith("<em><color>") && part.endsWith("</color></em>")) ||
       (part.startsWith("<color><em>") && part.endsWith("</em></color>"))

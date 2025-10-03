@@ -11,7 +11,7 @@ export const icons = [
 export const images = ["logo", "ny", "argyle"];
 
 // Utility function to generate icon path
-export const getIcon = (iconName) => {
+export const getIcon = iconName => {
   return `/icons/${iconName}.svg`;
 };
 

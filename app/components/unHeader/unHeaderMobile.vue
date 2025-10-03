@@ -17,7 +17,7 @@ const toggleNav = () => {
 const navWidth = computed(() => (isOpen.value ? "100%" : "0"));
 
 // Prevent body scroll when mobile nav is open
-watch(isOpen, (val) => {
+watch(isOpen, val => {
   if (val) {
     document.body.style.overflow = "hidden";
   } else {

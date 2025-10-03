@@ -25,7 +25,7 @@ const showCustomToast = () => {
   toastStore.showToast(
     "This is a custom toast with 10 seconds duration",
     "success",
-    10000,
+    10000
   );
 };
 

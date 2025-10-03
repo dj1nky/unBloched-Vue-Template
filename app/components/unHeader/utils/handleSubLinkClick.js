@@ -3,7 +3,7 @@ export const handleSubLinkClick = (
   subLink,
   routeOrRouter,
   navigateTo,
-  closeNav,
+  closeNav
 ) => {
   // Check if it's an anchor link (contains #)
   if (subLink.ROUTE.includes("#")) {

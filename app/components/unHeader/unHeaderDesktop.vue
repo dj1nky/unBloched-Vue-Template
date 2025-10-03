@@ -11,13 +11,13 @@ import { getIcon } from "~/utils/graphics";
 const route = useRoute();
 const hoveredIndex = ref(null);
 
-const isActive = (path) => {
+const isActive = path => {
   // Ensure the path starts with a slash for proper comparison
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   return route.path === normalizedPath;
 };
 
-const handleMouseEnter = (index) => {
+const handleMouseEnter = index => {
   hoveredIndex.value = index;
 };
 
