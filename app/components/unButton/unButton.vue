@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import unDiv from "~/components/unDiv/unDiv.vue";
 defineProps({
   bgColor: {
@@ -34,7 +34,7 @@ defineProps({
     default: "",
   },
   type: {
-    type: String as () => "button" | "submit" | "reset",
+    type: String,
     default: "button",
   },
 });

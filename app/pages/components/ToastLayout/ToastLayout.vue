@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import unButton from "~/components/unButton/unButton.vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
 import { useToastStore } from "~/stores/toast.js";

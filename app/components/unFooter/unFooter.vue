@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import unDiv from "../unDiv/unDiv.vue";
 </script>
 

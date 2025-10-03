@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import unForm from "~/components/unForm/unForm.vue";
 import unContentImage from "@/components/unContentImage/unContentImage.vue";
@@ -18,6 +18,7 @@ const store = useHeaderStore();
   <DefaultLayout>
     <template #content>
       <unDiv
+        animation="fade-in-up"
         card
         container
         class="p-6 text-black"
@@ -28,6 +29,7 @@ const store = useHeaderStore();
         <unFormattedText
           tag="p"
           :text="EN.body.description"
+          animation="fade-in-down"
           text-color="blue"
         />
         <h2>

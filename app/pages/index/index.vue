@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import unDiv from "~/components/unDiv/unDiv.vue";
 import { getImage } from "~/utils/graphics";

@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script setup>
 import { createParts } from "./formatText";
+import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
 
 const props = defineProps({
   tag: {
@@ -18,15 +19,39 @@ const props = defineProps({
     type: String,
     default: "", // Default text size, you can use "sm", "base", "lg", etc.
   },
+  animation: {
+    type: String,
+    default: "",
+  },
+  animationThreshold: {
+    type: Number,
+    default: 0.6,
+  },
+  disableAnimationOnMobile: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const parts = computed(() => createParts(props.text));
+
+const { animationRef, isVisible } = useIntersectionAnimation({
+  animation: props.animation,
+  threshold: props.animationThreshold,
+  disableOnMobile: props.disableAnimationOnMobile,
+  triggerChildren: false,
+});
 </script>
 
 <template>
   <component
     :is="props.tag"
-    :class="textSize"
+    ref="animationRef"
+    :class="[
+      textSize,
+      props.animation ? props.animation : '',
+      { 'is-visible': isVisible },
+    ]"
   >
     <template
       v-for="(part, index) in parts"
