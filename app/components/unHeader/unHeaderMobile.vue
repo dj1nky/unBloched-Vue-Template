@@ -25,18 +25,13 @@ watch(isOpen, val => {
   }
 });
 
-const handleRowClick = (item, index) => {
-  if (item.SUB_LINKS) {
-    if (openSubLink.value.has(index)) {
-      openSubLink.value.delete(index);
-      openSubLink.value = new Set(openSubLink.value); // force reactivity
-    } else {
-      openSubLink.value.add(index);
-      openSubLink.value = new Set(openSubLink.value);
-    }
+const toggleSubLink = index => {
+  if (openSubLink.value.has(index)) {
+    openSubLink.value.delete(index);
+    openSubLink.value = new Set(openSubLink.value); // force reactivity
   } else {
-    closeNav();
-    router.push(item.ROUTE.startsWith("/") ? item.ROUTE : `/${item.ROUTE}`);
+    openSubLink.value.add(index);
+    openSubLink.value = new Set(openSubLink.value);
   }
 };
 
@@ -67,7 +62,6 @@ const closeNav = () => {
         :gap="0"
         class="overlay-content line"
         container
-        @click="item.SUB_LINKS && handleRowClick(item, index)"
       >
         <unDiv
           :gap="4"
@@ -75,17 +69,19 @@ const closeNav = () => {
           direction="row"
         >
           <template v-if="item.SUB_LINKS">
-            <span
+            <NuxtLink
               class="text-2xl font-light tracking-tighter text-inherit uppercase italic select-none"
+              :to="item.ROUTE || '#'"
+              @click="closeNav"
             >
               {{ item.LABEL }}
-            </span>
+            </NuxtLink>
           </template>
           <template v-else>
             <NuxtLink
               class="text-2xl font-light tracking-tighter text-inherit uppercase italic"
               :to="item.ROUTE"
-              @click="handleRowClick(item, index)"
+              @click="closeNav"
             >
               {{ item.LABEL }}
             </NuxtLink>
@@ -94,6 +90,7 @@ const closeNav = () => {
             v-if="item.SUB_LINKS"
             class="w-6"
             :src="openSubLink.has(index) ? getIcon('minus') : getIcon('plus')"
+            @click.stop="toggleSubLink(index)"
           />
         </unDiv>
         <unDiv
@@ -213,7 +210,7 @@ const closeNav = () => {
   width: 100%;
   margin: 1rem 0;
   border-radius: 2px;
-  @apply bg-gradient-to-r from-[#FA7166] to-[#f6339a];
+  background: linear-gradient(to right, #fa7166, #f6339a);
   opacity: 0.7;
 }
 

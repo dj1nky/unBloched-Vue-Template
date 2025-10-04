@@ -118,6 +118,7 @@ export function useIntersectionAnimation(
             "scale-in"
           );
           animationRef.value.classList.add("is-visible");
+          (animationRef.value as HTMLElement).style.transition = "none";
         }
       }
       if (!prefersReduced) {
@@ -130,6 +131,9 @@ export function useIntersectionAnimation(
             if (!isVisible.value) {
               isVisible.value = true;
               animationRef.value?.classList.add("is-visible");
+              if (animationRef.value) {
+                (animationRef.value as HTMLElement).style.transition = "none";
+              }
             }
             teardownObserver();
           } else if (!isMobile.value && wasMobile) {

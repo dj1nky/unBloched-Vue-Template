@@ -1,7 +1,9 @@
 .fade-in-right {
   opacity: 0;
   transform: translateX(-30px) scale(0.98);
-  transition: all 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .fade-in-right.is-visible {
@@ -21,7 +23,9 @@
 .fade-in-left {
   opacity: 0;
   transform: translateX(30px) scale(0.98);
-  transition: all 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .fade-in-left.is-visible {
@@ -32,7 +36,9 @@
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px) scale(0.98);
-  transition: all 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .fade-in-up.is-visible {
@@ -43,7 +49,9 @@
 .fade-in-down {
   opacity: 0;
   transform: translateY(-30px) scale(0.98);
-  transition: all 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .fade-in-down.is-visible {
