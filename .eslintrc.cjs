@@ -43,8 +43,77 @@ module.exports = {
         multiline: "below",
       },
     ],
-    // Disable ESLint import ordering - let Prettier handle it
-    "import/order": "off",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "parent",
+          "index",
+        ],
+        pathGroups: [
+          {
+            pattern: "vue",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "vue-router",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "{#app,#imports,#components}",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "vue/**",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "nuxt**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "@nuxt/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "@/**",
+            group: "internal",
+            position: "before",
+          },
+          {
+            pattern: "~/**",
+            group: "internal",
+            position: "before",
+          },
+          {
+            pattern: "./**",
+            group: "sibling",
+            position: "before",
+          },
+          {
+            pattern: "../**",
+            group: "parent",
+            position: "after",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["vue"],
+        "newlines-between": "never",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
     "no-undef": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
