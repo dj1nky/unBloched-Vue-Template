@@ -1,13 +1,9 @@
 <script setup>
-import { NuxtImg, NuxtLink } from "#components";
-
-import { navigateTo, useRoute } from "#app";
 import { computed, ref } from "vue";
-
+import { navigateTo, useRoute } from "#app";
+import { NuxtImg, NuxtLink } from "#components";
 import unDiv from "@/components/unDiv/unDiv.vue";
-
 import { getIcon } from "~/utils/graphics";
-
 import EN from "./en.json";
 import { handleSubLinkClick } from "./utils/handleSubLinkClick";
 import { getNavItemClasses } from "./utils/navItemClasses";

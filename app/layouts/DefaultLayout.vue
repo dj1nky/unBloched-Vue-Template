@@ -1,6 +1,5 @@
 <script setup>
 import { NuxtImg } from "#components";
-
 import unDiv from "@/components/unDiv/unDiv.vue";
 import unFooter from "@/components/unFooter/unFooter.vue";
 import unHeader from "@/components/unHeader/Index.vue";

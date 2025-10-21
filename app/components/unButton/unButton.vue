@@ -1,6 +1,5 @@
 <script setup>
 import { NuxtLink } from "#components";
-
 import unDiv from "@/components/unDiv/unDiv.vue";
 
 defineProps({

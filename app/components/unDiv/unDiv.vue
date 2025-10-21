@@ -1,8 +1,6 @@
 <script setup>
 import { computed } from "vue";
-
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
-
 import {
   flexDirection,
   flexGap,
@@ -10,7 +8,6 @@ import {
   gridStyle,
   gridTemplateColumns,
 } from "./styles";
-
 import styles from "../../styles";
 
 const props = defineProps({

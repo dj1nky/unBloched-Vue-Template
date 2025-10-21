@@ -1,16 +1,13 @@
 <script setup>
 import { NuxtImg } from "#components";
-
 import unButton from "@/components/unButton/unButton.vue";
 import unContentImage from "@/components/unContentImage/unContentImage.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import unForm from "@/components/unForm/unForm.vue";
 import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
-
 import { useHeaderStore } from "~/stores/pageDetails.js";
 import { getImage } from "~/utils/graphics";
-
 import ToastLayout from "./ToastLayout/ToastLayout.vue";
 import EN from "./en.json";
 import schema from "./schema.json";

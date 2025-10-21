@@ -1,8 +1,6 @@
 <script setup>
 import { computed } from "vue";
-
 import unDiv from "@/components/unDiv/unDiv.vue";
-
 import { getIcon } from "~/utils/graphics";
 
 const props = defineProps({

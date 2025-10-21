@@ -1,7 +1,6 @@
 <script setup>
 import unDiv from "@/components/unDiv/unDiv.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
-
 import { getImage } from "~/utils/graphics";
 </script>
 
