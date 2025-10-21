@@ -108,10 +108,6 @@ module.exports = {
         ],
         pathGroupsExcludedImportTypes: ["vue"],
         "newlines-between": "never",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
       },
     ],
     "no-undef": "error",
