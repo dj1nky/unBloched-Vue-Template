@@ -9,9 +9,9 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import { useHeaderStore } from "~/stores/pageDetails.js";
 import { getImage } from "~/utils/graphics";
 
+import ToastLayout from "./ToastLayout/ToastLayout.vue";
 import EN from "./en.json";
 import schema from "./schema.json";
-import ToastLayout from "./ToastLayout/ToastLayout.vue";
 
 const store = useHeaderStore();
 </script>

@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "format": "prettier . --write && eslint --fix --ext .js,.vue ."
+    "format": "prettier . --write",
+    "lint": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
     "@nuxt/image": "^1.5.0",

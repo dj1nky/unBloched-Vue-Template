@@ -4,7 +4,6 @@ import { computed } from "vue";
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
 
 import styles from "../../styles";
-
 import {
   flexDirection,
   flexGap,

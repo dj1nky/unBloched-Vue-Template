@@ -1,4 +1,6 @@
 <script setup>
+import { navigateTo } from "#app";
+import { useRoute } from "#app";
 
 import { computed, ref } from "vue";
 
@@ -9,9 +11,6 @@ import { getIcon } from "~/utils/graphics";
 import EN from "./en.json";
 import { handleSubLinkClick } from "./utils/handleSubLinkClick";
 import { getNavItemClasses } from "./utils/navItemClasses";
-
-import { navigateTo } from "#app";
-import { useRoute } from "#app";
 
 const route = useRoute();
 const hoveredIndex = ref(null);
