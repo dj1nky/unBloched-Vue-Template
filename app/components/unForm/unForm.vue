@@ -77,7 +77,7 @@ watch(
       <unDiv
         div="grid"
         :grid-cols="12"
-        :gap="4"
+        gap="gap-4"
       >
         <unDiv
           v-for="(field, index) in schema"

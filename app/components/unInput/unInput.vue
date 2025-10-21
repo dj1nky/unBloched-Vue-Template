@@ -148,14 +148,16 @@ const charsLeft = computed(() => {
 <template>
   <unDiv
     class="text-sm"
-    :gap="2"
+    gap="gap-2"
     :col-span="6"
   >
-    <unDiv :gap="1">
+    <unDiv gap="gap-1">
       <label
         :for="name"
         class="text-black"
-      >{{ label }}</label>
+      >
+        {{ label }}
+      </label>
       <span
         v-if="sublabel"
         class="text-xs text-gray-500"
@@ -196,7 +198,7 @@ const charsLeft = computed(() => {
             :src="getIcon('singleChevron')"
             alt=""
             class="h-4 w-4"
-          >
+          />
         </div>
       </div>
 
@@ -225,11 +227,13 @@ const charsLeft = computed(() => {
           class="form-checkbox h-5 w-5 text-indigo-500 transition duration-150 ease-in-out"
           :class="{ 'border-red-500': hasError }"
           @change="updateValue"
-        >
+        />
         <span
           class="ml-2 text-black"
           :class="{ 'text-red-500': hasError }"
-        >{{ placeholder }}</span>
+        >
+          {{ placeholder }}
+        </span>
       </div>
 
       <!-- Regular input for all other cases -->
@@ -244,7 +248,7 @@ const charsLeft = computed(() => {
         :class="inputClasses"
         @keydown.enter.prevent="false"
         @input="updateValue"
-      >
+      />
       <span
         v-if="hasValue && !isCheckbox && !hasError"
         class="mini-label"

@@ -10,9 +10,17 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  colSpan: {
+  height: {
+    type: String,
+    default: "",
+  },
+  flexContent: {
     type: Number,
-    default: 6,
+    default: 1,
+  },
+  flexImg: {
+    type: Number,
+    default: 1,
   },
   reverse: {
     type: Boolean,
@@ -23,23 +31,30 @@ defineProps({
 
 <template>
   <unDiv
-    div="grid"
-    :grid-cols="12"
-    :gap="0"
-    class="overflow-hidden md:max-h-96"
+    div="flex"
+    gap="gap-0"
+    class="overflow-hidden h-auto"
+    :class="[`md:${height}`]"
+    direction="md:flex-row flex-col"
     :container="container"
     :animation="animation ? 'fade-in' : ''"
   >
     <unDiv
-      :col-span="colSpan"
       :animation="animation ? 'fade-in-up' : ''"
+      :style="{
+        flex: container ? flexContent : 0.4,
+      }"
       :class="[
         reverse ? 'md:order-last' : container ? '' : 'md:ms-auto md:w-[77%]',
       ]"
     >
       <slot name="content" />
     </unDiv>
-    <unDiv :col-span="colSpan">
+    <unDiv
+      :style="{
+        flex: container ? flexImg : 0.5,
+      }"
+    >
       <slot name="image" />
     </unDiv>
   </unDiv>

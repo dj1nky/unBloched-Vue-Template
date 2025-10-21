@@ -41,7 +41,7 @@ const props = defineProps({
   },
   direction: {
     type: String,
-    default: "col",
+    default: "flex-col",
   },
   div: {
     type: String,
@@ -49,8 +49,8 @@ const props = defineProps({
     validator: value => ["flex", "grid"].includes(value),
   },
   gap: {
-    type: Number,
-    default: 6,
+    type: String,
+    default: "gap-6",
   },
   gridCols: {
     type: Number,

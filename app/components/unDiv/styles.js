@@ -1,9 +1,9 @@
 export const flexDirection = props => {
-  return [props.gap, `flex-${props.direction}`];
+  return [props.gap, props.direction];
 };
 
 export const flexGap = props => {
-  return [`gap-${props.gap}`];
+  return props.gap;
 };
 
 export const gridColumn = props => {

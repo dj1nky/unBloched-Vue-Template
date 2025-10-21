@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     "plugin:vue/vue3-recommended",
     "plugin:@typescript-eslint/recommended",
+    "prettier",
   ],
   parser: "vue-eslint-parser",
   parserOptions: {
@@ -17,5 +18,23 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     "vue/multi-word-component-names": 0,
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        singleline: {
+          max: 1,
+        },
+        multiline: {
+          max: 1,
+        },
+      },
+    ],
+    "vue/first-attribute-linebreak": [
+      "error",
+      {
+        singleline: "ignore",
+        multiline: "below",
+      },
+    ],
   },
 };

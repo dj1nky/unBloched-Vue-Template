@@ -41,7 +41,7 @@ const navItemClasses = computed(() => {
       <unDiv
         direction="row"
         tag="ul"
-        :gap="4"
+        gap="gap-4"
       >
         <li
           v-for="(item, index) in EN"
@@ -57,7 +57,7 @@ const navItemClasses = computed(() => {
           >
             <unDiv
               direction="row"
-              :gap="0"
+              gap="gap-0"
               class="items-center gap-2 px-2"
             >
               {{ item.LABEL }}
@@ -75,10 +75,10 @@ const navItemClasses = computed(() => {
           <unDiv
             v-if="
               hoveredIndex === index &&
-                item.SUB_LINKS &&
-                item.SUB_LINKS.length > 0
+              item.SUB_LINKS &&
+              item.SUB_LINKS.length > 0
             "
-            :gap="0"
+            gap="gap-0"
             class="absolute right-0 z-10 pt-0.5"
           >
             <NuxtLink

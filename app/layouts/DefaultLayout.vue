@@ -27,7 +27,7 @@ const props = defineProps({
     </unDiv>
   </slot>
   <unDiv
-    :gap="12"
+    gap="gap-12"
     class="mt-6 flex min-h-screen flex-col"
   >
     <slot name="content" />
