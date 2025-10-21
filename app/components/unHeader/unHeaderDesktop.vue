@@ -1,12 +1,17 @@
 <script setup>
+
+import { computed, ref } from "vue";
+
+import unDiv from "@/components/unDiv/unDiv.vue";
+
+import { getIcon } from "~/utils/graphics";
+
 import EN from "./en.json";
-import unDiv from "../unDiv/unDiv.vue";
-import { useRoute } from "#app";
-import { ref, computed } from "vue";
 import { handleSubLinkClick } from "./utils/handleSubLinkClick";
 import { getNavItemClasses } from "./utils/navItemClasses";
+
 import { navigateTo } from "#app";
-import { getIcon } from "~/utils/graphics";
+import { useRoute } from "#app";
 
 const route = useRoute();
 const hoveredIndex = ref(null);

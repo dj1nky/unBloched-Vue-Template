@@ -15,7 +15,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
     "vue/multi-word-component-names": 0,
     "vue/max-attributes-per-line": [
@@ -34,6 +34,62 @@ module.exports = {
       {
         singleline: "ignore",
         multiline: "below",
+      },
+    ],
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        pathGroups: [
+          {
+            pattern: "vue",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "vue-router",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "vue/**",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "nuxt**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "@nuxt/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "@/**",
+            group: "internal",
+            position: "before",
+          },
+          {
+            pattern: "~/**",
+            group: "internal",
+            position: "before",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["vue"],
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
       },
     ],
   },

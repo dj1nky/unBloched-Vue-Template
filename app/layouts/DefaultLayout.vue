@@ -1,8 +1,8 @@
 <script setup>
-import unDiv from "~/components/unDiv/unDiv.vue";
-import unFooter from "~/components/unFooter/unFooter.vue";
-import unHeader from "~/components/unHeader/Index.vue";
-import unToast from "~/components/unToast/unToast.vue";
+import unDiv from "@/components/unDiv/unDiv.vue";
+import unFooter from "@/components/unFooter/unFooter.vue";
+import unHeader from "@/components/unHeader/Index.vue";
+import unToast from "@/components/unToast/unToast.vue";
 
 const props = defineProps({
   image: {

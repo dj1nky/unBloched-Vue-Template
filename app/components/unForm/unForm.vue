@@ -1,13 +1,16 @@
 <script setup>
 import { ref } from "vue";
-import unInput from "~/components/unInput/unInput.vue";
-import unButton from "~/components/unButton/unButton.vue";
-import unDiv from "../unDiv/unDiv.vue";
-import { validate } from "./utils/validate.js";
-import { handleSubmit } from "./utils/handleSubmit.js";
+
+import unButton from "@/components/unButton/unButton.vue";
+import unDiv from "@/components/unDiv/unDiv.vue";
+import unInput from "@/components/unInput/unInput.vue";
+
 import { useToastStore } from "~/stores/toast.js";
 import { getIcon } from "~/utils/graphics.js";
+
 import EN from "./en.json";
+import { handleSubmit } from "./utils/handleSubmit.js";
+import { validate } from "./utils/validate.js";
 
 const props = defineProps({
   buttonText: {

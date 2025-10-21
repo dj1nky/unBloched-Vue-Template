@@ -1,6 +1,7 @@
 <script setup>
-import { createParts } from "./formatText";
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
+
+import { createParts } from "./formatText";
 
 const props = defineProps({
   tag: {

@@ -1,15 +1,17 @@
 <script setup>
-import DefaultLayout from "~/layouts/DefaultLayout.vue";
-import unForm from "~/components/unForm/unForm.vue";
-import unContentImage from "@/components/unContentImage/unContentImage.vue";
 import unButton from "@/components/unButton/unButton.vue";
-import schema from "./schema.json";
-import unFormattedText from "~/components/unFormattedText/unFormattedText.vue";
-import ToastLayout from "./ToastLayout/ToastLayout.vue";
-import unDiv from "~/components/unDiv/unDiv.vue";
+import unContentImage from "@/components/unContentImage/unContentImage.vue";
+import unDiv from "@/components/unDiv/unDiv.vue";
+import unForm from "@/components/unForm/unForm.vue";
+import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+
 import { useHeaderStore } from "~/stores/pageDetails.js";
 import { getImage } from "~/utils/graphics";
+
 import EN from "./en.json";
+import schema from "./schema.json";
+import ToastLayout from "./ToastLayout/ToastLayout.vue";
 
 const store = useHeaderStore();
 </script>

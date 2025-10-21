@@ -1,4 +1,5 @@
-import { ref, onMounted, onUnmounted, Ref } from "vue";
+import { Ref, onMounted, onUnmounted, ref } from "vue";
+
 import { ANIMATIONS } from "~/components/unDiv/animations.js";
 
 // Public types

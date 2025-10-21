@@ -1,5 +1,5 @@
 <script setup>
-import unDiv from "../unDiv/unDiv.vue";
+import unDiv from "@/components/unDiv/unDiv.vue";
 
 defineProps({
   animation: {

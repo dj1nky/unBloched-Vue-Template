@@ -1,4 +1,5 @@
 {
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "semi": true,
   "singleQuote": false,
   "tabWidth": 2,
@@ -11,5 +12,18 @@
   "printWidth": 80,
   "vueIndentScriptAndStyle": false,
   "singleAttributePerLine": true,
-  "htmlWhitespaceSensitivity": "ignore"
+  "htmlWhitespaceSensitivity": "ignore",
+  "importOrder": [
+    "^vue$",
+    "^vue-router$",
+    "^vue/(.*)$",
+    "^nuxt",
+    "^@nuxt/(.*)$",
+    "^@/(.*)$",
+    "^~/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true
 }

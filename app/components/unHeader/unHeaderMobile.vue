@@ -1,10 +1,14 @@
 <script setup>
-import { ref, computed, watch } from "vue";
-import EN from "./en.json";
-import unDiv from "../unDiv/unDiv.vue";
+import { computed, ref, watch } from "vue";
+
 import { useRouter } from "vue-router";
-import { handleSubLinkClick } from "./utils/handleSubLinkClick";
+
+import unDiv from "@/components/unDiv/unDiv.vue";
+
 import { getIcon } from "~/utils/graphics";
+
+import EN from "./en.json";
+import { handleSubLinkClick } from "./utils/handleSubLinkClick";
 
 const isOpen = ref(false);
 const openSubLink = ref(new Set());
