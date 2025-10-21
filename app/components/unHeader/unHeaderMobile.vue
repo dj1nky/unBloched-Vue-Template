@@ -1,6 +1,5 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-
 import { useRouter } from "vue-router";
 
 import unDiv from "@/components/unDiv/unDiv.vue";

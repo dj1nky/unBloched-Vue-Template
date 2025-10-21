@@ -1,7 +1,5 @@
 <script setup>
-import { navigateTo } from "#app";
-import { useRoute } from "#app";
-
+import { navigateTo, useRoute } from "#app";
 import { computed, ref } from "vue";
 
 import unDiv from "@/components/unDiv/unDiv.vue";
