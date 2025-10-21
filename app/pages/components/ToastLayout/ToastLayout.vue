@@ -1,4 +1,6 @@
 <script setup>
+import { ClientOnly } from "#components";
+
 import unButton from "@/components/unButton/unButton.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 
@@ -36,7 +38,7 @@ const clearAllToasts = () => {
 </script>
 
 <template>
-  <client-only>
+  <ClientOnly>
     <unDiv
       div="grid"
       :grid-cols="2"
@@ -77,5 +79,5 @@ const clearAllToasts = () => {
         @click="clearAllToasts"
       />
     </unDiv>
-  </client-only>
+  </ClientOnly>
 </template>

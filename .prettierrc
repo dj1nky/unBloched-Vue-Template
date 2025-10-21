@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
-  ],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "semi": true,
   "singleQuote": false,
   "tabWidth": 2,
@@ -22,7 +20,8 @@
     "^@nuxt/(.*)$",
     "^@/(.*)$",
     "^~/(.*)$",
-    "^[./]"
+    "^\\./",
+    "^\\.\\./"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,

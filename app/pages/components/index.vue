@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtImg } from "#components";
+
 import unButton from "@/components/unButton/unButton.vue";
 import unContentImage from "@/components/unContentImage/unContentImage.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";

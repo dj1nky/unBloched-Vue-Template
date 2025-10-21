@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from "vue";
+
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
 
 import { createParts } from "./formatText";

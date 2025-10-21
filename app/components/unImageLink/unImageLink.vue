@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtImg, NuxtLink } from "#components";
+
 defineProps({
   borderRadius: {
     type: String,

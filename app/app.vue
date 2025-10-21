@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { NuxtLayout, NuxtPage } from "#components";
+</script>
 
 <template>
   <NuxtLayout>

@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtImg, NuxtLink } from "#components";
+
 import { navigateTo, useRoute } from "#app";
 import { computed, ref } from "vue";
 

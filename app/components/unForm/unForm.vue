@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { NuxtImg } from "#components";
+
+import { ref, watch } from "vue";
 
 import unButton from "@/components/unButton/unButton.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";

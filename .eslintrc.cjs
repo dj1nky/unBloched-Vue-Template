@@ -9,11 +9,18 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
+  globals: {
+    defineProps: "readonly",
+    defineEmits: "readonly",
+    defineExpose: "readonly",
+    withDefaults: "readonly",
+  },
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
     ecmaVersion: 2020,
     sourceType: "module",
+    extraFileExtensions: [".vue"],
   },
   plugins: ["@typescript-eslint", "import"],
   rules: {
@@ -36,56 +43,18 @@ module.exports = {
         multiline: "below",
       },
     ],
-    "import/order": [
+    // Disable ESLint import ordering - let Prettier handle it
+    "import/order": "off",
+    "no-undef": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-        ],
-        pathGroups: [
-          {
-            pattern: "{vue,vue-router,#app,#imports}",
-            group: "external",
-            position: "before",
-          },
-          {
-            pattern: "vue/**",
-            group: "external",
-            position: "before",
-          },
-          {
-            pattern: "nuxt**",
-            group: "external",
-            position: "after",
-          },
-          {
-            pattern: "@nuxt/**",
-            group: "external",
-            position: "after",
-          },
-          {
-            pattern: "@/**",
-            group: "internal",
-            position: "before",
-          },
-          {
-            pattern: "~/**",
-            group: "internal",
-            position: "before",
-          },
-        ],
-        pathGroupsExcludedImportTypes: ["vue"],
-        "newlines-between": "always",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
       },
     ],
+    "vue/no-unused-components": "error",
+    "vue/no-undef-components": "error",
   },
 };

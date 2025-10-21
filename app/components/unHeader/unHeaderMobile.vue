@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtImg, NuxtLink } from "#components";
+
 import { computed, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
