@@ -158,33 +158,7 @@ const store = useHeaderStore();
         >
           <template #content>
             <unDiv class="p-6">
-              <h1>Image Expanded Reversed different flexes</h1>
-              <unFormattedText
-                tag="p"
-                text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
-                natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
-                cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet 
-                laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? 
-                Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
-                cumque."
-              />
-            </unDiv>
-          </template>
-          <template #image>
-            <unImage
-              class="h-full w-full object-cover"
-              img="new-york"
-            />
-          </template>
-        </unContentImage>
-
-        <unContentImage
-          animation
-          class="text-white"
-        >
-          <template #content>
-            <unDiv class="p-6">
-              <h1>Image Expanded Reversed different flexes</h1>
+              <h1>Image Expanded Reversed</h1>
               <unFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
