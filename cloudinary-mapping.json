@@ -1,0 +1,14 @@
+[
+  {
+    "originalPath": "/Users/dyllan/Documents/GitHub/unBloched-Vue-Template/public/images/logo.webp",
+    "relativePath": "logo.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dsuj8bw8y/image/upload/v1764895566/unbloched/unbloched/logo.webp",
+    "publicId": "unbloched/unbloched/logo"
+  },
+  {
+    "originalPath": "/Users/dyllan/Documents/GitHub/unBloched-Vue-Template/public/images/new-york.webp",
+    "relativePath": "new-york.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dsuj8bw8y/image/upload/v1764895579/unbloched/unbloched/new-york.webp",
+    "publicId": "unbloched/unbloched/new-york"
+  }
+]

@@ -1,13 +1,12 @@
 <script setup>
-import { NuxtImg } from "#components";
 import unButton from "@/components/unButton/unButton.vue";
 import unContentImage from "@/components/unContentImage/unContentImage.vue";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import unForm from "@/components/unForm/unForm.vue";
 import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
+import unImage from "@/components/unImage/unImage.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import { useHeaderStore } from "~/stores/pageDetails.js";
-import { getImage } from "~/utils/graphics";
 import ToastLayout from "./ToastLayout/ToastLayout.vue";
 import EN from "./en.json";
 import schema from "./schema.json";
@@ -145,9 +144,9 @@ const store = useHeaderStore();
             </unDiv>
           </template>
           <template #image>
-            <NuxtImg
+            <unImage
               class="h-full w-full object-cover"
-              :src="getImage('ny')"
+              img="new-york"
             />
           </template>
         </unContentImage>
@@ -155,14 +154,11 @@ const store = useHeaderStore();
         <unContentImage
           reverse
           animation
-          height="max-h-96"
           class="text-white"
         >
           <template #content>
             <unDiv class="p-6">
-              <h1>
-                Image Expanded Reversed different flexes Restricted height
-              </h1>
+              <h1>Image Expanded Reversed different flexes</h1>
               <unFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
@@ -175,9 +171,9 @@ const store = useHeaderStore();
             </unDiv>
           </template>
           <template #image>
-            <NuxtImg
+            <unImage
               class="h-full w-full object-cover"
-              :src="getImage('argyle', 'jpg')"
+              img="new-york"
             />
           </template>
         </unContentImage>
@@ -201,9 +197,9 @@ const store = useHeaderStore();
             </unDiv>
           </template>
           <template #image>
-            <NuxtImg
+            <unImage
               class="h-full w-full object-cover"
-              :src="getImage('ny')"
+              img="new-york"
             />
           </template>
         </unContentImage>
@@ -234,22 +230,21 @@ const store = useHeaderStore();
             </unDiv>
           </template>
           <template #image>
-            <NuxtImg
+            <unImage
               class="h-full w-full object-cover"
-              :src="getImage('ny')"
+              img="new-york"
             />
           </template>
         </unContentImage>
 
         <unContentImage
           container
-          height="max-h-96"
           animation
           class="bg-white text-black"
         >
           <template #content>
             <unDiv class="p-6">
-              <h1>Image Contained Restricted Height</h1>
+              <h1>Image Contained</h1>
               <unFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis cumque."
@@ -257,9 +252,9 @@ const store = useHeaderStore();
             </unDiv>
           </template>
           <template #image>
-            <NuxtImg
+            <unImage
               class="h-full w-full object-cover"
-              :src="getImage('argyle', 'jpg')"
+              img="new-york"
             />
           </template>
         </unContentImage>

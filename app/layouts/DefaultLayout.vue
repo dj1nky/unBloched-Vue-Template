@@ -1,8 +1,8 @@
 <script setup>
-import { NuxtImg } from "#components";
 import unDiv from "@/components/unDiv/unDiv.vue";
 import unFooter from "@/components/unFooter/unFooter.vue";
 import unHeader from "@/components/unHeader/Index.vue";
+import unImage from "@/components/unImage/unImage.vue";
 import unToast from "@/components/unToast/unToast.vue";
 
 const props = defineProps({
@@ -20,9 +20,9 @@ const props = defineProps({
       v-if="props.image"
       animation="fade-in"
     >
-      <NuxtImg
+      <unImage
         class="object-cover object-top md:h-108"
-        :src="props.image"
+        :img="props.image"
         preload
       />
     </unDiv>

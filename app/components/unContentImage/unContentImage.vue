@@ -10,10 +10,6 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  height: {
-    type: String,
-    default: "",
-  },
   flexContent: {
     type: Number,
     default: 1,
@@ -34,7 +30,6 @@ defineProps({
     div="flex"
     gap="gap-0"
     class="overflow-hidden h-auto"
-    :class="[`md:${height}`]"
     direction="md:flex-row flex-col"
     :container="container"
     :animation="animation ? 'fade-in' : ''"

@@ -14,6 +14,8 @@ module.exports = {
     defineEmits: "readonly",
     defineExpose: "readonly",
     withDefaults: "readonly",
+    NuxtImg: "readonly",
+    NuxtPicture: "readonly",
   },
   parser: "vue-eslint-parser",
   parserOptions: {
@@ -47,8 +49,8 @@ module.exports = {
       "error",
       {
         groups: [
-          "builtin",
           "external",
+          "builtin",
           "internal",
           "sibling",
           "parent",

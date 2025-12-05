@@ -11,7 +11,10 @@
     "format": "prettier . --write",
     "lint": "eslint --fix --ext .js,.vue .",
     "lint:check": "eslint --ext .js,.vue .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "upload:images": "node -r dotenv/config upload-to-cloudinary.js",
+    "optimise:images": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 1920x1920\\> -quality 80 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;",
+    "optimise:images:hero": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 2560x1440\\> -quality 90 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;"
   },
   "lint-staged": {
     "*.{js,vue}": [
@@ -25,6 +28,7 @@
     "@pinia/nuxt": "^0.11.0",
     "@tailwindcss/vite": "^4.0.12",
     "caniuse-lite": "^1.0.30001692",
+    "cloudinary": "^2.8.0",
     "nuxt": "^3.16.0",
     "pinia": "^3.0.2",
     "stylelint-config-recommended-vue": "^1.5.0",
