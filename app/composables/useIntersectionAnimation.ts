@@ -1,5 +1,5 @@
 import { Ref, onMounted, onUnmounted, ref } from "vue";
-import { ANIMATIONS } from "~/components/unDiv/animations.js";
+import { ANIMATIONS } from "~/components/AppDiv/animations.js";
 
 // Public types
 export type AnimationKey = keyof typeof ANIMATIONS;

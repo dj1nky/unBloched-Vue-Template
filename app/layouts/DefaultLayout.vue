@@ -1,9 +1,9 @@
 <script setup>
-import unDiv from "@/components/unDiv/unDiv.vue";
-import unFooter from "@/components/unFooter/unFooter.vue";
-import unHeader from "@/components/unHeader/Index.vue";
-import unImage from "@/components/unImage/unImage.vue";
-import unToast from "@/components/unToast/unToast.vue";
+import AppFooter from "@/components/AppFooter/AppFooter.vue";
+import AppImage from "@/components/AppImage/AppImage.vue";
+import AppToast from "@/components/AppToast/AppToast.vue";
+import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import AppHeader from "~/components/AppHeader/AppHeader.vue";
 
 const props = defineProps({
   image: {
@@ -14,27 +14,27 @@ const props = defineProps({
 </script>
 
 <template>
-  <unHeader />
+  <AppHeader />
   <slot name="image">
-    <unDiv
+    <AppDiv
       v-if="props.image"
       animation="fade-in"
     >
-      <unImage
+      <AppImage
         class="object-cover object-top md:h-108"
         :img="props.image"
         preload
       />
-    </unDiv>
+    </AppDiv>
   </slot>
-  <unDiv
+  <AppDiv
     gap="gap-12"
     class="mt-6 flex min-h-screen flex-col"
   >
     <slot name="content" />
-  </unDiv>
-  <unFooter />
-  <unToast />
+  </AppDiv>
+  <AppFooter />
+  <AppToast />
 </template>
 
 <style scoped></style>

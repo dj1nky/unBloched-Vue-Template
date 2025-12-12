@@ -11,6 +11,15 @@ export const useCloudinary = () => {
    * @returns {string} - Full Cloudinary URL
    */
   const getImageUrl = (path, options = {}) => {
+    // If it's a .lottie file or starts with '/', treat as local file
+    if (
+      path.endsWith(".lottie") ||
+      path.startsWith("/") ||
+      path.startsWith("images/")
+    ) {
+      return path.startsWith("/") ? path : `/${path}`;
+    }
+
     const transformations = [];
 
     // Width

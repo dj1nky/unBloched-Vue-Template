@@ -1,15 +1,13 @@
 <script setup>
-import unDiv from "@/components/unDiv/unDiv.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import AppDiv from "~/components/AppDiv/AppDiv.vue";
 import { getImage } from "~/utils/graphics";
 </script>
 
 <template>
   <DefaultLayout :image="getImage('ny')">
     <template #content>
-      <unDiv container>
-        <h1>unBloched Vue Template</h1>
-      </unDiv>
+      <AppDiv container></AppDiv>
     </template>
   </DefaultLayout>
 </template>

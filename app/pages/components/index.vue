@@ -1,15 +1,15 @@
 <script setup>
-import unButton from "@/components/unButton/unButton.vue";
-import unContentImage from "@/components/unContentImage/unContentImage.vue";
-import unDiv from "@/components/unDiv/unDiv.vue";
-import unForm from "@/components/unForm/unForm.vue";
-import unFormattedText from "@/components/unFormattedText/unFormattedText.vue";
-import unImage from "@/components/unImage/unImage.vue";
+import AppButton from "@/components/AppButton/AppButton.vue";
+import AppContentImage from "@/components/AppContentImage/AppContentImage.vue";
+import AppFormattedText from "@/components/AppFormattedText/AppFormattedText.vue";
+import AppImage from "@/components/AppImage/AppImage.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import AppForm from "~/components/AppForm/AppForm.vue";
 import { useHeaderStore } from "~/stores/pageDetails.js";
-import ToastLayout from "./ToastLayout/ToastLayout.vue";
 import EN from "./en.json";
 import schema from "./schema.json";
+import ToastLayout from "../../layouts/ToastLayout.vue";
 
 const store = useHeaderStore();
 </script>
@@ -17,7 +17,7 @@ const store = useHeaderStore();
 <template>
   <DefaultLayout>
     <template #content>
-      <unDiv
+      <AppDiv
         animation="fade-in-up"
         card
         container
@@ -26,7 +26,7 @@ const store = useHeaderStore();
         <h1 class="large-h1 font-bold">
           {{ store.header }}
         </h1>
-        <unFormattedText
+        <AppFormattedText
           tag="p"
           :text="EN.body.description"
           animation="fade-in-down"
@@ -35,83 +35,83 @@ const store = useHeaderStore();
         <h2>
           {{ store.body }}
         </h2>
-      </unDiv>
-      <unDiv
+      </AppDiv>
+      <AppDiv
         id="form"
         container
       >
-        <unFormattedText
+        <AppFormattedText
           tag="h2"
           class="text-white"
           :text="schema.formTitle"
         />
 
-        <unForm
+        <AppForm
           :button-text="schema.submitButtonText"
           :schema="schema.fields"
         />
-      </unDiv>
-      <unDiv
+      </AppDiv>
+      <AppDiv
         id="buttons"
         class="text-white"
         container
       >
         <h1>Grid Buttons</h1>
-        <unDiv
+        <AppDiv
           :grid-cols="12"
           class="text-center text-black"
           div="grid"
         >
-          <unDiv
+          <AppDiv
             class="p-6"
             card
             :col-span="4"
           >
             Grid Item 1
-            <unButton
+            <AppButton
               text="Default Button with link"
               link="https://google.com.au"
             />
-            <unButton
+            <AppButton
               text="Secondary Button with link"
               secondary
               link="https://google.com.au"
             />
-          </unDiv>
-          <unDiv
+          </AppDiv>
+          <AppDiv
             class="p-6"
             card
             :col-span="4"
           >
             Grid Item 2
-            <unButton
+            <AppButton
               disabled
               text="Disabled Button"
             />
-            <unButton
+            <AppButton
               disabled
               text="Disabled Button"
             />
-          </unDiv>
-          <unDiv
+          </AppDiv>
+          <AppDiv
             class="p-6"
             card
             :col-span="4"
           >
             Grid Item 3
-            <unButton
+            <AppButton
               tertiary
               text="Tertiary Button"
             />
-            <unButton
+            <AppButton
               secondary
               text="Secondary Button"
             />
-          </unDiv>
-        </unDiv>
-      </unDiv>
+          </AppDiv>
+        </AppDiv>
+      </AppDiv>
 
-      <unDiv
+      <AppDiv
         id="toast"
         class="p-6"
         container
@@ -119,20 +119,20 @@ const store = useHeaderStore();
       >
         <h1>Toast</h1>
         <ToastLayout />
-      </unDiv>
+      </AppDiv>
 
-      <unDiv
+      <AppDiv
         id="imageContent"
         gap="gap-0"
       >
-        <unContentImage
+        <AppContentImage
           animation
           class="bg-white text-black"
         >
           <template #content>
-            <unDiv class="p-6">
+            <AppDiv class="p-6">
               <h1>Image Expanded</h1>
-              <unFormattedText
+              <AppFormattedText
                 :tag="'p'"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
                   natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
@@ -141,25 +141,25 @@ const store = useHeaderStore();
                   Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
                   cumque."
               />
-            </unDiv>
+            </AppDiv>
           </template>
           <template #image>
-            <unImage
+            <AppImage
               class="h-full w-full object-cover"
               img="new-york"
             />
           </template>
-        </unContentImage>
+        </AppContentImage>
 
-        <unContentImage
+        <AppContentImage
           reverse
           animation
-          class="text-white"
+          class="bg-white text-black"
         >
           <template #content>
-            <unDiv class="p-6">
+            <AppDiv class="p-6">
               <h1>Image Expanded Reversed</h1>
-              <unFormattedText
+              <AppFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
                 natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
@@ -168,31 +168,31 @@ const store = useHeaderStore();
                 Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
                 cumque."
               />
-            </unDiv>
+            </AppDiv>
           </template>
           <template #image>
-            <unImage
+            <AppImage
               class="h-full w-full object-cover"
               img="new-york"
             />
           </template>
-        </unContentImage>
-      </unDiv>
+        </AppContentImage>
+      </AppDiv>
 
-      <unDiv
+      <AppDiv
         id="imageContentContainer"
         gap="gap-0"
       >
-        <unContentImage
+        <AppContentImage
           container
           reverse
           animation
-          class="bg-white text-black"
+          class="text-white"
         >
           <template #content>
-            <unDiv class="p-6">
-              <h1>Image Contained Reversed</h1>
-              <unFormattedText
+            <AppDiv class="p-6">
+              <h1>Animated Image Contained Reversed</h1>
+              <AppFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, 
                   natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur 
@@ -201,38 +201,38 @@ const store = useHeaderStore();
                   Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis 
                   cumque."
               />
-            </unDiv>
+            </AppDiv>
           </template>
           <template #image>
-            <unImage
-              class="h-full w-full object-cover"
-              img="new-york"
+            <AppImage
+              lottie
+              img="images/astronaut.lottie"
             />
           </template>
-        </unContentImage>
+        </AppContentImage>
 
-        <unContentImage
+        <AppContentImage
           container
           animation
-          class="bg-white text-black"
+          class="text-white"
         >
           <template #content>
-            <unDiv class="p-6">
-              <h1>Image Contained</h1>
-              <unFormattedText
+            <AppDiv class="p-6">
+              <h1>Animated Image Contained</h1>
+              <AppFormattedText
                 tag="p"
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, natus beatae aut saepe nemo neque obcaecati sint dolorem consequatur cupiditate mollitia, autem, repellendus modi sapiente accusamus ex amet laborum doloremque nesciunt consectetur. A voluptates animi iste eligendi numquam? Delectus et sit corporis, nisi magnam veniam impedit quia necessitatibus perferendis cumque."
               />
-            </unDiv>
+            </AppDiv>
           </template>
           <template #image>
-            <unImage
-              class="h-full w-full object-cover"
-              img="new-york"
+            <AppImage
+              lottie
+              img="images/astronaut.lottie"
             />
           </template>
-        </unContentImage>
-      </unDiv>
+        </AppContentImage>
+      </AppDiv>
     </template>
   </DefaultLayout>
 </template>
