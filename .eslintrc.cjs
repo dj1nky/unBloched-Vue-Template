@@ -58,17 +58,17 @@ module.exports = {
         ],
         pathGroups: [
           {
+            pattern: "{#app,#imports,#components}",
+            group: "external",
+            position: "before",
+          },
+          {
             pattern: "vue",
             group: "external",
             position: "before",
           },
           {
             pattern: "vue-router",
-            group: "external",
-            position: "before",
-          },
-          {
-            pattern: "{#app,#imports,#components}",
             group: "external",
             position: "before",
           },
