@@ -4,11 +4,16 @@ import { NuxtImg } from "#components";
 import AppButton from "@/components/AppButton/AppButton.vue";
 import AppInput from "@/components/AppInput/AppInput.vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import { useGraphics } from "~/composables/useGraphics";
 import { useToastStore } from "~/stores/toast.js";
-import { getIcon } from "~/utils/graphics.js";
+import { useHandleSubmit } from "./composables/useHandleSubmit.js";
+import { useValidate } from "./composables/useValidate.js";
 import EN from "./en.json";
-import { handleSubmit } from "./utils/handleSubmit.js";
-import { validate } from "./utils/validate.js";
+
+const { getIcon } = useGraphics();
+
+const { handleSubmit } = useHandleSubmit();
+const { validate } = useValidate();
 
 const props = defineProps({
   buttonText: {

@@ -1,7 +1,9 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { getImage } from "~/utils/graphics";
+import { useGraphics } from "~/composables/useGraphics";
+
+const { getImage } = useGraphics();
 </script>
 
 <template>

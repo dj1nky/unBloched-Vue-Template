@@ -1,11 +1,15 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { useRouter } from "vue-router";
 import { NuxtImg, NuxtLink } from "#components";
+import { useRouter } from "vue-router";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { getIcon } from "~/utils/graphics";
+import { useGraphics } from "~/composables/useGraphics";
+import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
 import EN from "./en.json";
-import { handleSubLinkClick } from "./utils/handleSubLinkClick";
+
+const { getIcon } = useGraphics();
+
+const { handleSubLinkClick } = useHandleSubLinkClick();
 
 const isOpen = ref(false);
 const openSubLink = ref(new Set());

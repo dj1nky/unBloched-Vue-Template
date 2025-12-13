@@ -1,7 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { getIcon } from "~/utils/graphics";
+import { useGraphics } from "~/composables/useGraphics";
+
+const { getIcon } = useGraphics();
 
 const props = defineProps({
   modelValue: {

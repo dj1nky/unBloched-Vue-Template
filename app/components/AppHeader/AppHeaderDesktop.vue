@@ -3,10 +3,15 @@ import { computed, ref } from "vue";
 import { navigateTo, useRoute } from "#app";
 import { NuxtImg, NuxtLink } from "#components";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { getIcon } from "~/utils/graphics";
+import { useGraphics } from "~/composables/useGraphics";
+import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
+import { useNavItemClasses } from "./composables/useNavItemClasses";
 import EN from "./en.json";
-import { handleSubLinkClick } from "./utils/handleSubLinkClick";
-import { getNavItemClasses } from "./utils/navItemClasses";
+
+const { getIcon } = useGraphics();
+
+const { handleSubLinkClick } = useHandleSubLinkClick();
+const { getNavItemClasses } = useNavItemClasses();
 
 const route = useRoute();
 const hoveredIndex = ref(null);

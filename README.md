@@ -84,8 +84,8 @@ The project enforces a specific import order that keeps Vue composition API impo
 ```javascript
 // ✅ Correct order
 import { computed, ref, watch } from "vue";
-import { useRouter } from "vue-router";
 import { NuxtImg } from "#components";
+import { useRouter } from "vue-router";
 import AppButton from "@/components/AppButton/AppButton.vue";
 import { useStore } from "~/stores/example.js";
 import LocalComponent from "./LocalComponent.vue";
