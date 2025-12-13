@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@lottiefiles/dotlottie-vue": "^0.10.10",
     "@nuxt/image": "^1.5.0",
     "@nuxtjs/tailwindcss": "^6.12.0",

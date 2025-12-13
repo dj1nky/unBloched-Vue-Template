@@ -1,14 +1,13 @@
 <script setup>
 import { computed, ref } from "vue";
 import { navigateTo, useRoute } from "#app";
-import { NuxtImg, NuxtLink } from "#components";
+import { NuxtLink } from "#components";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { useGraphics } from "~/composables/useGraphics";
+import AppIcon from "~/components/AppIcon/AppIcon.vue";
 import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
 import { useNavItemClasses } from "./composables/useNavItemClasses";
 import EN from "./en.json";
 
-const { getIcon } = useGraphics();
 const { handleSubLinkClick } = useHandleSubLinkClick();
 const { getNavItemClasses } = useNavItemClasses();
 
@@ -65,15 +64,16 @@ const navItemClasses = computed(() => {
               class="items-center gap-2 px-2"
             >
               {{ item.LABEL }}
-              <NuxtImg
+              <AppIcon
                 v-if="item.SUB_LINKS"
-                :src="
-                  hoveredIndex === index && !isActive(item.ROUTE)
-                    ? getIcon('singleChevron')
-                    : getIcon('singleChevronWhite')
-                "
                 class="h-5 w-5"
-              />
+                :icon-color="
+                  hoveredIndex === index && !isActive(item.ROUTE)
+                    ? 'text-black'
+                    : ''
+                "
+                icon-name="material-symbols:keyboard-arrow-down-rounded"
+              ></AppIcon>
             </AppDiv>
           </NuxtLink>
           <AppDiv

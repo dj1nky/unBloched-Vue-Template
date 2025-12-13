@@ -1,9 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { useGraphics } from "~/composables/useGraphics";
-
-const { getIcon } = useGraphics();
+import AppIcon from "~/components/AppIcon/AppIcon.vue";
 
 const props = defineProps({
   modelValue: {
@@ -196,10 +194,15 @@ const charsLeft = computed(() => {
           </option>
         </select>
         <div class="select-chevron">
-          <img
+          <!-- <img
             :src="getIcon('singleChevron')"
             alt=""
             class="h-4 w-4"
+          /> -->
+          <AppIcon
+            class="h-4 w-4"
+            icon-color="text-black"
+            icon-name="material-symbols:keyboard-arrow-down-rounded"
           />
         </div>
       </div>

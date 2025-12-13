@@ -1,16 +1,13 @@
 <script setup>
 import { ref, watch } from "vue";
-import { NuxtImg } from "#components";
 import AppButton from "@/components/AppButton/AppButton.vue";
 import AppInput from "@/components/AppInput/AppInput.vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { useGraphics } from "~/composables/useGraphics";
+import AppIcon from "~/components/AppIcon/AppIcon.vue";
 import { useToastStore } from "~/stores/toast.js";
 import { useHandleSubmit } from "./composables/useHandleSubmit.js";
 import { useValidate } from "./composables/useValidate.js";
 import EN from "./en.json";
-
-const { getIcon } = useGraphics();
 
 const { handleSubmit } = useHandleSubmit();
 const { validate } = useValidate();
@@ -110,29 +107,13 @@ watch(
           type="submit"
           :text="isSubmitting ? '' : buttonText"
         >
-          <NuxtImg
+          <AppIcon
             v-if="isSubmitting"
-            class="ml-2 h-6 w-6 animate-spin"
-            :src="getIcon('loader')"
+            class="ml-2 h-6 w-6"
+            icon-name="svg-spinners:ring-resize"
           />
         </AppButton>
       </AppDiv>
     </form>
   </AppDiv>
 </template>
-
-<style scoped>
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-</style>

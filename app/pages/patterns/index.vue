@@ -6,6 +6,7 @@ import AppImage from "@/components/AppImage/AppImage.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
 import AppForm from "~/components/AppForm/AppForm.vue";
+import AppIcon from "~/components/AppIcon/AppIcon.vue";
 import { useHeaderStore } from "~/stores/pageDetails.js";
 import EN from "./en.json";
 import schema from "./schema.json";
@@ -232,6 +233,17 @@ const store = useHeaderStore();
             />
           </template>
         </AppContentImage>
+
+        <AppDiv
+          class="py-24 flex-wrap flex-row"
+          container
+        >
+          <AppIcon icon-name="material-symbols:air-freshener-outline" />
+          <AppIcon icon-name="material-symbols:alarm-rounded" />
+          <AppIcon icon-name="material-symbols:allergies-rounded" />
+          <AppIcon icon-name="material-symbols:ar-on-you-sharp" />
+          <AppIcon icon-name="material-symbols:artist-rounded" />
+        </AppDiv>
       </AppDiv>
     </template>
   </DefaultLayout>

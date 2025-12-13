@@ -1,13 +1,11 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { NuxtImg, NuxtLink } from "#components";
+import { NuxtLink } from "#components";
 import { useRouter } from "vue-router";
 import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import { useGraphics } from "~/composables/useGraphics";
+import AppIcon from "~/components/AppIcon/AppIcon.vue";
 import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
 import EN from "./en.json";
-
-const { getIcon } = useGraphics();
 
 const { handleSubLinkClick } = useHandleSubLinkClick();
 
@@ -91,10 +89,16 @@ const closeNav = () => {
               {{ item.LABEL }}
             </NuxtLink>
           </template>
-          <NuxtImg
+          <!-- <NuxtImg
             v-if="item.SUB_LINKS"
             class="w-6"
             :src="openSubLink.has(index) ? getIcon('minus') : getIcon('plus')"
+            @click.stop="toggleSubLink(index)"
+          /> -->
+          <AppIcon
+            v-if="item.SUB_LINKS"
+            class="w-6 h-auto cursor-pointer"
+            :icon-name="openSubLink.has(index) ? 'ep:remove' : 'ep:circle-plus'"
             @click.stop="toggleSubLink(index)"
           />
         </AppDiv>
