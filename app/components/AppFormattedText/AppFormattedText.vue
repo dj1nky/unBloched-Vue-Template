@@ -1,7 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
-import { createParts } from "./formatText";
+import { useFormatText } from "./composables/useFormatText";
+
+const { createParts } = useFormatText();
 
 const props = defineProps({
   tag: {

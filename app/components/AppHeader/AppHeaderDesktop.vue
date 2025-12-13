@@ -9,7 +9,6 @@ import { useNavItemClasses } from "./composables/useNavItemClasses";
 import EN from "./en.json";
 
 const { getIcon } = useGraphics();
-
 const { handleSubLinkClick } = useHandleSubLinkClick();
 const { getNavItemClasses } = useNavItemClasses();
 
