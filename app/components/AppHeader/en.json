@@ -4,32 +4,32 @@
     "ROUTE": "/"
   },
   "FORM": {
-    "LABEL": "Components",
-    "ROUTE": "components",
+    "LABEL": "Patterns",
+    "ROUTE": "patterns",
     "SUB_LINKS": [
       {
         "LABEL": "Pinia Header",
-        "ROUTE": "components"
+        "ROUTE": "patterns"
       },
       {
         "LABEL": "Form",
-        "ROUTE": "components#form"
+        "ROUTE": "patterns#form"
       },
       {
         "LABEL": "Buttons",
-        "ROUTE": "components#buttons"
+        "ROUTE": "patterns#buttons"
       },
       {
         "LABEL": "Toast",
-        "ROUTE": "components#toast"
+        "ROUTE": "patterns#toast"
       },
       {
         "LABEL": "Image & Content",
-        "ROUTE": "components#imageContent"
+        "ROUTE": "patterns#imageContent"
       },
       {
         "LABEL": "Image & Content Container",
-        "ROUTE": "components#imageContentContainer"
+        "ROUTE": "patterns#imageContentContainer"
       }
     ]
   }
