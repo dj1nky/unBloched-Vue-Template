@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import AppIcon from "~/components/AppIcon/AppIcon.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiIcon from "~/components/ui-icon/ui-icon.vue";
 
 const props = defineProps({
   modelValue: {
@@ -146,12 +146,12 @@ const charsLeft = computed(() => {
 </script>
 
 <template>
-  <AppDiv
+  <ui-div
     class="text-sm"
     gap="gap-2"
     :col-span="6"
   >
-    <AppDiv gap="gap-1">
+    <ui-div gap="gap-1">
       <label
         :for="name"
         class="text-black"
@@ -164,7 +164,7 @@ const charsLeft = computed(() => {
       >
         {{ sublabel }}
       </span>
-    </AppDiv>
+    </ui-div>
 
     <div class="relative w-full">
       <!-- Select dropdown if type is select and options are provided -->
@@ -199,7 +199,7 @@ const charsLeft = computed(() => {
             alt=""
             class="h-4 w-4"
           /> -->
-          <AppIcon
+          <ui-icon
             class="h-4 w-4"
             icon-color="text-black"
             icon-name="material-symbols:keyboard-arrow-down-rounded"
@@ -277,7 +277,7 @@ const charsLeft = computed(() => {
         {{ error }}
       </p>
     </div>
-  </AppDiv>
+  </ui-div>
 </template>
 
 <style scoped>
@@ -369,19 +369,6 @@ const charsLeft = computed(() => {
 
 .relative {
   position: relative;
-}
-
-.error-container {
-  min-height: 1.5rem;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  transition: all 0.3s ease-in-out;
-  background-color: white;
-  border-radius: 6px;
-  border: 0.5px solid #343333;
 }
 
 .form-checkbox {

@@ -21,7 +21,6 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
       meta: [
         { name: "description", content: "Your website description" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
 
         // Open Graph / Facebook
         { property: "og:type", content: "website" },

@@ -1,33 +1,20 @@
 <script setup>
-import { ref, watch } from "vue";
-import AppButton from "@/components/AppButton/AppButton.vue";
-import AppInput from "@/components/AppInput/AppInput.vue";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import AppIcon from "~/components/AppIcon/AppIcon.vue";
+import { computed, ref, watch } from "vue";
+import UiButton from "@/components/ui-button/ui-button.vue";
+import UiInput from "@/components/ui-input/ui-input.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiIcon from "~/components/ui-icon/ui-icon.vue";
 import { useToastStore } from "~/stores/toast.js";
 import { useHandleSubmit } from "./composables/useHandleSubmit.js";
 import { useValidate } from "./composables/useValidate.js";
-import EN from "./en.json";
 
 const { handleSubmit } = useHandleSubmit();
 const { validate } = useValidate();
 
 const props = defineProps({
-  buttonText: {
-    type: String,
-    default: "",
-  },
-  title: {
-    type: String,
-    default: "",
-  },
   schema: {
-    type: Array,
+    type: Object,
     required: true,
-  },
-  successMessage: {
-    type: String,
-    default: "",
   },
 });
 
@@ -36,7 +23,9 @@ const errors = ref({});
 const isSubmitting = ref(false); // Track submission/loading state
 const toastStore = useToastStore();
 
-let validateField = validate(props.schema, errors.value);
+const fields = computed(() => props.schema?.fields || []);
+
+let validateField = validate(fields.value, errors.value);
 
 const displayToast = (message, type = "success", duration = 5000) => {
   toastStore.showToast(message, type, duration);
@@ -44,18 +33,18 @@ const displayToast = (message, type = "success", duration = 5000) => {
 
 const onSubmit = async () => {
   await handleSubmit(
-    props.schema,
+    fields.value,
     formData,
     errors,
     validateField,
     isSubmitting,
     displayToast,
-    EN
+    props.schema
   );
 };
 
 watch(
-  () => props.schema,
+  () => fields.value,
   newSchema => {
     formData.value = newSchema.reduce((acc, field) => {
       if (field.type === "checkbox") {
@@ -72,22 +61,22 @@ watch(
 </script>
 
 <template>
-  <AppDiv class="items-start">
+  <ui-div class="items-start">
     <form
       class="easeIn w-full rounded-lg bg-white p-6"
       @submit.prevent="onSubmit"
     >
-      <AppDiv
+      <ui-div
         div="grid"
         :grid-cols="12"
         gap="gap-4"
       >
-        <AppDiv
-          v-for="(field, index) in schema"
+        <ui-div
+          v-for="(field, index) in fields"
           :key="index"
           :col-span="field.span || 12"
         >
-          <AppInput
+          <ui-input
             v-model="formData[field.id]"
             :placeholder="field.placeholder"
             :label="field.label"
@@ -99,21 +88,21 @@ watch(
             :sublabel="field.subLabel"
             @input="validateField(field.id, formData[field.id])"
           />
-        </AppDiv>
-      </AppDiv>
-      <AppDiv class="mt-6 flex w-full justify-center">
-        <AppButton
-          :icon="true"
+        </ui-div>
+      </ui-div>
+      <ui-div class="mt-6 flex w-full justify-center">
+        <ui-button
+          variant="tertiary"
           type="submit"
-          :text="isSubmitting ? '' : buttonText"
+          :text="isSubmitting ? '' : props.schema.submitButtonText || 'Submit'"
         >
-          <AppIcon
+          <ui-icon
             v-if="isSubmitting"
             class="ml-2 h-6 w-6"
             icon-name="svg-spinners:ring-resize"
           />
-        </AppButton>
-      </AppDiv>
+        </ui-button>
+      </ui-div>
     </form>
-  </AppDiv>
+  </ui-div>
 </template>

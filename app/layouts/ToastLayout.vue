@@ -1,7 +1,7 @@
 <script setup>
 import { ClientOnly } from "#components";
-import AppButton from "@/components/AppButton/AppButton.vue";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import UiButton from "@/components/ui-button/ui-button.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
 import { useToastStore } from "~/stores/toast.js";
 
 const toastStore = useToastStore();
@@ -37,45 +37,45 @@ const clearAllToasts = () => {
 
 <template>
   <ClientOnly>
-    <AppDiv
+    <ui-div
       div="grid"
       :grid-cols="2"
     >
-      <AppButton
+      <ui-button
         text="Success Toast"
         class="bg-green-500 hover:bg-green-600"
         @click="showSuccessToast"
       />
 
-      <AppButton
+      <ui-button
         text="Error Toast"
         class="bg-red-500 hover:bg-red-600"
         @click="showErrorToast"
       />
 
-      <AppButton
+      <ui-button
         text="Warning Toast"
         class="border-dark text-dark border-1 bg-yellow-500 hover:bg-yellow-600"
         @click="showWarningToast"
       />
 
-      <AppButton
+      <ui-button
         text="Info Toast"
         class="bg-blue-500 hover:bg-blue-600"
         @click="showInfoToast"
       />
 
-      <AppButton
+      <ui-button
         text="Custom Duration (10s)"
         class="bg-purple-500 hover:bg-purple-600"
         @click="showCustomToast"
       />
 
-      <AppButton
+      <ui-button
         text="Clear All Toasts"
         class="bg-gray-500 hover:bg-gray-600"
         @click="clearAllToasts"
       />
-    </AppDiv>
+    </ui-div>
   </ClientOnly>
 </template>

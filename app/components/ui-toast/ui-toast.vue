@@ -1,7 +1,12 @@
 <script setup>
-import { useToastStore } from "~/stores/toast.js";
+const props = defineProps({
+  toasts: {
+    type: Array,
+    default: () => [],
+  },
+});
 
-const toastStore = useToastStore();
+const emit = defineEmits(["close"]);
 
 const getToastClasses = type => {
   const baseClasses =
@@ -29,7 +34,7 @@ const getToastClasses = type => {
       class="fixed bottom-12 left-1/2 z-50 flex flex-col gap-2"
     >
       <div
-        v-for="toast in toastStore.activeToasts"
+        v-for="toast in props.toasts"
         :key="toast.id"
         :class="getToastClasses(toast.type)"
       >
@@ -37,7 +42,7 @@ const getToastClasses = type => {
           <span class="flex-1">{{ toast.message }}</span>
           <button
             class="ml-4 cursor-pointer text-white transition-colors hover:text-gray-200"
-            @click="toastStore.hideToast(toast.id)"
+            @click="emit('close', toast.id)"
           >
             ×
           </button>

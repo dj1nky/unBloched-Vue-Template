@@ -2,6 +2,8 @@
   "formTitle": "SUBMISSION <color>FORM</color>",
   "formDescription": "Have a question or want to get in touch? Fill out the form below.",
   "submitButtonText": "Submit your service",
+  "successMessage": "Form Submission successful. We'll get back to you soon!!",
+  "errorMessage": "Form has Validation errors. Please try again.",
   "fields": [
     {
       "id": "firstName",

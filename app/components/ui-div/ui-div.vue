@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
+import styles from "~/styles";
 import {
   flexDirection,
   flexGap,
@@ -8,7 +9,6 @@ import {
   gridStyle,
   gridTemplateColumns,
 } from "./styles";
-import styles from "../../styles";
 
 const props = defineProps({
   animation: {
@@ -101,7 +101,7 @@ const animationClass = computed(() => (props.animation ? props.animation : ""));
       props.container ? styles.container : '',
       props.card ? styles.card : '',
       props.header ? styles.header : '',
-      props.grow ? 'flex-grow' : '',
+      props.grow ? 'grow' : '',
       animationClass,
       { 'is-visible': isVisible },
     ]"

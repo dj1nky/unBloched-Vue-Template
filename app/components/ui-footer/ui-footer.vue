@@ -1,15 +1,15 @@
 <script setup>
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
 </script>
 
 <template>
-  <AppDiv
+  <ui-div
     header
     class="mt-6 p-6"
     container
   >
     <h1>Footer</h1>
-  </AppDiv>
+  </ui-div>
 </template>
 
 <style scoped></style>

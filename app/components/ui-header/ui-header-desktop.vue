@@ -2,11 +2,17 @@
 import { computed, ref } from "vue";
 import { navigateTo, useRoute } from "#app";
 import { NuxtLink } from "#components";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import AppIcon from "~/components/AppIcon/AppIcon.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiIcon from "~/components/ui-icon/ui-icon.vue";
 import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
 import { useNavItemClasses } from "./composables/useNavItemClasses";
-import EN from "./en.json";
+
+const props = defineProps({
+  en: {
+    type: Object,
+    required: true,
+  },
+});
 
 const { handleSubLinkClick } = useHandleSubLinkClick();
 const { getNavItemClasses } = useNavItemClasses();
@@ -35,19 +41,19 @@ const navItemClasses = computed(() => {
 </script>
 
 <template>
-  <AppDiv
+  <ui-div
     tag="header"
     class="hidden items-center justify-between py-6 lg:flex"
     direction="row"
   >
     <nav>
-      <AppDiv
+      <ui-div
         direction="row"
         tag="ul"
         gap="gap-4"
       >
         <li
-          v-for="(item, index) in EN"
+          v-for="(item, index) in props.en"
           :key="index"
           class="relative"
           :class="navItemClasses(item, index)"
@@ -58,13 +64,13 @@ const navItemClasses = computed(() => {
             :to="item.ROUTE"
             class="block p-2 text-2xl"
           >
-            <AppDiv
+            <ui-div
               direction="row"
               gap="gap-0"
               class="items-center gap-2 px-2"
             >
               {{ item.LABEL }}
-              <AppIcon
+              <ui-icon
                 v-if="item.SUB_LINKS"
                 class="h-5 w-5"
                 :icon-color="
@@ -73,10 +79,10 @@ const navItemClasses = computed(() => {
                     : ''
                 "
                 icon-name="material-symbols:keyboard-arrow-down-rounded"
-              ></AppIcon>
-            </AppDiv>
+              ></ui-icon>
+            </ui-div>
           </NuxtLink>
-          <AppDiv
+          <ui-div
             v-if="
               hoveredIndex === index &&
               item.SUB_LINKS &&
@@ -96,11 +102,11 @@ const navItemClasses = computed(() => {
             >
               {{ subLink.LABEL }}
             </NuxtLink>
-          </AppDiv>
+          </ui-div>
         </li>
-      </AppDiv>
+      </ui-div>
     </nav>
-  </AppDiv>
+  </ui-div>
 </template>
 
 <style scoped></style>

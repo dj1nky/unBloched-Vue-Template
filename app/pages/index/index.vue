@@ -1,12 +1,16 @@
 <script setup>
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
+import PageLayout from "@/layouts/PageLayout.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
 </script>
 
 <template>
-  <DefaultLayout image="new-york">
+  <page-layout
+    image="new-york"
+    hero-title="Hero Title"
+    page-title="Home Page"
+  >
     <template #content>
-      <AppDiv container></AppDiv>
+      <ui-div container>test</ui-div>
     </template>
-  </DefaultLayout>
+  </page-layout>
 </template>

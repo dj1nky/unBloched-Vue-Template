@@ -1,5 +1,6 @@
 export default {
   container: `
+    w-full
     container 
     mx-auto 
     flex 

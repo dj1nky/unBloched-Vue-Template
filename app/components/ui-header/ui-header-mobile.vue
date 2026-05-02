@@ -2,10 +2,16 @@
 import { computed, ref, watch } from "vue";
 import { NuxtLink } from "#components";
 import { useRouter } from "vue-router";
-import AppDiv from "~/components/AppDiv/AppDiv.vue";
-import AppIcon from "~/components/AppIcon/AppIcon.vue";
+import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiIcon from "~/components/ui-icon/ui-icon.vue";
 import { useHandleSubLinkClick } from "./composables/useHandleSubLinkClick";
-import EN from "./en.json";
+
+const props = defineProps({
+  en: {
+    type: Object,
+    required: true,
+  },
+});
 
 const { handleSubLinkClick } = useHandleSubLinkClick();
 
@@ -45,28 +51,28 @@ const closeNav = () => {
 </script>
 
 <template>
-  <AppDiv
+  <ui-div
     class="py-4 lg:hidden"
     tag="section"
   >
-    <AppDiv
+    <ui-div
       v-if="isOpen"
       :class="{ overlay: isOpen }"
       @click="closeNav"
     />
-    <AppDiv
+    <ui-div
       :style="{ width: navWidth }"
       class="overlay bg-[#21242C] pt-8"
       gap="gap-0"
     >
-      <AppDiv
-        v-for="(item, index) in EN"
+      <ui-div
+        v-for="(item, index) in props.en"
         :key="index"
         gap="gap-0"
         class="overlay-content line"
         container
       >
-        <AppDiv
+        <ui-div
           gap="gap-4"
           class="justify-between"
           direction="row"
@@ -95,14 +101,14 @@ const closeNav = () => {
             :src="openSubLink.has(index) ? getIcon('minus') : getIcon('plus')"
             @click.stop="toggleSubLink(index)"
           /> -->
-          <AppIcon
+          <ui-icon
             v-if="item.SUB_LINKS"
-            class="w-6 h-auto cursor-pointer"
+            class="h-auto w-6 cursor-pointer"
             :icon-name="openSubLink.has(index) ? 'ep:remove' : 'ep:circle-plus'"
             @click.stop="toggleSubLink(index)"
           />
-        </AppDiv>
-        <AppDiv
+        </ui-div>
+        <ui-div
           v-if="item.SUB_LINKS && openSubLink.has(index)"
           tag="ul"
           gap="gap-4"
@@ -119,11 +125,11 @@ const closeNav = () => {
           >
             {{ subLink.LABEL }}
           </NuxtLink>
-        </AppDiv>
-      </AppDiv>
-    </AppDiv>
+        </ui-div>
+      </ui-div>
+    </ui-div>
 
-    <AppDiv class="rounded-md">
+    <ui-div class="rounded-md">
       <span
         class="hamburger relative"
         :class="{ 'is-active': isOpen }"
@@ -133,8 +139,8 @@ const closeNav = () => {
         <span class="bg-white" />
         <span class="bg-white" />
       </span>
-    </AppDiv>
-  </AppDiv>
+    </ui-div>
+  </ui-div>
 </template>
 
 <style scoped>
