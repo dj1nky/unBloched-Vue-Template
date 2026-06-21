@@ -1,16 +1,16 @@
 <script setup>
 import PageLayout from "@/layouts/PageLayout.vue";
-import UiDiv from "~/components/ui-div/ui-div.vue";
 </script>
 
 <template>
-  <page-layout
-    image="new-york"
-    hero-title="Hero Title"
-    page-title="Home Page"
-  >
-    <template #content>
-      <ui-div container>test</ui-div>
+  <page-layout>
+    <template #left>
+      <h1>Home</h1>
+      <p>Welcome to the home page!</p>
+    </template>
+    <template #right>
+      <h2>Right Side Content</h2>
+      <p>This is some content on the right side of the page.</p>
     </template>
   </page-layout>
 </template>

@@ -1,15 +1,6 @@
 <script setup>
-import UiHeaderDesktop from "@/components/ui-header/ui-header-desktop.vue";
-import UiHeaderMobile from "@/components/ui-header/ui-header-mobile.vue";
 import UiImage from "@/components/ui-image/ui-image.vue";
 import UiDiv from "~/components/ui-div/ui-div.vue";
-
-const props = defineProps({
-  en: {
-    type: Object,
-    required: true,
-  },
-});
 </script>
 
 <template>
@@ -25,8 +16,6 @@ const props = defineProps({
           :img="'logo'"
           link="/"
         />
-        <ui-header-desktop :en="props.en" />
-        <ui-header-mobile :en="props.en" />
       </ui-div>
     </ui-div>
   </ui-div>

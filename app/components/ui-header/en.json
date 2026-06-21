@@ -2,35 +2,5 @@
   "HOME": {
     "LABEL": "Home",
     "ROUTE": "/"
-  },
-  "FORM": {
-    "LABEL": "Patterns",
-    "ROUTE": "patterns",
-    "SUB_LINKS": [
-      {
-        "LABEL": "Pinia Header",
-        "ROUTE": "patterns"
-      },
-      {
-        "LABEL": "Form",
-        "ROUTE": "patterns#form"
-      },
-      {
-        "LABEL": "Buttons",
-        "ROUTE": "patterns#buttons"
-      },
-      {
-        "LABEL": "Toast",
-        "ROUTE": "patterns#toast"
-      },
-      {
-        "LABEL": "Image & Content",
-        "ROUTE": "patterns#imageContent"
-      },
-      {
-        "LABEL": "Image & Content Container",
-        "ROUTE": "patterns#imageContentContainer"
-      }
-    ]
   }
 }
