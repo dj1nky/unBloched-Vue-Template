@@ -9,7 +9,7 @@ import PageLayout from "@/layouts/PageLayout.vue";
       <p>Welcome to the home page!</p>
     </template>
     <template #right>
-      <h2>Right Side Content</h2>
+      <h2>Right Side</h2>
       <p>This is some content on the right side of the page.</p>
     </template>
   </page-layout>
