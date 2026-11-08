@@ -1,7 +1,13 @@
 import tailwindcss from "@tailwindcss/vite";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 // eslint-disable-next-line import/order
 import { defineNuxtConfig } from "nuxt/config";
+
+// package.json is the source of truth for the layer version.
+const { version } = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf-8")
+);
 
 export default defineNuxtConfig({
   future: {
@@ -44,9 +50,15 @@ export default defineNuxtConfig({
     public: {
       cloudinaryCloudName: "dsuj8bw8y",
       companyName: "unbloched",
+      designSystemVersion: version,
     },
   },
 
   compatibilityDate: "2025-03-11",
   modules: ["@nuxt/image", "@pinia/nuxt"],
+
+  // Auto-import the layer's stores (e.g. useToastStore) in consuming sites.
+  pinia: {
+    storesDirs: [fileURLToPath(new URL("./app/stores/**", import.meta.url))],
+  },
 });

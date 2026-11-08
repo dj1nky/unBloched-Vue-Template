@@ -1,13 +1,16 @@
 import { defineNuxtConfig } from "nuxt/config";
 
+// Bump this to adopt layer updates (see CHANGELOG in the layer repo).
+const designSystemVersion = "1.0.0";
+
 export default defineNuxtConfig({
   // Required in the site too: makes ./app the source dir so site files can override layer files.
   future: { compatibilityVersion: 4 },
 
-  // Pin a released tag. Bump the tag to adopt layer updates.
+  // Design system version: must match a released tag of the layer repo.
   extends: [
     [
-      "github:YOUR-GITHUB-USER/unBloched-Vue-Template#v1.0.0",
+      `github:dj1nky/unBloched-Vue-Template#v${designSystemVersion}`,
       { install: true },
     ],
   ],

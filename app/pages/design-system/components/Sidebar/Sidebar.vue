@@ -1,6 +1,9 @@
 <script setup>
+import { useRuntimeConfig } from "#imports";
 import UiDiv from "../../../../components/ui-div/ui-div.vue";
 import { COMPONENTS, SECTIONS } from "../../registry.js";
+
+const { designSystemVersion } = useRuntimeConfig().public;
 </script>
 
 <template>
@@ -11,7 +14,10 @@ import { COMPONENTS, SECTIONS } from "../../registry.js";
     >
       <ui-div gap="gap-1">
         <h4 class="font-bold">Design System</h4>
-        <p class="text-sm text-gray-500">unBloched Vue Template</p>
+        <p class="text-sm text-gray-500">
+          unBloched Vue Template
+          <span class="font-mono">v{{ designSystemVersion }}</span>
+        </p>
       </ui-div>
 
       <nav>

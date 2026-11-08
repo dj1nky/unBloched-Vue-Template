@@ -1,5 +1,6 @@
 {
   "name": "nuxt-app",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,7 +15,10 @@
     "prepare": "husky",
     "upload:images": "node -r dotenv/config upload-to-cloudinary.js",
     "optimise:images": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 1920x1920\\> -quality 80 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;",
-    "optimise:images:hero": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 2560x1440\\> -quality 90 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;"
+    "optimise:images:hero": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 2560x1440\\> -quality 90 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;",
+    "release:patch": "npm version patch -m \"Release v%s\" && git push --follow-tags",
+    "release:minor": "npm version minor -m \"Release v%s\" && git push --follow-tags",
+    "release:major": "npm version major -m \"Release v%s\" && git push --follow-tags"
   },
   "lint-staged": {
     "*.{js,vue}": [

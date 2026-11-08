@@ -34,12 +34,12 @@ This repo is a [Nuxt layer](https://nuxt.com/docs/getting-started/layers). Sites
 ### Create a new site
 
 1. Copy the `starter/` folder to a new project and `git init`.
-2. In `nuxt.config.ts`, set your GitHub user in the `extends` URL and pick a tag.
+2. In `nuxt.config.ts`, set your GitHub user in the `extends` URL. The version is the `designSystemVersion` constant at the top of that file.
 3. `npm install && npm run dev`. Open `/design-system` to browse every component.
 
 ### Update a site
 
-Change the tag (`#v1.0.0` to `#v1.1.0`), reinstall, and read `CHANGELOG.md` for breaking changes.
+Change `designSystemVersion` at the top of the site's `nuxt.config.ts` (`"1.0.0"` to `"1.1.0"`), reinstall, and read `CHANGELOG.md` for breaking changes. The version also shows in the design system sidebar.
 
 ### Release a change (you run these yourself)
 
