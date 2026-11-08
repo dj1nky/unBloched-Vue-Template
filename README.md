@@ -29,37 +29,47 @@ A modern Vue 3 + Nuxt 3 template with comprehensive development tooling, automat
 
 ## Using this repo as a layer (new sites)
 
-This repo is a [Nuxt layer](https://nuxt.com/docs/getting-started/layers). Sites extend a **pinned git tag**, so old sites never change until you bump the tag.
+This repo is a [Nuxt layer](https://nuxt.com/docs/getting-started/layers) published as the npm package `unbloched-design-system`. Sites install it from a **pinned git tag**, so old sites never change until you bump the tag.
 
 ### Create a new site
 
 1. Copy the `starter/` folder to a new project and `git init`.
-2. In `nuxt.config.ts`, set your GitHub user in the `extends` URL. The version is the `designSystemVersion` constant at the top of that file.
-3. `npm install && npm run dev`. Open `/design-system` to browse every component.
+2. `npm install && npm run dev`. Open `/design-system` to browse every component.
+
+The version is the `#v1.0.1` in the site's `package.json`:
+
+```json
+"unbloched-design-system": "github:dj1nky/unBloched-Vue-Template#v1.0.1"
+```
+
+and `nuxt.config.ts` just has `extends: ["unbloched-design-system"]`. It installs once with `npm install`, so dev starts fast. The version also shows in the design system sidebar.
 
 ### Update a site
 
-Change `designSystemVersion` at the top of the site's `nuxt.config.ts` (`"1.0.0"` to `"1.1.0"`), reinstall, and read `CHANGELOG.md` for breaking changes. The version also shows in the design system sidebar.
+Change the tag in `package.json` (`#v1.0.1` to `#v1.1.0`), run `npm install`, and read `CHANGELOG.md` for breaking changes.
 
-### Release a change (you run these yourself)
+### Release a change (you run this yourself)
 
 ```bash
-git tag v1.1.0
-git push origin v1.1.0
+npm run release   # patch; or: npm run release minor / major
 ```
 
-Patch = tweak, minor = new component, major = breaking prop or behaviour change.
+This commits your changes, bumps `version`, updates the starter's pin, tags `vX.Y.Z` and pushes.
+
+### Local development against the layer
+
+In a site, point the dependency at the folder instead of a tag: `"unbloched-design-system": "file:../unBloched-Vue-Template"`, then `npm install`. Switch back to the `github:` tag when done.
 
 ### Overriding in a site
 
-- Put a file at the same path (`app/components/ui-footer/ui-footer.vue`) and the site's version wins wherever the component is auto-imported (use `<ui-footer />` without a manual import).
+- Put a file at the same path (`app/components/ui-footer/ui-footer.vue`) and the site's version wins wherever the component is auto-imported (use `<ui-footer />` without a manual import). The site also needs `future: { compatibilityVersion: 4 }`.
 - Cloudinary: set `runtimeConfig.public.cloudinaryCloudName` and `companyName` in the site's `nuxt.config.ts`.
-- Private repo: `export GIGET_AUTH=<github token>` before installing.
 
 ### Rules for code inside the layer
 
 - Use **relative imports** (never `~/` or `@/`) in layer files: those aliases point at the consuming site.
 - Import `defineStore` from `#imports`, not `pinia`, so the site and layer share one Pinia.
+- Anything the layer needs at runtime (for example `sass`) must be in `dependencies`, not `devDependencies`, because only dependencies are installed in sites.
 
 ## Design System Page
 

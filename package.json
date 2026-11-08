@@ -1,24 +1,23 @@
 {
-  "name": "nuxt-app",
+  "name": "unbloched-design-system",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "./nuxt.config.ts",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "[ \"$INIT_CWD\" = \"$PWD\" ] && nuxt prepare || true",
     "format": "prettier . --write",
     "lint": "eslint --fix --ext .js,.vue .",
     "lint:check": "eslint --ext .js,.vue .",
-    "prepare": "husky",
+    "prepare": "[ \"$INIT_CWD\" = \"$PWD\" ] && husky || true",
     "upload:images": "node -r dotenv/config upload-to-cloudinary.js",
     "optimise:images": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 1920x1920\\> -quality 80 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;",
     "optimise:images:hero": "find public/images \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) -exec sh -c 'magick \"$1\" -resize 2560x1440\\> -quality 90 -strip \"${1%.*}.webp\" && rm \"$1\"' _ {} \\;",
-    "release:patch": "npm version patch -m \"Release v%s\" && git push --follow-tags",
-    "release:minor": "npm version minor -m \"Release v%s\" && git push --follow-tags",
-    "release:major": "npm version major -m \"Release v%s\" && git push --follow-tags"
+    "release": "node scripts/release.mjs"
   },
   "lint-staged": {
     "*.{js,vue}": [
@@ -34,6 +33,7 @@
     "@tailwindcss/vite": "^4.0.12",
     "nuxt": "^3.16.0",
     "pinia": "^3.0.2",
+    "sass": "^1.77.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
@@ -50,7 +50,6 @@
     "lint-staged": "^16.2.5",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "sass": "^1.77.4",
     "tailwindcss": "^4.0.12",
     "typescript": "^5.7.3"
   }
