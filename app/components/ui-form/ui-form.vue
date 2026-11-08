@@ -1,12 +1,12 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import UiButton from "@/components/ui-button/ui-button.vue";
-import UiInput from "@/components/ui-input/ui-input.vue";
-import UiDiv from "~/components/ui-div/ui-div.vue";
-import UiIcon from "~/components/ui-icon/ui-icon.vue";
-import { useToastStore } from "~/stores/toast.js";
 import { useHandleSubmit } from "./composables/useHandleSubmit.js";
 import { useValidate } from "./composables/useValidate.js";
+import { useToastStore } from "../../stores/toast.js";
+import UiButton from "../ui-button/ui-button.vue";
+import UiDiv from "../ui-div/ui-div.vue";
+import UiIcon from "../ui-icon/ui-icon.vue";
+import UiInput from "../ui-input/ui-input.vue";
 
 const { handleSubmit } = useHandleSubmit();
 const { validate } = useValidate();

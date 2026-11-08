@@ -1,4 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
+// eslint-disable-next-line import/order
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
@@ -7,7 +9,20 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-  css: ["~/assets/css/tailwind.css", "~/assets/scss/styles.scss"],
+  // Absolute paths: "~" would point at the consuming site when used as a layer.
+  css: [
+    fileURLToPath(new URL("./app/assets/css/tailwind.css", import.meta.url)),
+    fileURLToPath(new URL("./app/assets/scss/styles.scss", import.meta.url)),
+  ],
+
+  hooks: {
+    // Page-local components live in pages/<page>/components: keep them out of the router.
+    "pages:extend"(pages) {
+      for (let i = pages.length - 1; i >= 0; i--) {
+        if (pages[i].file?.includes("/components/")) pages.splice(i, 1);
+      }
+    },
+  },
 
   vite: {
     plugins: [tailwindcss()],
@@ -15,47 +30,20 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Your Website Title",
-      titleTemplate: "%s | Your Brand Name",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      meta: [
-        { name: "description", content: "Your website description" },
-
-        // Open Graph / Facebook
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://yourwebsite.com/" },
-        { property: "og:title", content: "Your Website Title" },
-        { property: "og:description", content: "Your website description" },
-        { property: "og:image", content: "/your-og-image.jpg" },
-        { property: "og:site_name", content: "Your Brand Name" },
-
-        // Twitter
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:url", content: "https://yourwebsite.com/" },
-        { name: "twitter:title", content: "Your Website Title" },
-        { name: "twitter:description", content: "Your website description" },
-        { name: "twitter:image", content: "/your-og-image.jpg" },
-
-        // Additional important SEO tags
-        { name: "robots", content: "index, follow" },
-        { name: "author", content: "Your Name or Company" },
-        { name: "keywords", content: "keyword1, keyword2, keyword3" },
-        { "http-equiv": "Content-Language", content: "en" },
-        { name: "theme-color", content: "#ffffff" },
-      ],
-      link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        { rel: "canonical", href: "https://yourwebsite.com/" },
-        { rel: "alternate", hreflang: "en", href: "https://yourwebsite.com/" },
-        { rel: "home", href: "https://yourwebsite.com/" },
-        { rel: "about", href: "https://yourwebsite.com/about" },
-        { rel: "contact", href: "https://yourwebsite.com/contact" },
-      ],
       htmlAttrs: {
         lang: "en",
         dir: "ltr",
       },
+    },
+  },
+
+  // Override per site in its own nuxt.config.ts (or NUXT_PUBLIC_* env vars).
+  runtimeConfig: {
+    public: {
+      cloudinaryCloudName: "dsuj8bw8y",
+      companyName: "unbloched",
     },
   },
 

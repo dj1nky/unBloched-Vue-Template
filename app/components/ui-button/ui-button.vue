@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import { NuxtLink } from "#components";
-import UiDiv from "~/components/ui-div/ui-div.vue";
 import { useButtonLogic } from "./composables/useButtonLogic";
 import { BASE_CLASS } from "./styles";
+import UiDiv from "../ui-div/ui-div.vue";
 
 const props = defineProps({
   bgColor: {

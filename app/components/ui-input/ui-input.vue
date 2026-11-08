@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
-import UiDiv from "~/components/ui-div/ui-div.vue";
-import UiIcon from "~/components/ui-icon/ui-icon.vue";
+import UiDiv from "../ui-div/ui-div.vue";
+import UiIcon from "../ui-icon/ui-icon.vue";
 
 const props = defineProps({
   modelValue: {

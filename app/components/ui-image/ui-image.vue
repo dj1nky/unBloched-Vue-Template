@@ -1,7 +1,7 @@
 <script setup>
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { NuxtImg, NuxtLink } from "#components";
-import { useCloudinary } from "~/composables/useCloudinary.js";
+import { useCloudinary } from "../../composables/useCloudinary.js";
 
 const { getImageUrl } = useCloudinary();
 

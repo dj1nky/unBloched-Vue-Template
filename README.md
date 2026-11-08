@@ -12,10 +12,10 @@ A modern Vue 3 + Nuxt 3 template with comprehensive development tooling, automat
 - **State Management**
   - [Pinia](https://pinia.vuejs.org/) (with [@pinia/nuxt](https://github.com/vuejs/pinia/tree/v2/packages/nuxt))
 - **CSS & PostCSS**
-  - [Tailwind CSS v4](https://tailwindcss.com/) (with [@nuxtjs/tailwindcss](https://tailwindcss.com/docs/guides/nuxtjs) and [@tailwindcss/vite](https://github.com/nuxt-modules/tailwindcss))
+  - [Tailwind CSS v4](https://tailwindcss.com/) (via [@tailwindcss/vite](https://tailwindcss.com/docs/installation/using-vite))
   - [Sass](https://sass-lang.com/) (SCSS support)
-  - [Autoprefixer](https://github.com/postcss/autoprefixer)
-  - [PostCSS](https://postcss.org/)
+- **Animation**
+  - `ui-animate`: scroll-reveal wrapper (no animation library needed)
 - **Image Optimization**
   - [@nuxt/image](https://image.nuxt.com/)
 - **Code Quality & Formatting**
@@ -26,6 +26,47 @@ A modern Vue 3 + Nuxt 3 template with comprehensive development tooling, automat
 - **Import Management**
   - [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports) - Automatic import sorting
   - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) - Import validation and ordering
+
+## Using this repo as a layer (new sites)
+
+This repo is a [Nuxt layer](https://nuxt.com/docs/getting-started/layers). Sites extend a **pinned git tag**, so old sites never change until you bump the tag.
+
+### Create a new site
+
+1. Copy the `starter/` folder to a new project and `git init`.
+2. In `nuxt.config.ts`, set your GitHub user in the `extends` URL and pick a tag.
+3. `npm install && npm run dev`. Open `/design-system` to browse every component.
+
+### Update a site
+
+Change the tag (`#v1.0.0` to `#v1.1.0`), reinstall, and read `CHANGELOG.md` for breaking changes.
+
+### Release a change (you run these yourself)
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
+
+Patch = tweak, minor = new component, major = breaking prop or behaviour change.
+
+### Overriding in a site
+
+- Put a file at the same path (`app/components/ui-footer/ui-footer.vue`) and the site's version wins wherever the component is auto-imported (use `<ui-footer />` without a manual import).
+- Cloudinary: set `runtimeConfig.public.cloudinaryCloudName` and `companyName` in the site's `nuxt.config.ts`.
+- Private repo: `export GIGET_AUTH=<github token>` before installing.
+
+### Rules for code inside the layer
+
+- Use **relative imports** (never `~/` or `@/`) in layer files: those aliases point at the consuming site.
+- Import `defineStore` from `#imports`, not `pinia`, so the site and layer share one Pinia.
+
+## Design System Page
+
+The home page (`app/pages/design-system`) is a living design system: colour, type and breakpoint tokens (read live from `tailwind.css`), every `ui-*` component with a demo, props table and usage snippet, the animation primitive, and the composables/packages in use.
+
+- When you add a component, add an entry to `app/pages/design-system/registry.js` and a demo in `components/Components/Components.vue`.
+- For a real site, replace this page with your own home page.
 
 ## Development Setup
 

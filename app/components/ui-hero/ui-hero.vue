@@ -1,8 +1,9 @@
 <script setup>
 import { computed, useSlots } from "vue";
-import UiDiv from "~/components/ui-div/ui-div.vue";
-import UiImage from "~/components/ui-image/ui-image.vue";
-import UiPageTitle from "~/components/ui-page-title/ui-page-title.vue";
+import UiAnimate from "../ui-animate/ui-animate.vue";
+import UiDiv from "../ui-div/ui-div.vue";
+import UiImage from "../ui-image/ui-image.vue";
+import UiPageTitle from "../ui-page-title/ui-page-title.vue";
 
 const props = defineProps({
   image: {
@@ -20,10 +21,11 @@ const hasTitle = computed(() => Boolean(props.title || slots.title));
 </script>
 
 <template>
-  <ui-div
+  <ui-animate
     v-if="props.image"
+    :as="UiDiv"
+    direction="none"
     class="relative overflow-hidden"
-    animation="fade-in"
     gap="gap-0"
   >
     <ui-image
@@ -55,5 +57,5 @@ const hasTitle = computed(() => Boolean(props.title || slots.title));
         </slot>
       </ui-div>
     </ui-div>
-  </ui-div>
+  </ui-animate>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiDiv from "../ui-div/ui-div.vue";
 </script>
 
 <template>

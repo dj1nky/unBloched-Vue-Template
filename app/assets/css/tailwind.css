@@ -1,7 +1,9 @@
 @import "tailwindcss";
-@import "./animations.css";
 
-@theme {
+/* Scan this layer's components: node_modules and .c12 are ignored by default. */
+@source "../../";
+
+@theme static {
   --breakpoint-*: initial;
   --breakpoint-xxs: 280px;
   --breakpoint-xs: 325px;

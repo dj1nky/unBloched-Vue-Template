@@ -1,8 +1,9 @@
+import { useRuntimeConfig } from "#imports";
+
 export const useCloudinary = () => {
-  const cloudName = "dsuj8bw8y";
+  const { cloudinaryCloudName: cloudName, companyName } =
+    useRuntimeConfig().public;
   const baseUrl = `https://res.cloudinary.com/${cloudName}/image/upload`;
-  // Change this to your company or site name
-  const companyName = "unbloched";
 
   /**
    * Get Cloudinary image URL

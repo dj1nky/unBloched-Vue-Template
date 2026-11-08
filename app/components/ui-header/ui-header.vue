@@ -1,6 +1,6 @@
 <script setup>
-import UiImage from "@/components/ui-image/ui-image.vue";
-import UiDiv from "~/components/ui-div/ui-div.vue";
+import UiDiv from "../ui-div/ui-div.vue";
+import UiImage from "../ui-image/ui-image.vue";
 </script>
 
 <template>

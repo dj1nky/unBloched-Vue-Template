@@ -1,7 +1,5 @@
 <script setup>
 import { computed } from "vue";
-import { useIntersectionAnimation } from "~/composables/useIntersectionAnimation";
-import styles from "~/styles";
 import {
   flexDirection,
   flexGap,
@@ -9,24 +7,9 @@ import {
   gridStyle,
   gridTemplateColumns,
 } from "./styles";
+import styles from "../../styles";
 
 const props = defineProps({
-  animation: {
-    type: String,
-    default: "",
-  },
-  disableAnimationOnMobile: {
-    type: Boolean,
-    default: true,
-  },
-  animationThreshold: {
-    type: Number,
-    default: 0.6,
-  },
-  animationTriggerChildren: {
-    type: Boolean,
-    default: true,
-  },
   colSpan: {
     type: Number,
     default: 6,
@@ -78,22 +61,11 @@ const computedGridTemplateColumns = computed(() => gridTemplateColumns(props));
 const computedDisplayClass = computed(() =>
   props.div === "grid" ? gridStyle() : props.div
 );
-
-// Composable for animation handling
-const { animationRef, isVisible } = useIntersectionAnimation({
-  animation: props.animation,
-  threshold: props.animationThreshold,
-  triggerChildren: props.animationTriggerChildren,
-  disableOnMobile: props.disableAnimationOnMobile,
-});
-
-const animationClass = computed(() => (props.animation ? props.animation : ""));
 </script>
 
 <template>
   <component
     :is="props.tag"
-    ref="animationRef"
     :class="[
       computedflexDirection,
       computedDisplayClass,
@@ -102,8 +74,6 @@ const animationClass = computed(() => (props.animation ? props.animation : ""));
       props.card ? styles.card : '',
       props.header ? styles.header : '',
       props.grow ? 'grow' : '',
-      animationClass,
-      { 'is-visible': isVisible },
     ]"
     :style="[computedGridColumn, computedGridTemplateColumns]"
   >
