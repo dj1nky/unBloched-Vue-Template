@@ -30,6 +30,6 @@ writeFileSync(starterPath, starter);
 
 run("git add -A");
 run(`git commit -m "Release v${version}"`);
-run(`git tag v${version}`);
+run(`git tag -a v${version} -m "v${version}"`);
 run("git push --follow-tags");
 console.log(`\nReleased v${version}`);
