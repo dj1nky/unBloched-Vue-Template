@@ -27,6 +27,7 @@
   "dependencies": {
     "@iconify/vue": "^5.0.0",
     "@lottiefiles/dotlottie-vue": "^0.10.10",
+    "@nuxt/fonts": "^1.2.0",
     "@nuxt/image": "^1.5.0",
     "@pinia/nuxt": "^0.11.0",
     "@tailwindcss/vite": "^4.0.12",

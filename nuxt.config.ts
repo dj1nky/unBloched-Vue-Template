@@ -64,7 +64,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/image", "@pinia/nuxt"],
+  modules: ["@nuxt/image", "@nuxt/fonts", "@pinia/nuxt"],
 
   // Auto-import the layer's stores (e.g. useToastStore) in consuming sites.
   pinia: {
