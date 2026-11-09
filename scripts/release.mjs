@@ -1,7 +1,7 @@
 // One command release: npm run release [patch|minor|major]
 // Commits pending changes, bumps the version, updates the starter's pin, tags and pushes.
 import { execSync } from "node:child_process";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 const run = cmd => execSync(cmd, { stdio: "inherit" });
 const bump = process.argv[2] || "patch";
@@ -34,4 +34,17 @@ run("git add -A");
 run(`git commit -m "Release v${version}"`);
 run(`git tag -a v${version} -m "v${version}"`);
 run("git push --follow-tags");
+
+// starter/ is its own git repo: commit and push its updated pin too.
+if (existsSync("starter/.git")) {
+  const inStarter = cmd => execSync(cmd, { cwd: "starter", stdio: "inherit" });
+  inStarter("git add -A");
+  try {
+    execSync("git diff --cached --quiet", { cwd: "starter" });
+  } catch {
+    inStarter(`git commit -m "Use design system v${version}"`);
+    inStarter("git push");
+  }
+}
+
 console.log(`\nReleased v${version}`);
