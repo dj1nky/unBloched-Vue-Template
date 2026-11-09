@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     // Page-local components live in pages/<page>/components: keep them out of the router.
     "pages:extend"(pages) {
       for (let i = pages.length - 1; i >= 0; i--) {
-        if (pages[i].file?.includes("/components/")) pages.splice(i, 1);
+        if (pages[i]?.file?.includes("/components/")) pages.splice(i, 1);
       }
     },
   },
