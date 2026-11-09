@@ -11,6 +11,8 @@ if (!["patch", "minor", "major"].includes(bump)) {
   process.exit(1);
 }
 
+// The starter lockfile changes on every install, so keep it out of git.
+run("git rm --cached --ignore-unmatch -q starter/package-lock.json");
 run("git add -A");
 try {
   execSync("git diff --cached --quiet");
