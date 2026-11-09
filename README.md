@@ -46,7 +46,13 @@ and `nuxt.config.ts` just has `extends: ["unbloched-design-system"]`. It install
 
 ### Update a site
 
-Change the tag in `package.json` (`#v1.0.1` to `#v1.1.0`), run `npm install`, and read `CHANGELOG.md` for breaking changes.
+In the site folder, run one command. It finds the newest release on GitHub, installs it and updates the pinned version in `package.json`:
+
+```bash
+npm run update-ds
+```
+
+Read `CHANGELOG.md` for breaking changes. (`update-ds` lives in the starter's `scripts/`, so copy that folder to older sites.)
 
 ### Release a change (you run this yourself)
 
