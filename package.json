@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "main": "./nuxt.config.ts",
+  "files": [
+    "app",
+    "public",
+    "nuxt.config.ts",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
