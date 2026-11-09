@@ -1,6 +1,6 @@
 {
   "name": "unbloched-design-system",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": true,
   "type": "module",
   "main": "./nuxt.config.ts",
