@@ -9,4 +9,5 @@ export const VARIANT_CLASS_MAP = {
   primary: "bg-indigo-500 text-white hover:bg-dark hover:text-white",
   secondary: "bg-white text-black hover:bg-dark hover:text-white",
   tertiary: "bg-dark text-white hover:bg-indigo-500",
+  quaternary: "bg-red-200 text-black hover:bg-dark hover:text-white",
 };
