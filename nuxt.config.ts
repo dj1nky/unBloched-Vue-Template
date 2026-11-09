@@ -55,6 +55,15 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-03-11",
+  // Lets editors read the props of the layer's JS components from node_modules.
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        maxNodeModuleJsDepth: 2,
+      },
+    },
+  },
+
   modules: ["@nuxt/image", "@pinia/nuxt"],
 
   // Auto-import the layer's stores (e.g. useToastStore) in consuming sites.
