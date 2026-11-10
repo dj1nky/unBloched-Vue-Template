@@ -33,13 +33,13 @@ This repo is a [Nuxt layer](https://nuxt.com/docs/getting-started/layers) publis
 
 ### Create a new site
 
-1. Copy the `starter/` folder to a new project and `git init`.
+1. Copy the sibling `vue-nuxt-starter` repo to a new project and `git init`.
 2. `npm install && npm run dev`. Open `/design-system` to browse every component.
 
 The version is the `#v1.0.1` in the site's `package.json`:
 
 ```json
-"unbloched-design-system": "github:dj1nky/unBloched-Vue-Template#v1.0.1"
+"unbloched-design-system": "github:dj1nky/vue-nuxt-design-system#v1.0.1"
 ```
 
 and `nuxt.config.ts` just has `extends: ["unbloched-design-system"]`. It installs once with `npm install`, so dev starts fast. The version also shows in the design system sidebar.
@@ -52,7 +52,7 @@ In the site folder, run one command. It finds the newest release on GitHub, inst
 npm run update-ds
 ```
 
-Read `CHANGELOG.md` for breaking changes. (`update-ds` lives in the starter's `scripts/`, so copy that folder to older sites.)
+Read `CHANGELOG.md` for breaking changes. (`update-ds` lives in `vue-nuxt-starter`'s `scripts/`, so copy that folder to older sites.)
 
 ### Release a change (you run this yourself)
 
@@ -60,11 +60,11 @@ Read `CHANGELOG.md` for breaking changes. (`update-ds` lives in the starter's `s
 npm run release   # patch; or: npm run release minor / major
 ```
 
-This commits your changes, bumps `version`, updates the starter's pin, tags `vX.Y.Z` and pushes.
+This commits your changes, bumps `version`, updates the pin in the sibling `vue-nuxt-starter` repo, tags `vX.Y.Z` and pushes.
 
 ### Local development against the layer
 
-In a site, point the dependency at the folder instead of a tag: `"unbloched-design-system": "file:../unBloched-Vue-Template"`, then `npm install`. Switch back to the `github:` tag when done.
+In a site, point the dependency at the folder instead of a tag: `"unbloched-design-system": "file:../vue-nuxt-design-system"`, then `npm install`. Switch back to the `github:` tag when done.
 
 ### Overriding in a site
 

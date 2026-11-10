@@ -38,4 +38,3 @@ logs
 *.vsix
 
 # Starter lockfile changes on every design system release
-starter/package-lock.json

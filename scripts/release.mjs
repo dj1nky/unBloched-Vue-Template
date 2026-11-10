@@ -11,8 +11,6 @@ if (!["patch", "minor", "major"].includes(bump)) {
   process.exit(1);
 }
 
-// The starter lockfile changes on every install, so keep it out of git.
-run("git rm --cached --ignore-unmatch -q starter/package-lock.json");
 run("git add -A");
 try {
   execSync("git diff --cached --quiet");
@@ -23,9 +21,11 @@ try {
 run(`npm version ${bump} --no-git-tag-version`);
 const { version } = JSON.parse(readFileSync("package.json", "utf8"));
 
-const starterPath = "starter/package.json";
+// vue-nuxt-starter is a sibling repo in the same templates folder.
+const starterDir = "../vue-nuxt-starter";
+const starterPath = `${starterDir}/package.json`;
 const starter = readFileSync(starterPath, "utf8").replace(
-  /(unBloched-Vue-Template#)v[\d.]+/,
+  /(vue-nuxt-design-system#)v[\d.]+/,
   `$1v${version}`
 );
 writeFileSync(starterPath, starter);
@@ -35,12 +35,12 @@ run(`git commit -m "Release v${version}"`);
 run(`git tag -a v${version} -m "v${version}"`);
 run("git push --follow-tags");
 
-// starter/ is its own git repo: commit and push its updated pin too.
-if (existsSync("starter/.git")) {
-  const inStarter = cmd => execSync(cmd, { cwd: "starter", stdio: "inherit" });
+// vue-nuxt-starter is its own git repo: commit and push its updated pin too.
+if (existsSync(`${starterDir}/.git`)) {
+  const inStarter = cmd => execSync(cmd, { cwd: starterDir, stdio: "inherit" });
   inStarter("git add -A");
   try {
-    execSync("git diff --cached --quiet", { cwd: "starter" });
+    execSync("git diff --cached --quiet", { cwd: starterDir });
   } catch {
     inStarter(`git commit -m "Use design system v${version}"`);
     inStarter("git push");
