@@ -1,4 +1,5 @@
-export const BASE_CLASS = "border-1 border-transparent text-center font-medium";
+export const BASE_CLASS =
+  "inline-flex items-center justify-center border-1 border-transparent text-center font-medium";
 
 export const SIZE_CLASS_MAP = {
   lg: "h-12 rounded-xl px-5",
