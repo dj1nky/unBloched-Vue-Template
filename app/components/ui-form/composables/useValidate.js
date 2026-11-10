@@ -10,7 +10,12 @@ export const useValidate = () => {
       for (const validation of field.validations) {
         switch (validation.type) {
           case "empty":
-            if (!value || value.trim().length === 0) {
+            if (
+              value === undefined ||
+              value === null ||
+              value === "" ||
+              (typeof value === "string" && value.trim().length === 0)
+            ) {
               errors[fieldId] = validation.message;
               return;
             }

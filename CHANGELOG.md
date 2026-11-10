@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+- `ui-button`: `size` prop (lg, md, sm, icon) and `info` / `error` variants. Primary is now orange.
+- `ui-input`: custom select dropdown, likert scale and password show/hide toggle. Adds `useClickOutside`.
+- `ui-form`: `initialValues`, `disableToasts` and `submit-success`. `useHandleSubmit` returns `{ success, submittedData }`.
+- `ui-toast`: icons, stacked layout and accessible close button.
+
 ## v1.0.1
 - Fix: package now installs as a Nuxt layer (`name`, `main`, `sass` in dependencies, guarded lifecycle scripts). `v1.0.0` was tagged before these changes and cannot be used as a dependency.
 

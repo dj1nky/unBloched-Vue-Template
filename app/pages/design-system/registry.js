@@ -170,7 +170,13 @@ export const COMPONENTS = [
         name: "variant",
         type: "String",
         default: '"primary"',
-        description: "primary, secondary or tertiary.",
+        description: "primary, secondary, tertiary, info or error.",
+      },
+      {
+        name: "size",
+        type: "String",
+        default: '"md"',
+        description: "lg, md, sm or icon (square, for icon-only buttons).",
       },
       {
         name: "link",
@@ -217,7 +223,8 @@ export const COMPONENTS = [
         name: "type",
         type: "String",
         default: '""',
-        description: "Any input type, plus textarea, select and checkbox.",
+        description:
+          "Any input type, plus textarea, select, checkbox and likert. Password fields get a show/hide toggle.",
       },
       {
         name: "label",
@@ -270,6 +277,26 @@ export const COMPONENTS = [
     description:
       "Schema-driven form. Builds ui-input fields, validates them and shows toasts on submit.",
     props: [
+      {
+        name: "initialValues",
+        type: "Object",
+        default: "{}",
+        description: "Prefills fields by id. Updates when the object changes.",
+      },
+      {
+        name: "disableToasts",
+        type: "Boolean",
+        default: "false",
+        description:
+          "Skips the success/error toasts so the parent can react instead.",
+      },
+      {
+        name: "@submit-success",
+        type: "Event",
+        default: "",
+        description:
+          "Emitted with a copy of the submitted values after a valid submit.",
+      },
       {
         name: "schema",
         type: "Object",

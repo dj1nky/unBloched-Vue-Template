@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { NuxtLink } from "#components";
 import { useButtonLogic } from "./composables/useButtonLogic";
-import { BASE_CLASS } from "./styles";
+import { BASE_CLASS, SIZE_CLASS_MAP } from "./styles";
 import UiDiv from "../ui-div/ui-div.vue";
 
 const props = defineProps({
@@ -22,7 +22,12 @@ const props = defineProps({
     type: String,
     default: "primary",
     validator: value =>
-      ["primary", "secondary", "tertiary", "quaternary"].includes(value),
+      ["primary", "secondary", "tertiary", "info", "error"].includes(value),
+  },
+  size: {
+    type: String,
+    default: "md",
+    validator: value => Object.keys(SIZE_CLASS_MAP).includes(value),
   },
   text: {
     type: String,
@@ -43,11 +48,17 @@ const componentTag = computed(() => (isLink.value ? NuxtLink : "button"));
   <component
     :is="componentTag"
     v-bind="componentAttrs"
-    :class="[BASE_CLASS, buttonClass, props.bgColor]"
+    :class="[
+      BASE_CLASS,
+      SIZE_CLASS_MAP[props.size],
+      buttonClass,
+      props.bgColor,
+    ]"
   >
     <ui-div
-      class="justify-center"
-      direction="row"
+      class="items-center justify-center"
+      direction="flex-row"
+      gap="gap-2"
     >
       {{ props.text }}
       <slot />

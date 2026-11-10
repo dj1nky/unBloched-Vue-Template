@@ -12,11 +12,21 @@ const { handleSubmit } = useHandleSubmit();
 const { validate } = useValidate();
 
 const props = defineProps({
+  disableToasts: {
+    type: Boolean,
+    default: false,
+  },
+  initialValues: {
+    type: Object,
+    default: () => ({}),
+  },
   schema: {
     type: Object,
     required: true,
   },
 });
+
+const emit = defineEmits(["submit-success"]);
 
 const formData = ref({});
 const errors = ref({});
@@ -28,11 +38,15 @@ const fields = computed(() => props.schema?.fields || []);
 let validateField = validate(fields.value, errors.value);
 
 const displayToast = (message, type = "success", duration = 5000) => {
+  if (props.disableToasts) {
+    return;
+  }
+
   toastStore.showToast(message, type, duration);
 };
 
 const onSubmit = async () => {
-  await handleSubmit(
+  const result = await handleSubmit(
     fields.value,
     formData,
     errors,
@@ -41,12 +55,23 @@ const onSubmit = async () => {
     displayToast,
     props.schema
   );
+
+  if (result?.success) {
+    emit("submit-success", result.submittedData);
+  }
 };
 
 watch(
   () => fields.value,
   newSchema => {
     formData.value = newSchema.reduce((acc, field) => {
+      const initialValue = props.initialValues[field.id];
+
+      if (initialValue !== undefined) {
+        acc[field.id] = initialValue;
+        return acc;
+      }
+
       if (field.type === "checkbox") {
         acc[field.id] = false;
       } else {
@@ -54,22 +79,34 @@ watch(
       }
       return acc;
     }, {});
+    errors.value = {};
     validateField = validate(newSchema, errors.value);
   },
   { immediate: true }
+);
+
+watch(
+  () => props.initialValues,
+  values => {
+    fields.value.forEach(field => {
+      if (values[field.id] !== undefined) {
+        formData.value[field.id] = values[field.id];
+      }
+    });
+  },
+  { deep: true }
 );
 </script>
 
 <template>
   <ui-div class="items-start">
     <form
-      class="easeIn w-full rounded-lg bg-white p-6"
+      class="easeIn w-full rounded-lg bg-white"
       @submit.prevent="onSubmit"
     >
       <ui-div
         div="grid"
         :grid-cols="12"
-        gap="gap-4"
       >
         <ui-div
           v-for="(field, index) in fields"
@@ -85,20 +122,28 @@ watch(
             :type="field.type"
             :options="field.options"
             :error="errors[field.id]"
+            :required="field.required !== false"
             :sublabel="field.subLabel"
             @input="validateField(field.id, formData[field.id])"
           />
         </ui-div>
       </ui-div>
-      <ui-div class="mt-6 flex w-full justify-center">
+
+      <ui-div
+        direction="flex-row"
+        class="mt-4 items-center"
+        gap="gap-3"
+      >
+        <slot name="actions" />
+
         <ui-button
-          variant="tertiary"
+          class="flex w-fit flex-row items-center px-6"
           type="submit"
           :text="isSubmitting ? '' : props.schema.submitButtonText || 'Submit'"
         >
           <ui-icon
             v-if="isSubmitting"
-            class="ml-2 h-6 w-6"
+            class="h-6 w-6"
             icon-name="svg-spinners:ring-resize"
           />
         </ui-button>
